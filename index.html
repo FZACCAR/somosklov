@@ -7,17 +7,18 @@
     (function () {
       try {
         var stored = localStorage.getItem('klov-theme');
-        var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        if (stored === 'light' || (!stored && prefersLight)) {
+        if (stored === 'light' || !stored) {
           document.documentElement.setAttribute('data-theme', 'light');
         }
-      } catch (e) {}
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
     })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="KLŌV Advisory · Estudio de contadoras en Buenos Aires. Contabilidad, impuestos, finanzas, liquidación de sueldos, back office." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://fzaccar.github.io/somosklov/" />
+  <link rel="canonical" href="https://klov.netlify.app/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
@@ -26,7 +27,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="KLŌV · Advisory Contadores" />
   <meta property="og:description" content="Claridad financiera para decisiones que importan. Estudio de advisory contable." />
-  <meta property="og:url" content="https://fzaccar.github.io/somosklov/" />
+  <meta property="og:url" content="https://klov.netlify.app/" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="KLŌV Advisory" />
 
@@ -50,8 +51,7 @@
     },
     "areaServed": "AR",
     "sameAs": [
-      "https://instagram.com/klovadvisory",
-      "https://linkedin.com/klov_advisory"
+      "https://instagram.com/klovadvisory"
     ]
   }
   </script>
@@ -945,10 +945,14 @@
     .team-inner { max-width: 1200px; margin: 0 auto; }
 
     .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 16px;
       margin-top: 2rem;
+    }
+    .team-grid .team-card {
+      flex: 0 1 320px;
     }
     .avatar {
       width: 72px;
@@ -1866,7 +1870,6 @@
             <div class="nav-mini-footer-social">
               <a href="mailto:contacto@somosklov.com" aria-label="Enviar email" title="Escribinos a contacto@somosklov.com"><i class="ti ti-mail"></i></a>
               <a href="https://instagram.com/klovadvisory" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-              <a href="https://linkedin.com/klov_advisory" target="_blank" rel="noopener" aria-label="Linkedin"><i class="ti ti-brand-linkedin"></i></a>
               <a href="https://wa.me/5491112341234" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
             </div>
             <p class="nav-mini-footer-text">- 2026 - 2027 KLŌV™® Advisory -</p>
@@ -1913,7 +1916,7 @@
       <!-- Stats -->
       <div class="stat-row">
         <div class="stat-card">
-          <div class="num">3</div>
+          <div class="num">2</div>
           <div class="lbl">Socias fundadoras</div>
         </div>
         <div class="stat-card">
@@ -2177,7 +2180,7 @@
       <div class="section-label">El equipo</div>
       <div class="team-grid">
         <div class="team-card">
-          <img class="avatar" src="https://www.davitfoto.com/wp-content/uploads/2022/09/Fotos_CV_LinkedIn_Barcelona-Davit_Foto_Corporativa-09.jpg" alt="Foto de María Julieta Orellana" loading="lazy">
+          <img class="avatar" src="https://university.dmbgroup.online/wp-content/uploads/2026/03/EMMA.webp" alt="Foto de María Julieta Orellana" loading="lazy">
           <h4>María Julieta Orellana</h4>
           <p>Contadora Pública · CABA & PBA</p>
           <a href="https://www.linkedin.com/in/mariajulietaorellana/" target="_blank" rel="noopener" class="linkedin-btn">
@@ -2185,15 +2188,7 @@
           </a>
         </div>
         <div class="team-card">
-          <img class="avatar" src="https://www.davitfoto.com/wp-content/uploads/2022/09/Fotos_CV_LinkedIn_Barcelona-Davit_Foto_Corporativa-09.jpg" alt="Foto de Dana González Magi" loading="lazy">
-          <h4>Dana González Magi</h4>
-          <p>Contadora Pública · CABA & PBA</p>
-          <a href="https://www.linkedin.com/in/dana-gonzalez-magi-0a1804143/" target="_blank" rel="noopener" class="linkedin-btn">
-            <i class="ti ti-brand-linkedin"></i> LinkedIn
-          </a>
-        </div>
-        <div class="team-card">
-          <img class="avatar" src="https://www.davitfoto.com/wp-content/uploads/2022/09/Fotos_CV_LinkedIn_Barcelona-Davit_Foto_Corporativa-09.jpg" alt="Foto de Daiana Lucia Fared" loading="lazy">
+          <img class="avatar" src="https://university.dmbgroup.online/wp-content/uploads/2026/03/EMMA.webp" alt="Foto de Daiana Lucia Fared" loading="lazy">
           <h4>Daiana Lucia Fared</h4>
           <p>Contadora Pública · CABA & PBA</p>
           <a href="https://www.linkedin.com/in/daiana-lucia-fared-b27866136/" target="_blank" rel="noopener" class="linkedin-btn">
@@ -2204,176 +2199,11 @@
       <div class="badges">
         <span class="badge">↗ Exp. en corporaciones multinacionales</span>
         <span class="badge">⊕ Gestión en múltiples países</span>
-        <span class="badge">✓ Matrículas habilitantes en C.A.B.A & P.B.A</span>
+        <span class="badge">✓ Matrícula habilitante CABA y PBA</span>
       </div>
     </div>
   </div>
 
-  <!-- TESTIMONIOS -->
-  <div class="divider"></div>
-  <section class="section" id="testimonios">
-    <div class="section-label">Lo que dicen nuestros clientes</div>
-    <div class="testi-carousel">
-      <div class="testi-track">
-        <div class="testi-card">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Pasamos de no entender nuestros números a tener un tablero claro cada mes. La diferencia en la toma de decisiones fue inmediata.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-building-store"></i></div>
-            <div>
-              <div class="testi-name">Fundador</div>
-              <div class="testi-role">Comercio pyme</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Automatizaron procesos que nos llevaban horas todas las semanas. Hoy tenemos reportes al día sin mover un dedo.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-rocket"></i></div>
-            <div>
-              <div class="testi-name">Cofundadora</div>
-              <div class="testi-role">Startup tecnológica</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Se nota la experiencia en corporaciones: prolijas, rápidas y con un estándar de reporting que no habíamos visto en un estudio contable.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-chart-dots"></i></div>
-            <div>
-              <div class="testi-name">CFO</div>
-              <div class="testi-role">Empresa en expansión</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Por primera vez entendemos el flujo de caja del mes antes de que termine, no un mes después. Cambió cómo tomamos decisiones.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-briefcase"></i></div>
-            <div>
-              <div class="testi-name">Socio gerente</div>
-              <div class="testi-role">Consultora</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">El onboarding fue rapidísimo y ordenado. En menos de dos semanas ya teníamos toda la contabilidad al día y un proceso claro.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-building-skyscraper"></i></div>
-            <div>
-              <div class="testi-name">Directora de operaciones</div>
-              <div class="testi-role">Empresa de servicios</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Dejamos de perseguir papeles y planillas sueltas. Todo el back office quedó centralizado y accesible en cualquier momento.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-device-laptop"></i></div>
-            <div>
-              <div class="testi-name">CEO</div>
-              <div class="testi-role">Empresa de tecnología</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">La liquidación de sueldos dejó de ser un dolor de cabeza cada mes. Todo llega a tiempo y sin errores.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-truck"></i></div>
-            <div>
-              <div class="testi-name">Gerente de RRHH</div>
-              <div class="testi-role">Empresa de logística</div>
-            </div>
-          </div>
-        </div>
-        <!-- Duplicado para loop continuo sin cortes -->
-        <div class="testi-card" aria-hidden="true">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Pasamos de no entender nuestros números a tener un tablero claro cada mes. La diferencia en la toma de decisiones fue inmediata.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-building-store"></i></div>
-            <div>
-              <div class="testi-name">Fundador</div>
-              <div class="testi-role">Comercio pyme</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card" aria-hidden="true">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Automatizaron procesos que nos llevaban horas todas las semanas. Hoy tenemos reportes al día sin mover un dedo.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-rocket"></i></div>
-            <div>
-              <div class="testi-name">Cofundadora</div>
-              <div class="testi-role">Startup tecnológica</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card" aria-hidden="true">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Se nota la experiencia en corporaciones: prolijas, rápidas y con un estándar de reporting que no habíamos visto en un estudio contable.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-chart-dots"></i></div>
-            <div>
-              <div class="testi-name">CFO</div>
-              <div class="testi-role">Empresa en expansión</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card" aria-hidden="true">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Por primera vez entendemos el flujo de caja del mes antes de que termine, no un mes después. Cambió cómo tomamos decisiones.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-briefcase"></i></div>
-            <div>
-              <div class="testi-name">Socio gerente</div>
-              <div class="testi-role">Consultora</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card" aria-hidden="true">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">El onboarding fue rapidísimo y ordenado. En menos de dos semanas ya teníamos toda la contabilidad al día y un proceso claro.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-building-skyscraper"></i></div>
-            <div>
-              <div class="testi-name">Directora de operaciones</div>
-              <div class="testi-role">Empresa de servicios</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card" aria-hidden="true">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">Dejamos de perseguir papeles y planillas sueltas. Todo el back office quedó centralizado y accesible en cualquier momento.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-device-laptop"></i></div>
-            <div>
-              <div class="testi-name">CEO</div>
-              <div class="testi-role">Empresa de tecnología</div>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card" aria-hidden="true">
-          <i class="ti ti-quote testi-quote-icon"></i>
-          <p class="testi-text">La liquidación de sueldos dejó de ser un dolor de cabeza cada mes. Todo llega a tiempo y sin errores.</p>
-          <div class="testi-author">
-            <div class="testi-avatar"><i class="ti ti-truck"></i></div>
-            <div>
-              <div class="testi-name">Gerente de RRHH</div>
-              <div class="testi-role">Empresa de logística</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="testi-note">* Testimonios ilustrativos a modo de ejemplo — reemplazar por casos reales de clientes.</p>
-  </section>
 
   <!-- FAQ -->
   <div class="divider"></div>
@@ -2451,10 +2281,6 @@
           <i class="ti ti-brand-instagram"></i>
           <a href="https://instagram.com/klovadvisory" target="_blank" rel="noopener">@klovadvisory</a>
         </div>
-		<div class="contact-row">
-          <i class="ti ti-brand-linkedin"></i>
-          <a href="https://linkedin.com/klovadvisory" target="_blank" rel="noopener">@klov_advisory</a>
-        </div>
         <div class="contact-row">
           <i class="ti ti-brand-whatsapp"></i>
           <!-- Número de WhatsApp de ejemplo: reemplazar por el número real (formato: código país + área + número, sin 0 ni 15) -->
@@ -2474,7 +2300,6 @@
     <div class="footer-social" aria-label="Redes y contacto">
       <a href="mailto:contacto@somosklov.com" aria-label="Enviar email" title="Escribinos a contacto@somosklov.com"><i class="ti ti-mail"></i></a>
       <a href="https://instagram.com/klovadvisory" target="_blank" rel="noopener" aria-label="Instagram" title="Seguinos en Instagram @klovadvisory"><i class="ti ti-brand-instagram"></i></a>
-	  <a href="https://linkedin.com/klov_advisory" target="_blank" rel="noopener" aria-label="Linkedin" title="Seguinos en LinkedIn @klov_advisory"><i class="ti ti-brand-linkedin"></i></a>
       <a href="https://wa.me/5491112341234" target="_blank" rel="noopener" aria-label="WhatsApp" title="Comunicate con nosotros por WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
       <a href="https://www.google.com/maps/search/?api=1&query=Buenos+Aires%2C+Argentina" target="_blank" rel="noopener" aria-label="Ubicación" title="Estamos en Buenos Aires, Argentina"><i class="ti ti-map-pin"></i></a>
     </div>
