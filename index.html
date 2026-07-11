@@ -1,0 +1,2866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    /* ── Aplica el tema guardado antes del primer render (evita parpadeo) ── */
+    (function () {
+      try {
+        var stored = localStorage.getItem('klov-theme');
+        var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (stored === 'light' || (!stored && prefersLight)) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KLŌV Advisory · Estudio de contadoras en Buenos Aires. Contabilidad, impuestos, finanzas, liquidación de sueldos, back office." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://klov.netlify.app/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KLŌV · Advisory Contadores" />
+  <meta property="og:description" content="Claridad financiera para decisiones que importan. Estudio de advisory contable." />
+  <meta property="og:url" content="https://klov.netlify.app/" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="KLŌV Advisory" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="KLŌV · Advisory Contadores" />
+  <meta name="twitter:description" content="Claridad financiera para decisiones que importan. Contabilidad, impuestos, finanzas." />
+
+  <!-- Datos estructurados (schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "KLŌV Advisory",
+    "description": "Estudio de advisory contable, tributario, financiero, laboral.",
+    "email": "contacto@somosklov.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "areaServed": "AR",
+    "sameAs": [
+      "https://instagram.com/klovadvisory",
+      "https://linkedin.com/klov_advisory"
+    ]
+  }
+  </script>
+
+  <title>KLŌV · Advisory Contable en Buenos Aires, Argentina</title>
+  <link rel="icon" type="image/jpeg" href="https://cdn-icons-png.flaticon.com/512/9083/9083001.png" />
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/9083/9083001.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #12121A;
+      --bg2:       #0E0E16;
+      --card:      #1A1A26;
+      --border:    #2E2E42;
+      --purple:    #7F77DD;
+      --purple-lt: #A89EE8;
+      --purple-dk: #534AB7;
+      --text:      #EEEEF2;
+      --muted:     #555568;
+      --faint:     #444458;
+      --text-soft: #C8C8DC;
+      --muted2:    #9090B0;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    /* ── TEMA CLARO ── */
+    html[data-theme="light"] {
+      --bg:        #F7F6FC;
+      --bg2:       #FFFFFF;
+      --card:      #FFFFFF;
+      --border:    #E1DDF0;
+      --purple:    #6E62D6;
+      --purple-lt: #5B4FC4;
+      --purple-dk: #453C99;
+      --text:      #201D2E;
+      --muted:     #6B6884;
+      --faint:     #A8A4C2;
+      --text-soft: #4B4768;
+      --muted2:    #6E6B8C;
+    }
+    html[data-theme="light"] body::before,
+    html[data-theme="light"] body::after { opacity: 0.10; }
+    html[data-theme="light"] nav {
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 8px 32px rgba(80,70,150,0.10);
+    }
+    html[data-theme="light"] .nav-backdrop {
+      background: rgba(120,110,180,0.25);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+      scrollbar-color: var(--purple-dk) var(--bg2);
+      scrollbar-width: thin;
+    }
+
+    /* ── SCROLLBAR PERSONALIZADA ── */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--purple), var(--purple-dk));
+      border-radius: 10px;
+      border: 2px solid var(--bg2);
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--purple-lt); }
+
+    /* ── SELECCIÓN DE TEXTO ── */
+    ::selection { background: var(--purple-dk); color: #ffffff; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.7;
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "kern" 1, "liga" 1;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* ── RENDERIZADO Y SOMBRAS LEVES DE TEXTO (sin alterar tipografías) ── */
+    p, li, span, a { text-rendering: optimizeLegibility; }
+    h1, h2, h3, h4 { text-rendering: optimizeLegibility; }
+    p { text-shadow: 0 1px 3px rgba(0,0,0,0.16); }
+    li, .srv-item-text, .stat-card .lbl, .badge, .footer-logo, footer p {
+      text-shadow: 0 1px 2px rgba(0,0,0,0.14);
+    }
+
+    /* ── RESPLANDORES DE FONDO AMBIENTALES ── */
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      width: 640px;
+      height: 640px;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.16;
+    }
+    body::before {
+      top: -220px;
+      left: -160px;
+      background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
+    }
+    body::after {
+      bottom: -260px;
+      right: -180px;
+      background: radial-gradient(circle, var(--purple-dk) 0%, transparent 70%);
+    }
+    nav, .hero, .divider, .section, .team-section, .contact-section, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── CURSOR EN ELEMENTOS INTERACTIVOS ── */
+    a, button, .srv-tab, .btn-cta, .linkedin-btn, .nav-logo, .team-card, .audience-card {
+      cursor: pointer;
+    }
+
+    /* ── BARRA DE PROGRESO DE SCROLL ── */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--purple-dk), var(--purple-lt));
+      box-shadow: 0 0 12px rgba(168,158,232,0.7);
+      z-index: 999;
+      transition: width 0.1s ease-out;
+    }
+
+    /* ── HALO DE CURSOR PERSONALIZADO ── */
+    #cursor-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(127,119,221,0.14) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 5;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.65s ease;
+      will-change: transform;
+    }
+    #cursor-glow.active { opacity: 1; }
+    @media (hover: none), (pointer: coarse) {
+      #cursor-glow { display: none; }
+    }
+
+    /* ── BOTÓN FLOTANTE DE WHATSAPP ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 75px;
+      right: 45px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3C3489, var(--purple-dk));
+      border: 0.5px solid var(--purple-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 26px;
+      text-decoration: none !important;
+      z-index: 998;
+      box-shadow: 0 10px 30px rgba(83,58,183,0.5), 0 0 0 0 rgba(168,158,232,0.6);
+      animation: whatsappPulse 3.4s ease-out infinite;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 14px 38px rgba(83,58,183,0.65);
+    }
+    .whatsapp-float:active { transform: scale(0.96); }
+    @keyframes whatsappPulse {
+      0%   { box-shadow: 0 10px 30px rgba(83,58,183,0.5), 0 0 0 0 rgba(168,158,232,0.45); }
+      70%  { box-shadow: 0 10px 30px rgba(83,58,183,0.5), 0 0 0 14px rgba(168,158,232,0); }
+      100% { box-shadow: 0 10px 30px rgba(83,58,183,0.5), 0 0 0 0 rgba(168,158,232,0); }
+    }
+    @media (max-width: 768px) {
+      .whatsapp-float { width: 50px; height: 50px; font-size: 23px; bottom: 16px; right: 16px; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(18,18,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      transition: box-shadow 0.55s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 2.6vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -1px;
+      text-decoration: none !important;
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.7s ease, filter 0.7s ease;
+      text-shadow: 0 0 18px rgba(168,158,232,0.28), 0 2px 10px rgba(0,0,0,0.35);
+      filter: drop-shadow(0 4px 14px rgba(83,58,183,0.25));
+    }
+    .nav-logo span {
+      color: var(--purple-lt);
+      text-shadow: 0 0 22px rgba(168,158,232,0.65), 0 0 46px rgba(127,119,221,0.35);
+      transition: text-shadow 0.7s ease;
+    }
+    .nav-logo:hover {
+      transform: scale(1.06);
+      text-shadow: 0 0 28px rgba(168,158,232,0.5), 0 2px 14px rgba(0,0,0,0.4);
+      filter: drop-shadow(0 8px 22px rgba(83,58,183,0.4));
+    }
+    .nav-logo:hover span {
+      text-shadow: 0 0 34px rgba(168,158,232,0.9), 0 0 60px rgba(127,119,221,0.5);
+    }
+    .nav-logo:active { transform: scale(0.97); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.55s ease, text-shadow 0.55s ease, letter-spacing 0.55s ease;
+      padding-bottom: 2px;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: var(--purple-lt);
+      text-shadow: 0 0 16px rgba(168,158,232,0.55);
+      letter-spacing: 2.5px;
+    }
+
+    /* ── MINI LOGO / MINI FOOTER dentro del menú mobile (ocultos en desktop) ── */
+    .nav-mini-logo-item,
+    .nav-mini-footer-item {
+      display: none;
+    }
+
+    /* ── SWITCH DE TEMA (claro / oscuro) ── */
+    .theme-switch {
+      background: transparent;
+      border: none;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .theme-switch-track {
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 27px;
+      border-radius: 999px;
+      background: var(--card);
+      border: 0.5px solid var(--border);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.3), 0 4px 14px rgba(0,0,0,0.22);
+      transition: background 0.55s ease, border-color 0.55s ease, box-shadow 0.55s ease;
+    }
+    .theme-switch:hover .theme-switch-track {
+      border-color: var(--purple);
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.3), 0 0 14px rgba(127,119,221,0.35);
+    }
+    .theme-switch-thumb {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-lt), var(--purple-dk));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 11px;
+      box-shadow: 0 3px 10px rgba(83,58,183,0.55);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), background 0.55s ease, box-shadow 0.55s ease;
+    }
+    html[data-theme="light"] .theme-switch-thumb {
+      transform: translateX(23px);
+      background: linear-gradient(135deg, #FFD97A, #FFB443);
+      box-shadow: 0 3px 10px rgba(255,180,60,0.55);
+      color: #6B4A00;
+    }
+    html[data-theme="light"] .theme-switch-track {
+      box-shadow: inset 0 2px 6px rgba(80,70,150,0.12), 0 4px 14px rgba(80,70,150,0.14);
+    }
+
+    /* ── MENÚ HAMBURGUESA (mobile) ── */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      transition: border-color 0.55s ease, color 0.55s ease, box-shadow 0.55s ease;
+    }
+    .nav-toggle:hover {
+      border-color: var(--purple);
+      color: var(--purple-lt);
+      box-shadow: 0 0 14px rgba(127,119,221,0.3);
+    }
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,16,0.6);
+      backdrop-filter: blur(2px);
+      z-index: 98;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+    .nav-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 5rem 3rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-left h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+      text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+    .hero-left h1 em {
+      color: var(--purple-lt);
+      font-style: italic;
+      text-shadow: 0 0 30px rgba(168,158,232,0.45);
+    }
+
+    .hero-left p {
+      font-size: 15px;
+      color: var(--text-soft);
+      max-width: 400px;
+      margin-bottom: 1.75rem;
+      line-height: 1.9;
+      text-shadow: 0 1px 12px rgba(168,158,232,0.08);
+    }
+
+    .hero-tags { display: none; }
+      color: var(--purple);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      letter-spacing: 1.5px;
+    }
+
+    a.btn-cta, .btn-cta {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text) !important;
+      background: transparent !important;
+      border: 1px solid #7B6FD4;
+      border-radius: 999px;
+      padding: 16px 44px;
+      letter-spacing: 4px;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(83,58,183,0.18);
+      transition: border-color 0.55s ease, box-shadow 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.55s ease;
+    }
+    a.btn-cta:link,
+    a.btn-cta:visited { color: var(--text) !important; }
+    a.btn-cta:hover, .btn-cta:hover {
+      color: var(--text) !important;
+      border-color: #A89EE8;
+      box-shadow: 0 12px 34px rgba(123,111,212,0.45), 0 0 22px rgba(168,158,232,0.35);
+      transform: translateY(-3px);
+    }
+    a.btn-cta:active, .btn-cta:active { transform: translateY(-1px) scale(0.98); }
+
+    /* ── TEAM CARD HOVER MEJORADO ── */
+    .team-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.75rem 1.25rem;
+      border: 0.5px solid var(--border);
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+      transition: border-color 0.65s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(127,119,221,0.12) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.65s ease;
+      pointer-events: none;
+    }
+    .team-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--purple-lt), transparent);
+      transform: scaleX(0);
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .team-card:hover {
+      border-color: var(--purple);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(83,58,183,0.2);
+    }
+    .team-card:hover::before { opacity: 1; }
+    .team-card:hover::after { transform: scaleX(1); }
+    .team-card:hover .avatar {
+      box-shadow: 0 0 20px rgba(168,158,232,0.4);
+      border-color: var(--purple-lt);
+      background: #3C3489;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Geo grid graphic */
+    .geo-graphic {
+      position: relative;
+      height: 160px;
+      border-radius: 12px;
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      overflow: hidden;
+      box-shadow: inset 0 0 40px rgba(127,119,221,0.06), 0 14px 34px rgba(0,0,0,0.3);
+      transition: box-shadow 0.65s ease, border-color 0.65s ease;
+    }
+    .geo-graphic:hover {
+      border-color: var(--purple-dk);
+      box-shadow: inset 0 0 60px rgba(127,119,221,0.12), 0 18px 44px rgba(83,58,183,0.22);
+    }
+    .geo-line-h {
+      position: absolute;
+      width: 100%;
+      height: 0.5px;
+      background: var(--border);
+    }
+    .geo-line-v {
+      position: absolute;
+      width: 0.5px;
+      height: 100%;
+      background: var(--border);
+    }
+    .geo-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple-lt);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 12px rgba(168,158,232,0.8), 0 0 24px rgba(127,119,221,0.4);
+      animation: geoPulse 3.6s ease-in-out infinite;
+    }
+    .geo-dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 0.5px solid var(--purple-lt);
+      opacity: 0.3;
+    }
+    @keyframes geoPulse {
+      0%, 100% { box-shadow: 0 0 12px rgba(168,158,232,0.8), 0 0 24px rgba(127,119,221,0.4); }
+      50% { box-shadow: 0 0 18px rgba(168,158,232,1), 0 0 36px rgba(127,119,221,0.6); }
+    }
+    .geo-dot-sm {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--purple-dk);
+      transform: translate(-50%, -50%);
+    }
+    .geo-label {
+      position: absolute;
+      font-size: 9px;
+      color: var(--faint);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease, border-color 0.65s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple);
+      box-shadow: 0 18px 40px rgba(83,58,183,0.25);
+    }
+    .stat-card .num {
+      font-family: var(--font-sans);
+      font-size: 2.2rem;
+      color: var(--purple-lt);
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 0 20px rgba(168,158,232,0.4);
+    }
+    .stat-card .lbl {
+      font-size: 11px;
+      color: var(--muted2);
+      letter-spacing: 2px;
+      margin-top: 6px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .stat-card .exp {
+      font-size: 14px;
+      color: var(--purple-lt);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 0.5px;
+      background: var(--border);
+      margin: 0 3rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 4rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 10px;
+      color: var(--purple);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 16px rgba(127,119,221,0.35);
+      position: relative;
+      display: inline-block;
+      padding-left: 18px;
+    }
+    .section-label::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 1px;
+      background: var(--purple-lt);
+      box-shadow: 0 0 8px rgba(168,158,232,0.8);
+    }
+
+    /* ── MVV ── */
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .mvv-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 0.5px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease, border-color 0.65s ease;
+    }
+    .mvv-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--purple);
+      box-shadow: 0 20px 44px rgba(83,58,183,0.22);
+    }
+    .mvv-bar {
+      width: 3px;
+      height: 36px;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 14px rgba(127,119,221,0.6);
+    }
+    .mvv-card h3 {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .mvv-card p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+    /* ── SERVICIOS PANEL ── */
+    .srv-section-wrap {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 420px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(127,119,221,0.04);
+    }
+
+    /* LEFT: tab list */
+    .srv-tabs {
+      border-right: 0.5px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+    .srv-tab {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      border-bottom: 0.5px solid var(--border);
+      border-left: 3px solid transparent;
+      transition: background 0.55s ease, border-left-color 0.55s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .srv-tab:last-child { border-bottom: none; }
+    .srv-tab::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(127,119,221,0.10) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .srv-tab:hover::before { opacity: 1; }
+    .srv-tab.active {
+      background: rgba(127,119,221,0.07);
+      border-left-color: var(--purple-lt);
+    }
+    .srv-tab.active::before { opacity: 1; }
+    .srv-tab-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--card);
+      border: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: background 0.55s ease, color 0.55s ease, border-color 0.55s ease, box-shadow 0.55s ease;
+    }
+    .srv-tab.active .srv-tab-icon,
+    .srv-tab:hover .srv-tab-icon {
+      background: #26215C;
+      border-color: var(--purple-dk);
+      color: var(--purple-lt);
+      box-shadow: 0 0 12px rgba(127,119,221,0.3);
+    }
+    .srv-tab-label { flex: 1; }
+    .srv-tab-label span {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.55s ease;
+    }
+    .srv-tab.active .srv-tab-label span { color: var(--text); }
+    .srv-tab-label em {
+      font-style: normal;
+      font-size: 11px;
+      color: var(--faint);
+    }
+    .srv-tab-arrow {
+      font-size: 14px;
+      color: var(--faint);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .srv-tab.active .srv-tab-arrow {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--purple-lt);
+    }
+
+    /* RIGHT: panel with crossfade */
+    .srv-panels { flex: 1; position: relative; min-height: 380px; }
+    .srv-panel {
+      position: absolute;
+      inset: 0;
+      padding: 2.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+    .srv-panel.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      position: relative;
+    }
+    .srv-panel-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .srv-panel-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: #26215C;
+      border: 0.5px solid var(--purple-dk);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--purple-lt);
+      flex-shrink: 0;
+      transition: box-shadow 0.55s ease;
+    }
+    .srv-panel.active .srv-panel-icon {
+      box-shadow: 0 0 24px rgba(127,119,221,0.25);
+    }
+    .srv-panel-title h3 {
+      font-family: var(--font-sans);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .srv-panel-title p {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+    .srv-items { display: flex; flex-direction: column; gap: 0; }
+    .srv-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0.9rem 0;
+      border-bottom: 0.5px solid var(--border);
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: opacity 0.65s ease, transform 0.65s ease, background 0.2s;
+    }
+    .srv-item:last-child { border-bottom: none; }
+    .srv-item:hover { background: rgba(127,119,221,0.04); border-radius: 6px; padding-left: 8px; }
+    .srv-panel.active .srv-item { opacity: 1; transform: translateX(0); }
+    .srv-panel.active .srv-item:nth-child(1) { transition-delay: 0.08s; }
+    .srv-panel.active .srv-item:nth-child(2) { transition-delay: 0.16s; }
+    .srv-panel.active .srv-item:nth-child(3) { transition-delay: 0.24s; }
+    .srv-panel.active .srv-item:nth-child(4) { transition-delay: 0.32s; }
+    .srv-panel.active .srv-item:nth-child(5) { transition-delay: 0.40s; }
+    .srv-item-num {
+      font-size: 13px;
+      color: var(--purple-lt);
+      font-weight: 700;
+      letter-spacing: 1px;
+      width: 28px;
+      flex-shrink: 0;
+      font-family: var(--font-sans);
+      text-shadow: 0 0 10px rgba(168,158,232,0.3);
+    }
+    .srv-item-text { font-size: 13px; color: var(--text); flex: 1; line-height: 1.5; }
+    .srv-item-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--purple); flex-shrink: 0; }
+
+    /* ── PARA QUIÉN ── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .audience-card {
+      background: #2A2250;
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      border: 0.5px solid #534AB7;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    }
+    .audience-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple-dk), var(--purple-lt));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .audience-card:hover {
+      border-color: var(--purple-lt);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(83,58,183,0.25);
+    }
+    .audience-card:hover::before { transform: scaleX(1); }
+    .audience-num {
+      font-family: var(--font-sans);
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(168,158,232,0.25);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(168,158,232,0.2);
+    }
+    .audience-icon { font-size: 26px; color: var(--purple-lt); margin-bottom: 0.75rem; }
+    .audience-card h4 { font-size: 15px; font-weight: 600; color: #EEEEF2; margin-bottom: 0.5rem; letter-spacing: 0.5px; }
+    .audience-card p { font-size: 12px; color: #C0B8E8; line-height: 1.7; }
+
+    /* ── EQUIPO ── */
+    .team-section {
+      background: var(--bg2);
+      padding: 4rem 3rem;
+    }
+    .team-inner { max-width: 1200px; margin: 0 auto; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 2rem;
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #26215C;
+      object-fit: cover;
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--purple-lt);
+      margin: 0 auto 1rem;
+      border: 0.5px solid var(--purple-dk);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+      transition: box-shadow 0.65s ease, border-color 0.65s ease, background 0.65s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .team-card h4 { font-size: 14px; color: var(--text); margin-bottom: 4px; }
+    .team-card p { font-size: 11px; color: var(--purple-lt); margin-bottom: 12px; font-weight: 500; letter-spacing: 0.3px; }
+    .linkedin-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--purple-lt);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      transition: background 0.55s ease, border-color 0.55s ease, color 0.55s ease, box-shadow 0.55s ease, transform 0.55s ease;
+    }
+    .linkedin-btn:hover {
+      background: #26215C;
+      border-color: var(--purple);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(83,58,183,0.4);
+      transform: translateY(-2px);
+    }
+    .linkedin-btn i { font-size: 14px; }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+    .badge {
+      font-size: 11px;
+      color: var(--purple);
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 16px;
+      background: var(--card);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      transition: border-color 0.55s ease, box-shadow 0.55s ease, transform 0.55s ease, color 0.55s ease;
+    }
+    .badge:hover {
+      border-color: var(--purple-lt);
+      color: var(--purple-lt);
+      box-shadow: 0 8px 22px rgba(83,58,183,0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ── CONTACTO ── */
+    .contact-section {
+      padding: 4rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .contact-box {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 0.5px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.32);
+    }
+    .contact-box h3 {
+      font-family: var(--font-sans);
+      font-size: 1.8rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .contact-box > div > p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 16px; }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .contact-row i {
+      font-size: 18px;
+      color: var(--purple);
+      width: 24px;
+      transition: color 0.55s ease, text-shadow 0.55s ease, transform 0.55s ease;
+    }
+    .contact-row:hover i {
+      color: var(--purple-lt);
+      text-shadow: 0 0 12px rgba(168,158,232,0.6);
+      transform: scale(1.1);
+    }
+    .contact-row a {
+      color: var(--purple-lt);
+      text-decoration: none;
+      transition: color 0.55s ease, text-shadow 0.55s ease;
+    }
+    .contact-row a:hover {
+      color: var(--text);
+      text-shadow: 0 0 14px rgba(168,158,232,0.7);
+    }
+
+    .reservas-frame {
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      transition: box-shadow 0.65s ease;
+    }
+    .reservas-frame:hover { box-shadow: 0 28px 70px rgba(83,58,183,0.22); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    footer p { font-size: 10px; color: #333348; letter-spacing: 1px; text-transform: uppercase; }
+    footer p a {
+      color: #4A4A66;
+      text-decoration: none;
+      transition: color 0.55s ease, text-shadow 0.55s ease;
+    }
+    footer p a:hover {
+      color: var(--purple-lt);
+      text-shadow: 0 0 12px rgba(168,158,232,0.5);
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 0.5px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.55s ease, border-color 0.55s ease, box-shadow 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), background 0.55s ease;
+    }
+    .footer-social a:hover {
+      color: var(--purple-lt);
+      border-color: var(--purple);
+      background: #26215C;
+      box-shadow: 0 0 16px rgba(127,119,221,0.4);
+      transform: translateY(-3px);
+    }
+
+    a.footer-logo, .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--purple);
+      font-weight: 700;
+      text-decoration: none !important;
+      display: inline-block;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.7s ease, filter 0.7s ease;
+      text-shadow: 0 0 14px rgba(127,119,221,0.2);
+    }
+    .footer-logo span { color: var(--purple-lt); }
+    a.footer-logo:hover {
+      transform: scale(1.08);
+      text-shadow: 0 0 22px rgba(168,158,232,0.6);
+      filter: drop-shadow(0 4px 14px rgba(83,58,183,0.35));
+    }
+    a.footer-logo:hover span {
+      text-shadow: 0 0 26px rgba(168,158,232,0.85);
+    }
+    a.footer-logo:active { transform: scale(0.97); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero { padding: 4rem 2rem 3rem; gap: 2.5rem; }
+      .section, .contact-section { padding: 3.5rem 2rem; }
+      .team-section { padding: 3.5rem 2rem; }
+      nav { padding: 1rem 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 1rem 1.5rem;
+      }
+      body { padding-top: var(--nav-h, 72px); }
+      .nav-right { gap: 0.9rem; }
+      .nav-toggle { display: flex; }
+      .theme-switch-track { width: 42px; height: 23px; }
+      .theme-switch-thumb { width: 17px; height: 17px; font-size: 9px; }
+      html[data-theme="light"] .theme-switch-thumb { transform: translateX(19px); }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: min(80vw, 320px);
+        background:
+          radial-gradient(circle at 100% 0%, rgba(127,119,221,0.16) 0%, transparent 55%),
+          linear-gradient(180deg, rgba(18,18,28,0.99) 0%, rgba(12,12,20,0.99) 100%);
+        backdrop-filter: blur(20px) saturate(140%);
+        border-left: 0.5px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0.35rem;
+        padding: 1.75rem 2rem 1.5rem;
+        overflow-y: auto;
+        z-index: 99;
+        transition: right 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: -24px 0 60px rgba(0,0,0,0.45), inset 1px 0 0 rgba(255,255,255,0.03);
+      }
+      .nav-links.open { right: 0; }
+      .nav-links li {
+        list-style: none;
+        opacity: 0;
+        transform: translateX(14px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .nav-links.open li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .nav-links.open li:nth-child(1)  { transition-delay: 0.06s; }
+      .nav-links.open li:nth-child(2)  { transition-delay: 0.11s; }
+      .nav-links.open li:nth-child(3)  { transition-delay: 0.16s; }
+      .nav-links.open li:nth-child(4)  { transition-delay: 0.21s; }
+      .nav-links.open li:nth-child(5)  { transition-delay: 0.26s; }
+      .nav-links.open li:nth-child(6)  { transition-delay: 0.31s; }
+      .nav-links.open li:nth-child(7)  { transition-delay: 0.36s; }
+      .nav-links.open li:nth-child(8)  { transition-delay: 0.41s; }
+      .nav-links.open li:nth-child(9)  { transition-delay: 0.46s; }
+      .nav-links > li:not(.nav-mini-logo-item):not(.nav-mini-footer-item) > a {
+        font-size: 13px;
+        letter-spacing: 2px;
+        display: block;
+        padding: 0.85rem 0.25rem;
+        border-bottom: 0.5px solid rgba(255,255,255,0.06);
+      }
+      .nav-links > li:has(+ .nav-mini-footer-item) > a {
+        border-bottom: none;
+      }
+      html[data-theme="light"] .nav-links {
+        background:
+          radial-gradient(circle at 100% 0%, rgba(110,98,214,0.10) 0%, transparent 55%),
+          linear-gradient(180deg, rgba(255,255,255,0.99) 0%, rgba(247,246,252,0.99) 100%);
+        box-shadow: -24px 0 60px rgba(80,70,150,0.2), inset 1px 0 0 rgba(80,70,150,0.05);
+      }
+      html[data-theme="light"] .nav-links > li > a { border-bottom-color: rgba(80,70,150,0.08); }
+
+      /* ── Mini logo arriba del menú ── */
+      .nav-mini-logo-item {
+        display: block;
+        margin-bottom: 1.1rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 0.5px solid var(--border);
+      }
+      .nav-mini-logo {
+        font-family: var(--font-serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -1px;
+        text-decoration: none !important;
+        display: inline-block;
+        text-shadow: 0 0 18px rgba(168,158,232,0.28);
+        filter: drop-shadow(0 4px 14px rgba(83,58,183,0.25));
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .nav-mini-logo span {
+        color: var(--purple-lt);
+        text-shadow: 0 0 22px rgba(168,158,232,0.65), 0 0 46px rgba(127,119,221,0.35);
+      }
+      .nav-mini-logo:hover {
+        color: var(--text);
+        letter-spacing: -1px;
+        text-shadow: 0 0 24px rgba(168,158,232,0.4);
+        transform: scale(1.04);
+      }
+      .nav-mini-logo:active { transform: scale(0.95); }
+
+      /* ── Mini footer debajo del menú ── */
+      .nav-mini-footer-item {
+        display: block;
+        margin-top: 1.25rem;
+        padding-top: 1.25rem;
+        border-top: 0.5px solid var(--border);
+      }
+      .nav-mini-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+      }
+      .nav-mini-footer-social {
+        display: flex;
+        gap: 14px;
+      }
+      .nav-mini-footer-social a {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 0.5px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted2);
+        font-size: 14px;
+        transition: color 0.4s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .nav-mini-footer-social a:hover {
+        color: var(--purple-lt);
+        border-color: var(--purple);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(127,119,221,0.25);
+      }
+      .nav-mini-footer-text {
+        font-size: 10px;
+        letter-spacing: 0.3px;
+        color: var(--faint);
+      }
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      .mvv-grid, .services-grid, .team-grid, .audience-grid { grid-template-columns: 1fr; }
+      .contact-box { grid-template-columns: 1fr; padding: 1.75rem; }
+      .section, .contact-section { padding: 3rem 1.5rem; }
+      .divider { margin: 0 1.5rem; }
+      .team-section { padding: 3rem 1.5rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      .footer-social { order: 2; }
+      a.footer-logo, .footer-logo { order: 1; }
+      footer p { order: 3; }
+
+      .hero-left p { max-width: 100%; }
+      a.btn-cta, .btn-cta { width: 100%; text-align: center; padding: 15px 28px; letter-spacing: 3px; }
+
+      /* Panel de servicios apilado en mobile, con tabs deslizables */
+      .srv-section-wrap { grid-template-columns: 1fr; min-height: auto; }
+      .srv-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 0.5px solid var(--border);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+      .srv-tab {
+        border-bottom: none;
+        border-right: 0.5px solid var(--border);
+        border-left: none;
+        flex-shrink: 0;
+        min-width: 168px;
+      }
+      .srv-tab.active { border-left-color: transparent; border-bottom: 2px solid var(--purple-lt); }
+      .srv-panels { min-height: 320px; }
+      .srv-panel { padding: 1.75rem 1.25rem; }
+      .srv-panel-title h3 { font-size: 1.3rem; }
+
+      /* Reservas / Calendly apilado en mobile */
+      .reservas-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+      .reservas-frame { min-height: 560px !important; }
+      .reservas-frame iframe { height: 560px !important; }
+
+      .whatsapp-float { bottom: 18px; right: 18px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo { font-size: 1.7rem; }
+      .nav-links { width: 82vw; padding: 2rem; }
+      .stat-row { grid-template-columns: 1fr; }
+      .hero-left h1 { font-size: 1.7rem; }
+      .section-label { font-size: 9px; margin-bottom: 1.5rem; }
+      .contact-box { padding: 1.5rem; }
+      .badges { gap: 6px; }
+      .badge { font-size: 10px; padding: 5px 12px; }
+      .reservas-frame { min-height: 480px !important; }
+      .reservas-frame iframe { height: 480px !important; }
+      .srv-tab { min-width: 148px; padding: 1rem 1.1rem; }
+    }
+
+    @media (hover: none) {
+      .team-card:hover, .audience-card:hover, .mvv-card:hover, .stat-card:hover,
+      .geo-graphic:hover, .badge:hover {
+        transform: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+      #cursor-glow { display: none !important; }
+      #particles-canvas { display: none !important; }
+    }
+
+    /* ── PARTÍCULAS DE FONDO ── */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       MEJORAS ADICIONALES — sin alterar textos ni paleta ni tipografías
+       ══════════════════════════════════════════════════════════════ */
+
+    /* ── ENTRADA SUAVE DE PÁGINA ── */
+    body {
+      animation: pageFadeIn 0.85s ease both;
+    }
+    @keyframes pageFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── FOCO ACCESIBLE (teclado) ── */
+    a:focus-visible,
+    button:focus-visible,
+    .srv-tab:focus-visible,
+    .team-card:focus-visible,
+    .audience-card:focus-visible {
+      outline: 2px solid var(--purple-lt);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+    .nav-logo:focus-visible,
+    a.footer-logo:focus-visible {
+      outline-offset: 6px;
+    }
+
+    /* ── CURSIVAS MEJORADAS (identidad editorial) ──
+       Se aplica sólo a los énfasis narrativos (hero y sección reservas),
+       nunca a los rótulos técnicos de los tabs de servicios. */
+    em.italic-accent {
+      position: relative;
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      background: linear-gradient(100deg, var(--purple-lt) 20%, #ffffff 50%, var(--purple-lt) 80%);
+      background-size: 220% auto;
+      background-position: 0% center;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 22px rgba(168,158,232,0.4));
+      animation: italicShimmer 7s ease-in-out infinite;
+    }
+    @keyframes italicShimmer {
+      0%, 100% { background-position: 0% center; }
+      50%      { background-position: 100% center; }
+    }
+    /* Subrayado ondulado eliminado a pedido: em.italic-accent ya no lleva línea inferior */
+    html[data-theme="light"] em.italic-accent {
+      background: linear-gradient(100deg, var(--purple-lt) 20%, var(--purple-dk) 50%, var(--purple-lt) 80%);
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── ENLACES DE NAV: SUBRAYADO ANIMADO + ESTADO ACTIVO (scrollspy) ── */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--purple-lt), var(--purple-dk));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+    .nav-links a.active {
+      color: var(--purple-lt);
+      text-shadow: 0 0 16px rgba(168,158,232,0.55);
+    }
+
+    /* ── BOTÓN CTA: EFECTO MAGNÉTICO (soporte JS) ── */
+    a.btn-cta, .btn-cta {
+      will-change: transform;
+    }
+
+    /* ── SPOTLIGHT QUE SIGUE AL CURSOR (stat-card / mvv-card / geo-graphic) ── */
+    .stat-card,
+    .mvv-card,
+    .geo-graphic {
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before,
+    .mvv-card::before,
+    .geo-graphic::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(168,158,232,0.16), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+    .stat-card:hover::before,
+    .mvv-card:hover::before,
+    .geo-graphic:hover::before {
+      opacity: 1;
+    }
+
+    /* ── BOTÓN FLOTANTE "VOLVER ARRIBA" ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 75px;
+      left: 45px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 0.5px solid var(--border);
+      color: var(--purple-lt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      z-index: 998;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(14px);
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.5s ease, box-shadow 0.5s ease, color 0.5s ease, background 0.5s ease;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      border-color: var(--purple);
+      color: #ffffff;
+      background: #26215C;
+      box-shadow: 0 14px 34px rgba(83,58,183,0.42);
+      transform: translateY(-3px);
+    }
+    .back-to-top:active { transform: translateY(-1px) scale(0.95); }
+    @media (max-width: 768px) {
+      .back-to-top { width: 42px; height: 42px; font-size: 16px; bottom: 16px; left: 16px; }
+    }
+
+    /* ── TEXTURA SUTIL DE GRANO (profundidad editorial) ── */
+    body::after {
+      /* se mantiene el resplandor original; se añade grano vía nuevo pseudo en html */
+    }
+    html {
+      position: relative;
+    }
+    html::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.025;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html::before { display: none; }
+    }
+
+    /* ── IMPRESIÓN ── */
+    @media print {
+      .whatsapp-float, .back-to-top, #cursor-glow, #particles-canvas,
+      #scroll-progress, .nav-toggle, .theme-switch, .nav-backdrop, html::before {
+        display: none !important;
+      }
+      body { background: #ffffff; color: #000000; animation: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body { animation: none; }
+      em.italic-accent { animation: none; }
+    }
+
+    /* ── SKIP LINK (accesibilidad de teclado) ── */
+    .skip-link {
+      position: fixed;
+      top: -60px;
+      left: 16px;
+      z-index: 1000;
+      background: var(--purple-dk);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+      transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .skip-link:focus { top: 16px; }
+
+    /* ── PROCESO / CÓMO TRABAJAMOS ── */
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .proceso-step {
+      position: relative;
+      background: var(--card);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease, border-color 0.65s ease;
+    }
+    .proceso-step:hover {
+      transform: translateY(-5px);
+      border-color: var(--purple);
+      box-shadow: 0 18px 40px rgba(83,58,183,0.22);
+    }
+    .proceso-num {
+      font-family: var(--font-sans);
+      font-size: 2rem;
+      font-weight: 700;
+      color: rgba(168,158,232,0.22);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    html[data-theme="light"] .proceso-num {
+      color: rgba(110,98,214,0.35);
+    }
+    .proceso-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #26215C;
+      border: 0.5px solid var(--purple-dk);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--purple-lt);
+      margin-bottom: 1rem;
+    }
+    .proceso-step h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; letter-spacing: 0.3px; }
+    .proceso-step p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+    .proceso-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple-dk);
+      display: none;
+    }
+    @media (min-width: 1025px) {
+      .proceso-step:not(:last-child)::after { display: block; }
+    }
+
+    /* ── CTA INTERMEDIO ── */
+    .mid-cta {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem 4rem;
+    }
+    .mid-cta-inner {
+      background: linear-gradient(120deg, #201B4A, #2A2250);
+      border: 0.5px solid var(--purple-dk);
+      border-radius: 16px;
+      padding: 2.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+    .mid-cta-inner h3 {
+      font-family: var(--font-sans);
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+    .mid-cta-inner p { font-size: 13px; color: #C0B8E8; }
+    @media (max-width: 768px) {
+      .mid-cta { padding: 0 1.5rem 3rem; }
+      .mid-cta-inner { padding: 1.75rem; flex-direction: column; align-items: flex-start; }
+      .mid-cta-inner a.btn-cta { width: 100%; text-align: center; }
+      .proceso-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .proceso-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── TESTIMONIOS: CARRUSEL INFINITO ── */
+    .testi-carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding: 0.75rem clamp(1.5rem, 6vw, 5rem);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    }
+    .testi-track {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: testiScroll 38s linear infinite;
+      will-change: transform;
+    }
+    .testi-carousel:hover .testi-track { animation-play-state: paused; }
+    @keyframes testiScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .testi-card {
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(127,119,221,0.10) 0%, transparent 60%),
+        var(--card);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.55s ease, border-color 0.45s ease;
+      position: relative;
+      width: 360px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .testi-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--purple-lt), transparent 40%, transparent 60%, var(--purple-dk));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.55s ease;
+      pointer-events: none;
+    }
+    .testi-card:hover {
+      transform: translateY(-8px) scale(1.015);
+      border-color: transparent;
+      box-shadow: 0 24px 50px rgba(83,58,183,0.28), 0 4px 14px rgba(0,0,0,0.2);
+    }
+    .testi-card:hover::before { opacity: 1; }
+    .testi-quote-icon {
+      font-size: 24px;
+      color: var(--purple-dk);
+      margin-bottom: 0.85rem;
+      display: block;
+      transition: color 0.55s ease, transform 0.55s ease;
+    }
+    .testi-card:hover .testi-quote-icon { color: var(--purple-lt); transform: scale(1.12) rotate(-4deg); }
+    .testi-text { font-size: 13px; color: var(--text-soft); line-height: 1.8; margin-bottom: 1.25rem; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #26215C;
+      border: 0.5px solid var(--purple-dk);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--purple-lt);
+      flex-shrink: 0;
+      transition: box-shadow 0.55s ease, transform 0.55s ease;
+    }
+    .testi-card:hover .testi-avatar {
+      box-shadow: 0 0 0 4px rgba(127,119,221,0.15);
+      transform: scale(1.05);
+    }
+    .testi-name { font-size: 12px; font-weight: 600; color: var(--text); }
+    .testi-role { font-size: 11px; color: var(--muted2); }
+    .testi-note { font-size: 10px; color: var(--faint); margin-top: 1.5rem; letter-spacing: 0.3px; }
+    @media (max-width: 768px) {
+      .testi-carousel { padding: 0.75rem 1.5rem; }
+      .testi-card { width: 270px; padding: 1.75rem 1.5rem; }
+      .testi-track { animation-duration: 26s; gap: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .testi-track { animation: none; }
+      .testi-carousel { overflow-x: auto; }
+    }
+
+    /* ── FAQ (accordion nativo con <details>) ── */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 820px; }
+    .faq-item {
+      background: var(--card);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.5s ease, box-shadow 0.5s ease;
+    }
+    .faq-item[open] {
+      border-color: var(--purple);
+      box-shadow: 0 10px 30px rgba(83,58,183,0.15);
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.1rem 1.5rem;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-chevron { font-size: 16px; color: var(--purple-lt); transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); flex-shrink: 0; }
+    .faq-item[open] .faq-chevron { transform: rotate(180deg); }
+    .faq-answer {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .faq-item summary:focus-visible {
+      outline: 2px solid var(--purple-lt);
+      outline-offset: -2px;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+  <!-- Partículas de fondo -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Barra de progreso de scroll -->
+  <div id="scroll-progress"></div>
+
+  <!-- Halo de cursor personalizado (solo desktop) -->
+  <div id="cursor-glow"></div>
+
+  <!-- Botón flotante de WhatsApp -->
+  <!-- Mismo número que en la sección de contacto: reemplazar en ambos lugares -->
+  <a href="https://wa.me/5491112341234" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Escribinos por WhatsApp">
+    <i class="ti ti-brand-whatsapp"></i>
+  </a>
+
+  <!-- Botón flotante volver arriba -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+    <i class="ti ti-arrow-up"></i>
+  </button>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo" id="logo-top" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">KL<span>Ō</span>V</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="nav-links">
+        <li class="nav-mini-logo-item">
+          <a href="#" class="nav-mini-logo" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">KL<span>Ō</span>V</a>
+        </li>
+        <li><a href="#nosotras">Nosotras</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#mision">Misión</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li class="nav-mini-footer-item">
+          <div class="nav-mini-footer">
+            <div class="nav-mini-footer-social">
+              <a href="mailto:contacto@somosklov.com" aria-label="Enviar email" title="Escribinos a contacto@somosklov.com"><i class="ti ti-mail"></i></a>
+              <a href="https://instagram.com/klovadvisory" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+              <a href="https://linkedin.com/klov_advisory" target="_blank" rel="noopener" aria-label="Linkedin"><i class="ti ti-brand-linkedin"></i></a>
+              <a href="https://wa.me/5491112341234" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+            </div>
+            <p class="nav-mini-footer-text">- 2026 - 2027 KLŌV™® Advisory -</p>
+          </div>
+        </li>
+      </ul>
+      <button type="button" class="theme-switch" id="theme-switch" aria-label="Cambiar entre modo oscuro y claro" aria-pressed="false" title="Cambiar tema">
+        <span class="theme-switch-track">
+          <span class="theme-switch-thumb"><i class="ti ti-moon" id="theme-switch-icon"></i></span>
+        </span>
+      </button>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-backdrop" id="nav-backdrop"></div>
+
+  <!-- HERO -->
+  <section class="hero" id="main-content">
+    <div class="hero-left">
+      <h1>Claridad financiera<br>para decisiones<br><em class="italic-accent">que importan</em></h1>
+      <p>Estudio de advisory contable fundado por tres contadoras con experiencia en corporaciones multinacionales y gestión en múltiples países.</p>
+      <a href="#contacto" class="btn-cta" style="display:inline-block;font-size:11px;font-weight:400;color:var(--text)!important;background:transparent!important;border:1px solid #7B6FD4;border-radius:999px;padding:16px 44px;letter-spacing:4px;text-decoration:none!important;text-transform:uppercase;">Contactanos →</a>
+    </div>
+    <div class="hero-right">
+      <!-- Geo graphic -->
+      <div class="geo-graphic">
+        <div class="geo-line-h" style="top:33%;"></div>
+        <div class="geo-line-h" style="top:66%;"></div>
+        <div class="geo-line-v" style="left:25%;"></div>
+        <div class="geo-line-v" style="left:50%;"></div>
+        <div class="geo-line-v" style="left:75%;"></div>
+        <div class="geo-dot" style="top:30%;left:24%;"></div>
+        <div class="geo-dot" style="top:57%;left:50%;"></div>
+        <div class="geo-dot" style="top:22%;left:74%;"></div>
+        <div class="geo-dot-sm" style="top:62%;left:32%;"></div>
+        <div class="geo-dot-sm" style="top:42%;left:62%;"></div>
+        <div class="geo-dot-sm" style="top:72%;left:82%;"></div>
+        <div class="geo-label" style="top:33%;left:26%;">C.A.B.A</div>
+        <div class="geo-label" style="top:60%;left:52%;">BUENOS AIRES</div>
+        <div class="geo-label" style="top:24%;left:76%;">GLOBAL</div>
+      </div>
+      <!-- Stats -->
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="num">3</div>
+          <div class="lbl">Socias fundadoras</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">6</div>
+          <div class="lbl">Áreas de servicio</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="exp">Experiencia multinacional</div>
+        <div class="lbl">Corporaciones · Multi-país · Multi-jurisdicción</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MISIÓN VISIÓN VALORES -->
+  <section class="section" id="mision">
+    <div class="mvv-grid">
+      <div class="mvv-card">
+        <div class="mvv-bar" style="background:#7F77DD;"></div>
+        <h3 style="color:#7F77DD;">Misión</h3>
+        <p>Acompañamos a empresas y emprendedores con asesoría contable, tributaria y financiera de alto nivel, integrando la experiencia global de nuestro equipo con un trato cercano y soluciones concretas potenciadas por automatización de procesos e inteligencia artificial, a medida de cada realidad.</p>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-bar" style="background:#534AB7;"></div>
+        <h3 style="color:#534AB7;">Visión</h3>
+        <p>Ser el socio estratégico que toda organización merece. Aspiramos a convertirnos en la firma de referencia para organizaciones que operan en entornos complejos, donde la automatización, la eficiencia operativa y la visión estratégica marcan la diferencia entre crecer y estancarse.</p>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-bar" style="background:#3C3489;"></div>
+        <h3 style="color:#A89EE8;">Valores</h3>
+        <p style="line-height:2;">
+          Excelencia técnica · Estándar corporativo para cada cliente.<br>
+          Innovación · Tecnología donde otros usan papel.<br>
+          Visión global · Experiencia en múltiples países.<br>
+          Transparencia · Claro, oportuno, sin tecnicismos.<br>
+          Compromiso · Socias estratégicas, no proveedoras.<br>
+          Trato cercano · Experiencia global, calidez humana.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+    <div class="section-label">Nuestros servicios</div>
+    <div class="srv-section-wrap">
+
+      <!-- TABS IZQUIERDA -->
+      <div class="srv-tabs" role="tablist" aria-label="Servicios">
+        <div class="srv-tab active" onclick="switchTab(this, 'tab-contabilidad')" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-contabilidad">
+          <div class="srv-tab-icon"><i class="ti ti-report-money"></i></div>
+          <div class="srv-tab-label"><span>Contabilidad</span><em>Balances & reporting</em></div>
+          <i class="ti ti-arrow-right srv-tab-arrow"></i>
+        </div>
+        <div class="srv-tab" onclick="switchTab(this, 'tab-tributario')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-tributario">
+          <div class="srv-tab-icon"><i class="ti ti-receipt-tax"></i></div>
+          <div class="srv-tab-label"><span>Tributario</span><em>ARCA · ARBA · AGIP</em></div>
+          <i class="ti ti-arrow-right srv-tab-arrow"></i>
+        </div>
+        <div class="srv-tab" onclick="switchTab(this, 'tab-finanzas')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-finanzas">
+          <div class="srv-tab-icon"><i class="ti ti-chart-line"></i></div>
+          <div class="srv-tab-label"><span>Finanzas</span><em>Cash flow & KPIs</em></div>
+          <i class="ti ti-arrow-right srv-tab-arrow"></i>
+        </div>
+        <div class="srv-tab" onclick="switchTab(this, 'tab-laboral')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-laboral">
+          <div class="srv-tab-icon"><i class="ti ti-users"></i></div>
+          <div class="srv-tab-label"><span>Laboral</span><em>Haberes & RRHH</em></div>
+          <i class="ti ti-arrow-right srv-tab-arrow"></i>
+        </div>
+        <div class="srv-tab" onclick="switchTab(this, 'tab-admin')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-admin">
+          <div class="srv-tab-icon"><i class="ti ti-building"></i></div>
+          <div class="srv-tab-label"><span>Administración</span><em>Back office</em></div>
+          <i class="ti ti-arrow-right srv-tab-arrow"></i>
+        </div>
+        <div class="srv-tab" onclick="switchTab(this, 'tab-ia')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-ia">
+          <div class="srv-tab-icon"><i class="ti ti-cpu"></i></div>
+          <div class="srv-tab-label"><span>Automatización con IA</span><em>Procesos inteligentes</em></div>
+          <i class="ti ti-arrow-right srv-tab-arrow"></i>
+        </div>
+      </div>
+
+      <!-- PANELES DERECHA -->
+      <div class="srv-panels">
+
+        <div class="srv-panel active" id="tab-contabilidad">
+          <div class="srv-panel-header">
+            <div class="srv-panel-icon"><i class="ti ti-report-money"></i></div>
+            <div class="srv-panel-title">
+              <h3>Contabilidad</h3>
+              <p>Registros y balances con estándar corporativo multinacional</p>
+            </div>
+          </div>
+          <div class="srv-items">
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Registración contable mensual</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Balance general y estado de resultado</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Ajuste por inflación (RT 6)</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text">Análisis e interpretación de resultados</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.25s"><span class="srv-item-num">05</span><span class="srv-item-text">Reporting para inversores</span><div class="srv-item-dot"></div></div>
+          </div>
+        </div>
+
+        <div class="srv-panel" id="tab-tributario">
+          <div class="srv-panel-header">
+            <div class="srv-panel-icon"><i class="ti ti-receipt-tax"></i></div>
+            <div class="srv-panel-title">
+              <h3>Tributario</h3>
+              <p>Cumplimiento fiscal local e internacional</p>
+            </div>
+          </div>
+          <div class="srv-items">
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Liquidación de IVA, Ganancias y Bienes Personales</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Ingresos Brutos — AGIP / ARBA</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Presentaciones ante ARCA</span><div class="srv-item-dot"></div></div>
+          </div>
+        </div>
+
+        <div class="srv-panel" id="tab-finanzas">
+          <div class="srv-panel-header">
+            <div class="srv-panel-icon"><i class="ti ti-chart-line"></i></div>
+            <div class="srv-panel-title">
+              <h3>Finanzas</h3>
+              <p>Análisis y planificación financiera estratégica</p>
+            </div>
+          </div>
+          <div class="srv-items">
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Proyección de flujo de caja (cash flow)</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Análisis de rentabilidad por producto o servicio</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Tablero de control mensual (KPIs)</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text">Planificación financiera anual</span><div class="srv-item-dot"></div></div>
+          </div>
+        </div>
+
+        <div class="srv-panel" id="tab-laboral">
+          <div class="srv-panel-header">
+            <div class="srv-panel-icon"><i class="ti ti-users"></i></div>
+            <div class="srv-panel-title">
+              <h3>Laboral</h3>
+              <p>Gestión integral de haberes y capital humano</p>
+            </div>
+          </div>
+          <div class="srv-items">
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Liquidación mensual de haberes</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Altas, bajas y modificaciones en ARCA</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Soporte en selección y gestión del capital humano</span><div class="srv-item-dot"></div></div>
+          </div>
+        </div>
+
+        <div class="srv-panel" id="tab-admin">
+          <div class="srv-panel-header">
+            <div class="srv-panel-icon"><i class="ti ti-building"></i></div>
+            <div class="srv-panel-title">
+              <h3>Administración</h3>
+              <p>Back office y procesos administrativos a medida</p>
+            </div>
+          </div>
+          <div class="srv-items">
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Back office administrativo mensual</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Reportes de tesorería</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Control de facturación y cobranzas</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text">Diseño de procesos administrativos internos</span><div class="srv-item-dot"></div></div>
+          </div>
+        </div>
+
+        <div class="srv-panel" id="tab-ia">
+          <div class="srv-panel-header">
+            <div class="srv-panel-icon" style="background:linear-gradient(135deg,#26215C,#3C3489);border-color:var(--purple-lt);"><i class="ti ti-cpu" style="color:#fff;"></i></div>
+            <div class="srv-panel-title">
+              <h3 style="background:linear-gradient(90deg,var(--purple-lt),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Automatización con IA</h3>
+              <p>Digitalización inteligente de procesos operativos</p>
+            </div>
+          </div>
+          <div class="srv-items">
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num" style="color:var(--purple-lt);">01</span><span class="srv-item-text">Diagnóstico de procesos manuales críticos</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num" style="color:var(--purple-lt);">02</span><span class="srv-item-text">Reportes financieros automáticos</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num" style="color:var(--purple-lt);">03</span><span class="srv-item-text">Implementación de software contable</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROCESO / CÓMO TRABAJAMOS -->
+  <section class="section" id="proceso">
+    <div class="section-label">Cómo trabajamos</div>
+    <div class="proceso-grid">
+      <div class="proceso-step">
+        <div class="proceso-num">01</div>
+        <div class="proceso-icon"><i class="ti ti-calendar-event"></i></div>
+        <h4>Agendás tu consulta</h4>
+        <p>Elegís el día y horario que mejor te quede, sin costo ni compromiso.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">02</div>
+        <div class="proceso-icon"><i class="ti ti-message-circle"></i></div>
+        <h4>Conversamos sobre tu negocio</h4>
+        <p>Entendemos tu situación actual, tus objetivos y qué necesitás resolver.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">03</div>
+        <div class="proceso-icon"><i class="ti ti-file-description"></i></div>
+        <h4>Te armamos una propuesta a medida</h4>
+        <p>Definimos alcance, servicios y honorarios claros, sin sorpresas.</p>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-num">04</div>
+        <div class="proceso-icon"><i class="ti ti-rocket"></i></div>
+        <h4>Empezamos a trabajar juntos</h4>
+        <p>Integramos tu operación a nuestros procesos y arrancamos la gestión.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA INTERMEDIO -->
+  <section class="mid-cta">
+    <div class="mid-cta-inner">
+      <div>
+        <h3>¿Charlamos sobre tu negocio?</h3>
+        <p>La primera reunión de diagnóstico no tiene costo ni compromiso.</p>
+      </div>
+      <a href="#reservas" class="btn-cta" style="display:inline-block;font-size:11px;font-weight:400;color:#F2F0FB!important;background:transparent!important;border:1px solid #7B6FD4;border-radius:999px;padding:16px 44px;letter-spacing:4px;text-decoration:none!important;text-transform:uppercase;">Agendá tu consulta →</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PARA QUIÉN -->
+  <section class="section" id="alcance">
+    <div class="section-label">¿Para quién?</div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-num">01</div>
+        <div class="audience-icon"><i class="ti ti-building-store"></i></div>
+        <h4>Pymes</h4>
+        <p>Que necesitan orden, cumplimiento y una gestión profesional de sus finanzas.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-num">02</div>
+        <div class="audience-icon"><i class="ti ti-chart-dots"></i></div>
+        <h4>Negocios en crecimiento</h4>
+        <p>Que quieren entender sus números y tomar decisiones basadas en datos reales.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-num">03</div>
+        <div class="audience-icon"><i class="ti ti-rocket"></i></div>
+        <h4>Startups</h4>
+        <p>Que buscan profesionalizar su gestión contable y financiera desde el inicio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <div class="team-section" id="nosotras">
+    <div class="team-inner">
+      <div class="section-label">El equipo</div>
+      <div class="team-grid">
+        <div class="team-card">
+          <img class="avatar" src="https://university.dmbgroup.online/wp-content/uploads/2026/03/EMMA.webp" alt="Foto de María Julieta Orellana" loading="lazy">
+          <h4>María Julieta Orellana</h4>
+          <p>Contadora Pública · CABA & PBA</p>
+          <a href="https://www.linkedin.com/in/mariajulietaorellana/" target="_blank" rel="noopener" class="linkedin-btn">
+            <i class="ti ti-brand-linkedin"></i> LinkedIn
+          </a>
+        </div>
+        <div class="team-card">
+          <img class="avatar" src="https://university.dmbgroup.online/wp-content/uploads/2026/03/EMMA.webp" alt="Foto de Dana González Magi" loading="lazy">
+          <h4>Dana González Magi</h4>
+          <p>Contadora Pública · CABA & PBA</p>
+          <a href="https://www.linkedin.com/in/dana-gonzalez-magi-0a1804143/" target="_blank" rel="noopener" class="linkedin-btn">
+            <i class="ti ti-brand-linkedin"></i> LinkedIn
+          </a>
+        </div>
+        <div class="team-card">
+          <img class="avatar" src="https://university.dmbgroup.online/wp-content/uploads/2026/03/EMMA.webp" alt="Foto de Daiana Lucia Fared" loading="lazy">
+          <h4>Daiana Lucia Fared</h4>
+          <p>Contadora Pública · CABA & PBA</p>
+          <a href="https://www.linkedin.com/in/daiana-lucia-fared-b27866136/" target="_blank" rel="noopener" class="linkedin-btn">
+            <i class="ti ti-brand-linkedin"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge">↗ Exp. en corporaciones multinacionales</span>
+        <span class="badge">⊕ Gestión en múltiples países</span>
+        <span class="badge">✓ Matrícula habilitante CABA y PBA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIOS -->
+  <div class="divider"></div>
+  <section class="section" id="testimonios">
+    <div class="section-label">Lo que dicen nuestros clientes</div>
+    <div class="testi-carousel">
+      <div class="testi-track">
+        <div class="testi-card">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Pasamos de no entender nuestros números a tener un tablero claro cada mes. La diferencia en la toma de decisiones fue inmediata.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-building-store"></i></div>
+            <div>
+              <div class="testi-name">Fundador</div>
+              <div class="testi-role">Comercio pyme</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Automatizaron procesos que nos llevaban horas todas las semanas. Hoy tenemos reportes al día sin mover un dedo.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-rocket"></i></div>
+            <div>
+              <div class="testi-name">Cofundadora</div>
+              <div class="testi-role">Startup tecnológica</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Se nota la experiencia en corporaciones: prolijas, rápidas y con un estándar de reporting que no habíamos visto en un estudio contable.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-chart-dots"></i></div>
+            <div>
+              <div class="testi-name">CFO</div>
+              <div class="testi-role">Empresa en expansión</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Por primera vez entendemos el flujo de caja del mes antes de que termine, no un mes después. Cambió cómo tomamos decisiones.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-briefcase"></i></div>
+            <div>
+              <div class="testi-name">Socio gerente</div>
+              <div class="testi-role">Consultora</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">El onboarding fue rapidísimo y ordenado. En menos de dos semanas ya teníamos toda la contabilidad al día y un proceso claro.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-building-skyscraper"></i></div>
+            <div>
+              <div class="testi-name">Directora de operaciones</div>
+              <div class="testi-role">Empresa de servicios</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Dejamos de perseguir papeles y planillas sueltas. Todo el back office quedó centralizado y accesible en cualquier momento.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-device-laptop"></i></div>
+            <div>
+              <div class="testi-name">CEO</div>
+              <div class="testi-role">Empresa de tecnología</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">La liquidación de sueldos dejó de ser un dolor de cabeza cada mes. Todo llega a tiempo y sin errores.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-truck"></i></div>
+            <div>
+              <div class="testi-name">Gerente de RRHH</div>
+              <div class="testi-role">Empresa de logística</div>
+            </div>
+          </div>
+        </div>
+        <!-- Duplicado para loop continuo sin cortes -->
+        <div class="testi-card" aria-hidden="true">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Pasamos de no entender nuestros números a tener un tablero claro cada mes. La diferencia en la toma de decisiones fue inmediata.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-building-store"></i></div>
+            <div>
+              <div class="testi-name">Fundador</div>
+              <div class="testi-role">Comercio pyme</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Automatizaron procesos que nos llevaban horas todas las semanas. Hoy tenemos reportes al día sin mover un dedo.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-rocket"></i></div>
+            <div>
+              <div class="testi-name">Cofundadora</div>
+              <div class="testi-role">Startup tecnológica</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Se nota la experiencia en corporaciones: prolijas, rápidas y con un estándar de reporting que no habíamos visto en un estudio contable.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-chart-dots"></i></div>
+            <div>
+              <div class="testi-name">CFO</div>
+              <div class="testi-role">Empresa en expansión</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Por primera vez entendemos el flujo de caja del mes antes de que termine, no un mes después. Cambió cómo tomamos decisiones.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-briefcase"></i></div>
+            <div>
+              <div class="testi-name">Socio gerente</div>
+              <div class="testi-role">Consultora</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">El onboarding fue rapidísimo y ordenado. En menos de dos semanas ya teníamos toda la contabilidad al día y un proceso claro.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-building-skyscraper"></i></div>
+            <div>
+              <div class="testi-name">Directora de operaciones</div>
+              <div class="testi-role">Empresa de servicios</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">Dejamos de perseguir papeles y planillas sueltas. Todo el back office quedó centralizado y accesible en cualquier momento.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-device-laptop"></i></div>
+            <div>
+              <div class="testi-name">CEO</div>
+              <div class="testi-role">Empresa de tecnología</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <i class="ti ti-quote testi-quote-icon"></i>
+          <p class="testi-text">La liquidación de sueldos dejó de ser un dolor de cabeza cada mes. Todo llega a tiempo y sin errores.</p>
+          <div class="testi-author">
+            <div class="testi-avatar"><i class="ti ti-truck"></i></div>
+            <div>
+              <div class="testi-name">Gerente de RRHH</div>
+              <div class="testi-role">Empresa de logística</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="testi-note">* Testimonios ilustrativos a modo de ejemplo — reemplazar por casos reales de clientes.</p>
+  </section>
+
+  <!-- FAQ -->
+  <div class="divider"></div>
+  <section class="section" id="faq">
+    <div class="section-label">Preguntas frecuentes</div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Trabajan con monotributistas y autónomos?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p>Sí, trabajamos con monotributistas, autónomos y sociedades de todos los tamaños, adaptando el servicio a cada etapa del negocio.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Atienden a empresas fuera de Buenos Aires?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p>Sí. Gran parte de nuestro trabajo es remoto, por lo que podemos acompañar a empresas de cualquier provincia o incluso del exterior.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tardan en responder una consulta?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p>Normalmente respondemos dentro de las 24 horas hábiles por WhatsApp o email.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>¿La primera reunión tiene costo?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p>No, la primera reunión de diagnóstico no tiene costo ni compromiso.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué necesito para empezar a trabajar con KLŌV?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p>Alcanza con agendar tu consulta inicial. A partir de ahí te guiamos en todo el proceso de onboarding.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- RESERVAS -->
+  <div class="divider"></div>
+  <section class="section" id="reservas">
+    <div class="section-label">Agendá tu consulta</div>
+    <div class="reservas-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;align-items:start;">
+      <div>
+        <h2 style="font-family:var(--font-sans);font-size:1.8rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:1rem;">Primera reunión <em class="italic-accent" style="color:var(--purple-lt);font-style:italic;">sin costo.</em></h2>
+        <p style="font-size:13px;color:var(--muted2);line-height:1.8;margin-bottom:1.5rem;">Contanos sobre tu negocio y encontramos juntos qué necesitás. Elegí el día y horario que mejor te quede.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-soft);">
+            <i class="ti ti-clock" style="color:var(--purple-lt);font-size:16px;"></i>
+            30 minutos
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-soft);">
+            <i class="ti ti-video" style="color:var(--purple-lt);font-size:16px;"></i>
+            Google Meet / videollamada
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-soft);">
+            <i class="ti ti-calendar" style="color:var(--purple-lt);font-size:16px;"></i>
+            Confirmación automática por mail
+          </div>
+        </div>
+      </div>
+      <div class="reservas-frame" id="reservas-frame" style="background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;overflow:hidden;min-height:650px;">
+        <iframe id="calendly-iframe" src="https://calendly.com/contacto-somosklov/30min?hide_gdpr_banner=1&background_color=0E0E16&text_color=EEEEF2&primary_color=7F77DD" width="100%" height="650" frameborder="0" style="display:block;"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACTO -->
+  <section class="contact-section" id="contacto">
+    <div class="section-label">Contacto</div>
+    <div class="contact-box">
+      <div>
+        <h3>Contacto</h3>
+        <p>Contanos sobre tu negocio y encontramos juntos la solución que necesitás.</p>
+      </div>
+      <div class="contact-info">
+        <div class="contact-row">
+          <i class="ti ti-mail"></i>
+          <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>
+        </div>
+        <div class="contact-row">
+          <i class="ti ti-brand-instagram"></i>
+          <a href="https://instagram.com/klovadvisory" target="_blank" rel="noopener">@klovadvisory</a>
+        </div>
+		<div class="contact-row">
+          <i class="ti ti-brand-linkedin"></i>
+          <a href="https://linkedin.com/klovadvisory" target="_blank" rel="noopener">@klov_advisory</a>
+        </div>
+        <div class="contact-row">
+          <i class="ti ti-brand-whatsapp"></i>
+          <!-- Número de WhatsApp de ejemplo: reemplazar por el número real (formato: código país + área + número, sin 0 ni 15) -->
+          <a href="https://wa.me/5491112341234" target="_blank" rel="noopener" id="whatsapp-link">+5491112341234</a>
+        </div>
+        <div class="contact-row">
+          <i class="ti ti-map-pin"></i>
+          <a href="https://www.google.com/maps/search/?api=1&query=Buenos+Aires%2C+Argentina" target="_blank" rel="noopener">Buenos Aires, Argentina</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 - 2027  ·  KLŌV™® Advisory · Todos los derechos son reservados  ·  <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>  ·  KLŌV™® · Advisory Contadores  ·  Creado por KLŌV™® ·</p>
+    <div class="footer-social" aria-label="Redes y contacto">
+      <a href="mailto:contacto@somosklov.com" aria-label="Enviar email" title="Escribinos a contacto@somosklov.com"><i class="ti ti-mail"></i></a>
+      <a href="https://instagram.com/klovadvisory" target="_blank" rel="noopener" aria-label="Instagram" title="Seguinos en Instagram @klovadvisory"><i class="ti ti-brand-instagram"></i></a>
+	  <a href="https://linkedin.com/klov_advisory" target="_blank" rel="noopener" aria-label="Linkedin" title="Seguinos en LinkedIn @klov_advisory"><i class="ti ti-brand-linkedin"></i></a>
+      <a href="https://wa.me/5491112341234" target="_blank" rel="noopener" aria-label="WhatsApp" title="Comunicate con nosotros por WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Buenos+Aires%2C+Argentina" target="_blank" rel="noopener" aria-label="Ubicación" title="Estamos en Buenos Aires, Argentina"><i class="ti ti-map-pin"></i></a>
+    </div>
+    <a href="#" class="footer-logo" id="footer-logo-top" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">KL<span>Ō</span>V</a>
+  </footer>
+
+  <script>
+    /* ── TAB SWITCHER con crossfade suave ── */
+    function switchTab(tab, panelId) {
+      // Deactivate all tabs
+      document.querySelectorAll('.srv-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Fade out current panel
+      const currentPanel = document.querySelector('.srv-panel.active');
+      if (currentPanel) {
+        currentPanel.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        currentPanel.style.opacity = '0';
+        currentPanel.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          currentPanel.classList.remove('active');
+          currentPanel.style.transition = '';
+          currentPanel.style.opacity = '';
+          currentPanel.style.transform = '';
+          // Fade in new panel
+          const newPanel = document.getElementById(panelId);
+          newPanel.classList.add('active');
+        }, 200);
+      } else {
+        document.getElementById(panelId).classList.add('active');
+      }
+    }
+
+    /* ── ALTURA REAL DEL HEADER (mobile fijo): evita que tape el contenido ── */
+    (function () {
+      const nav = document.querySelector('nav');
+      if (!nav) return;
+      function setNavHeightVar() {
+        document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+      }
+      setNavHeightVar();
+      window.addEventListener('resize', setNavHeightVar);
+      window.addEventListener('orientationchange', setNavHeightVar);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(setNavHeightVar);
+      }
+    })();
+
+    /* ── BARRA DE PROGRESO DE SCROLL ── */
+    (function () {
+      const bar = document.getElementById('scroll-progress');
+      if (!bar) return;
+      function updateProgress() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const pct = height > 0 ? (scrollTop / height) * 100 : 0;
+        bar.style.width = pct + '%';
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    })();
+
+    /* ── HALO DE CURSOR PERSONALIZADO ── */
+    (function () {
+      const glow = document.getElementById('cursor-glow');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (!glow || prefersReduced || !isFinePointer) return;
+      let raf = null;
+      window.addEventListener('mousemove', (e) => {
+        glow.classList.add('active');
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+        });
+      }, { passive: true });
+      document.addEventListener('mouseleave', () => glow.classList.remove('active'));
+    })();
+
+    /* ── MENÚ HAMBURGUESA (mobile) ── */
+    (function () {
+      const toggle = document.getElementById('nav-toggle');
+      const links = document.getElementById('nav-links');
+      const backdrop = document.getElementById('nav-backdrop');
+      if (!toggle || !links || !backdrop) return;
+
+      function closeMenu() {
+        links.classList.remove('open');
+        backdrop.classList.remove('open');
+        backdrop.style.display = 'none';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '<i class="ti ti-menu-2"></i>';
+      }
+      function openMenu() {
+        links.classList.add('open');
+        backdrop.style.display = 'block';
+        requestAnimationFrame(() => backdrop.classList.add('open'));
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.innerHTML = '<i class="ti ti-x"></i>';
+      }
+
+      toggle.addEventListener('click', () => {
+        links.classList.contains('open') ? closeMenu() : openMenu();
+      });
+      backdrop.addEventListener('click', closeMenu);
+      links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+    })();
+  </script>
+
+  <script>
+    /* ── PARTÍCULAS DE FONDO (efecto de movimiento sutil) ── */
+    (function () {
+      const canvas = document.getElementById('particles-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) return;
+
+      let width, height, particles;
+      const COLORS = ['rgba(168,158,232,', 'rgba(127,119,221,', 'rgba(83,58,183,'];
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = document.documentElement.scrollHeight;
+      }
+
+      function makeParticles() {
+        const count = Math.max(28, Math.min(70, Math.floor((width * height) / 90000)));
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 1.6 + 0.6,
+          vx: (Math.random() - 0.5) * 0.12,
+          vy: -Math.random() * 0.18 - 0.05,
+          alpha: Math.random() * 0.35 + 0.15,
+          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          twinkleSpeed: Math.random() * 0.006 + 0.002,
+          twinklePhase: Math.random() * Math.PI * 2,
+        }));
+      }
+
+      function step(t) {
+        ctx.clearRect(0, 0, width, height);
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; }
+          if (p.x < -10) p.x = width + 10;
+          if (p.x > width + 10) p.x = -10;
+
+          const twinkle = (Math.sin(t * p.twinkleSpeed + p.twinklePhase) + 1) / 2;
+          const a = p.alpha * (0.5 + twinkle * 0.5);
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color + a.toFixed(3) + ')';
+          ctx.shadowColor = p.color + '0.9)';
+          ctx.shadowBlur = p.r * 4;
+          ctx.fill();
+        }
+        requestAnimationFrame(step);
+      }
+
+      resize();
+      makeParticles();
+      requestAnimationFrame(step);
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { resize(); makeParticles(); }, 250);
+      });
+    })();
+  </script>
+
+  <script>
+    /* ── SWITCH DE TEMA (claro / oscuro) ── */
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('theme-switch');
+      const icon = document.getElementById('theme-switch-icon');
+      const iframe = document.getElementById('calendly-iframe');
+      if (!btn) return;
+
+      const CALENDLY_BASE = 'https://calendly.com/contacto-somosklov/30min?hide_gdpr_banner=1';
+      const THEMES = {
+        dark:  { bg: '0E0E16', text: 'EEEEF2', primary: '7F77DD' },
+        light: { bg: 'FFFFFF', text: '201D2E', primary: '6E62D6' },
+      };
+
+      function currentTheme() {
+        return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      }
+
+      function applyIcon(theme) {
+        if (icon) icon.className = theme === 'light' ? 'ti ti-sun' : 'ti ti-moon';
+      }
+
+      function applyCalendly(theme) {
+        if (!iframe) return;
+        const c = THEMES[theme];
+        iframe.src = CALENDLY_BASE + '&background_color=' + c.bg + '&text_color=' + c.text + '&primary_color=' + c.primary;
+      }
+
+      function setTheme(theme, opts) {
+        opts = opts || {};
+        if (theme === 'light') {
+          root.setAttribute('data-theme', 'light');
+        } else {
+          root.removeAttribute('data-theme');
+        }
+        try { localStorage.setItem('klov-theme', theme); } catch (e) {}
+        applyIcon(theme);
+        btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+        btn.setAttribute('aria-label', theme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+        if (opts.updateCalendly) applyCalendly(theme);
+      }
+
+      // Estado inicial (el <html> ya puede traer data-theme del script anti-parpadeo)
+      applyIcon(currentTheme());
+      btn.setAttribute('aria-pressed', currentTheme() === 'light' ? 'true' : 'false');
+
+      btn.addEventListener('click', function () {
+        const next = currentTheme() === 'light' ? 'dark' : 'light';
+        setTheme(next, { updateCalendly: true });
+      });
+    })();
+  </script>
+
+  <script>
+    /* ── SCROLLSPY: resalta el link de nav según la sección visible ── */
+    (function () {
+      const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+      if (!navLinks.length) return;
+      const sections = navLinks
+        .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+        .filter(Boolean);
+      if (!sections.length) return;
+
+      const spy = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+      sections.forEach(sec => spy.observe(sec));
+    })();
+
+    /* ── BOTÓN VOLVER ARRIBA ── */
+    (function () {
+      const btn = document.getElementById('back-to-top');
+      if (!btn) return;
+      function toggleVisibility() {
+        const y = window.scrollY || document.documentElement.scrollTop;
+        btn.classList.toggle('show', y > 480);
+      }
+      window.addEventListener('scroll', toggleVisibility, { passive: true });
+      toggleVisibility();
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+
+    /* ── EFECTO MAGNÉTICO EN BOTONES CTA ── */
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (prefersReduced || !isFinePointer) return;
+
+      document.querySelectorAll('a.btn-cta, .btn-cta').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const r = btn.getBoundingClientRect();
+          const x = (e.clientX - r.left - r.width / 2) * 0.18;
+          const y = (e.clientY - r.top - r.height / 2) * 0.35;
+          btn.style.transform = `translate(${x}px, ${y}px) translateY(-3px)`;
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+      });
+    })();
+
+    /* ── SPOTLIGHT QUE SIGUE AL CURSOR ── */
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (prefersReduced || !isFinePointer) return;
+
+      document.querySelectorAll('.stat-card, .mvv-card, .geo-graphic, .testi-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const mx = ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%';
+          const my = ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%';
+          card.style.setProperty('--mx', mx);
+          card.style.setProperty('--my', my);
+        });
+      });
+    })();
+
+    /* ── NAVEGACIÓN POR TECLADO EN TABS DE SERVICIOS ── */
+    (function () {
+      const tabs = Array.from(document.querySelectorAll('.srv-tab'));
+      if (!tabs.length) return;
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('keydown', (e) => {
+          let newIndex = null;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') newIndex = (i + 1) % tabs.length;
+          else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') newIndex = (i - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home') newIndex = 0;
+          else if (e.key === 'End') newIndex = tabs.length - 1;
+          else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tab.click(); return; }
+
+          if (newIndex !== null) {
+            e.preventDefault();
+            tabs[newIndex].focus();
+            tabs[newIndex].click();
+          }
+        });
+      });
+
+      // Mantiene aria-selected sincronizado cuando se hace click con mouse
+      const tabsWrap = document.querySelector('.srv-tabs');
+      if (tabsWrap) {
+        tabsWrap.addEventListener('click', () => {
+          requestAnimationFrame(() => {
+            tabs.forEach(t => t.setAttribute('aria-selected', t.classList.contains('active') ? 'true' : 'false'));
+          });
+        });
+      }
+    })();
+
+    /* ── CONTADOR ANIMADO PARA LAS ESTADÍSTICAS DEL HERO ── */
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const nums = document.querySelectorAll('.stat-card .num');
+      if (!nums.length) return;
+
+      function animateCount(el) {
+        const target = parseInt(el.textContent, 10);
+        if (isNaN(target)) return;
+        if (prefersReduced) { el.textContent = target; return; }
+        const duration = 1100;
+        const startTime = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target);
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(tick);
+      }
+
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            countObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.6 });
+
+      nums.forEach(el => countObserver.observe(el));
+    })();
+
+    /* ── FAQ: sólo una pregunta abierta a la vez ── */
+    (function () {
+      const items = document.querySelectorAll('.faq-item');
+      if (!items.length) return;
+      items.forEach(item => {
+        item.addEventListener('toggle', () => {
+          if (item.open) {
+            items.forEach(other => {
+              if (other !== item) other.open = false;
+            });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
