@@ -22,6 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://i.ibb.co" />
+  <link rel="dns-prefetch" href="https://calendly.com" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -60,7 +62,9 @@
   <link rel="icon" type="image/jpeg" href="https://cdn-icons-png.flaticon.com/512/9083/9083001.png" />
   <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/9083/9083001.png" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" /></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -193,27 +197,6 @@
       box-shadow: 0 0 12px rgba(168,158,232,0.7);
       z-index: 999;
       transition: width 0.1s ease-out;
-    }
-
-    /* ── HALO DE CURSOR PERSONALIZADO ── */
-    #cursor-glow {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(127,119,221,0.14) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 5;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: opacity 0.65s ease;
-      will-change: transform;
-    }
-    #cursor-glow.active { opacity: 1; }
-    @media (hover: none), (pointer: coarse) {
-      #cursor-glow { display: none; }
     }
 
     /* ── BOTÓN FLOTANTE DE WHATSAPP ── */
@@ -1369,20 +1352,6 @@
 
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; }
-      #cursor-glow { display: none !important; }
-      #particles-canvas { display: none !important; }
-    }
-
-    /* ── PARTÍCULAS DE FONDO ── */
-    #particles-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.55;
     }
 
     /* ══════════════════════════════════════════════════════════════
@@ -1467,35 +1436,7 @@
       text-shadow: 0 0 16px rgba(168,158,232,0.55);
     }
 
-    /* ── BOTÓN CTA: EFECTO MAGNÉTICO (soporte JS) ── */
-    a.btn-cta, .btn-cta {
-      will-change: transform;
-    }
-
-    /* ── SPOTLIGHT QUE SIGUE AL CURSOR (stat-card / mvv-card / geo-graphic) ── */
-    .stat-card,
-    .mvv-card,
-    .geo-graphic {
-      position: relative;
-      overflow: hidden;
-    }
-    .stat-card::before,
-    .mvv-card::before,
-    .geo-graphic::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(50px circle at var(--mx, 50%) var(--my, 50%), rgba(168,158,232,0.16), transparent 85%);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-    }
-    .stat-card:hover::before,
-    .mvv-card:hover::before,
-    .geo-graphic:hover::before {
-      opacity: 1;
-    }
-
+    /* ── BOTÓN CTA ── */
     /* ── BOTÓN FLOTANTE "VOLVER ARRIBA" ── */
     .back-to-top {
       position: fixed;
@@ -1559,7 +1500,7 @@
 
     /* ── IMPRESIÓN ── */
     @media print {
-      .whatsapp-float, .back-to-top, #cursor-glow, #particles-canvas,
+      .whatsapp-float, .back-to-top,
       #scroll-progress, .nav-toggle, .theme-switch, .nav-backdrop, html::before {
         display: none !important;
       }
@@ -1712,7 +1653,7 @@
     }
     .testi-card {
       background:
-        radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(127,119,221,0.10) 0%, transparent 60%),
+        radial-gradient(circle at 50% 0%, rgba(127,119,221,0.10) 0%, transparent 60%),
         var(--card);
       border: 0.5px solid var(--border);
       border-radius: 14px;
@@ -1830,14 +1771,8 @@
 
   <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
-  <!-- Partículas de fondo -->
-  <canvas id="particles-canvas" aria-hidden="true"></canvas>
-
   <!-- Barra de progreso de scroll -->
   <div id="scroll-progress"></div>
-
-  <!-- Halo de cursor personalizado (solo desktop) -->
-  <div id="cursor-glow"></div>
 
   <!-- Botón flotante de WhatsApp -->
   <!-- Mismo número que en la sección de contacto: reemplazar en ambos lugares -->
@@ -2257,7 +2192,7 @@
         </div>
       </div>
       <div class="reservas-frame" id="reservas-frame" style="background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;overflow:hidden;min-height:650px;">
-        <iframe id="calendly-iframe" src="https://calendly.com/contacto-somosklov/30min?hide_gdpr_banner=1&background_color=0E0E16&text_color=EEEEF2&primary_color=7F77DD" width="100%" height="650" frameborder="0" style="display:block;"></iframe>
+        <iframe id="calendly-iframe" data-src="https://calendly.com/contacto-somosklov/30min?hide_gdpr_banner=1&background_color=0E0E16&text_color=EEEEF2&primary_color=7F77DD" loading="lazy" width="100%" height="650" frameborder="0" style="display:block;"></iframe>
       </div>
     </div>
   </section>
@@ -2363,23 +2298,6 @@
       updateProgress();
     })();
 
-    /* ── HALO DE CURSOR PERSONALIZADO ── */
-    (function () {
-      const glow = document.getElementById('cursor-glow');
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      if (!glow || prefersReduced || !isFinePointer) return;
-      let raf = null;
-      window.addEventListener('mousemove', (e) => {
-        glow.classList.add('active');
-        if (raf) cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => {
-          glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-        });
-      }, { passive: true });
-      document.addEventListener('mouseleave', () => glow.classList.remove('active'));
-    })();
-
     /* ── MENÚ HAMBURGUESA (mobile) ── */
     (function () {
       const toggle = document.getElementById('nav-toggle');
@@ -2412,69 +2330,26 @@
   </script>
 
   <script>
-    /* ── PARTÍCULAS DE FONDO (efecto de movimiento sutil) ── */
+    /* ── LAZY LOAD DEL IFRAME DE CALENDLY (evita cargar Calendly hasta acercarse) ── */
     (function () {
-      const canvas = document.getElementById('particles-canvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduceMotion) return;
-
-      let width, height, particles;
-      const COLORS = ['rgba(168,158,232,', 'rgba(127,119,221,', 'rgba(83,58,183,'];
-
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = document.documentElement.scrollHeight;
-      }
-
-      function makeParticles() {
-        const count = Math.max(28, Math.min(70, Math.floor((width * height) / 90000)));
-        particles = Array.from({ length: count }, () => ({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          r: Math.random() * 1.6 + 0.6,
-          vx: (Math.random() - 0.5) * 0.12,
-          vy: -Math.random() * 0.18 - 0.05,
-          alpha: Math.random() * 0.35 + 0.15,
-          color: COLORS[Math.floor(Math.random() * COLORS.length)],
-          twinkleSpeed: Math.random() * 0.006 + 0.002,
-          twinklePhase: Math.random() * Math.PI * 2,
-        }));
-      }
-
-      function step(t) {
-        ctx.clearRect(0, 0, width, height);
-        for (const p of particles) {
-          p.x += p.vx;
-          p.y += p.vy;
-
-          if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; }
-          if (p.x < -10) p.x = width + 10;
-          if (p.x > width + 10) p.x = -10;
-
-          const twinkle = (Math.sin(t * p.twinkleSpeed + p.twinklePhase) + 1) / 2;
-          const a = p.alpha * (0.5 + twinkle * 0.5);
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = p.color + a.toFixed(3) + ')';
-          ctx.shadowColor = p.color + '0.9)';
-          ctx.shadowBlur = p.r * 4;
-          ctx.fill();
+      const iframe = document.getElementById('calendly-iframe');
+      if (!iframe) return;
+      const load = () => {
+        const src = iframe.dataset.src;
+        if (src && iframe.getAttribute('src') !== src) {
+          iframe.src = src;
+          iframe.dataset.loaded = 'true';
         }
-        requestAnimationFrame(step);
-      }
-
-      resize();
-      makeParticles();
-      requestAnimationFrame(step);
-
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => { resize(); makeParticles(); }, 250);
-      });
+      };
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            load();
+            obs.disconnect();
+          }
+        });
+      }, { rootMargin: '400px 0px' });
+      obs.observe(iframe);
     })();
   </script>
 
@@ -2504,7 +2379,13 @@
       function applyCalendly(theme) {
         if (!iframe) return;
         const c = THEMES[theme];
-        iframe.src = CALENDLY_BASE + '&background_color=' + c.bg + '&text_color=' + c.text + '&primary_color=' + c.primary;
+        const url = CALENDLY_BASE + '&background_color=' + c.bg + '&text_color=' + c.text + '&primary_color=' + c.primary;
+        // Si el iframe todavía no se cargó (lazy), solo actualizamos data-src.
+        if (iframe.dataset.loaded === 'true') {
+          iframe.src = url;
+        } else {
+          iframe.dataset.src = url;
+        }
       }
 
       function setTheme(theme, opts) {
@@ -2568,40 +2449,6 @@
       toggleVisibility();
       btn.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    })();
-
-    /* ── EFECTO MAGNÉTICO EN BOTONES CTA ── */
-    (function () {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      if (prefersReduced || !isFinePointer) return;
-
-      document.querySelectorAll('a.btn-cta, .btn-cta').forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-          const r = btn.getBoundingClientRect();
-          const x = (e.clientX - r.left - r.width / 2) * 0.18;
-          const y = (e.clientY - r.top - r.height / 2) * 0.35;
-          btn.style.transform = `translate(${x}px, ${y}px) translateY(-3px)`;
-        });
-        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-      });
-    })();
-
-    /* ── SPOTLIGHT QUE SIGUE AL CURSOR ── */
-    (function () {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      if (prefersReduced || !isFinePointer) return;
-
-      document.querySelectorAll('.stat-card, .mvv-card, .geo-graphic, .testi-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const r = card.getBoundingClientRect();
-          const mx = ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%';
-          const my = ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%';
-          card.style.setProperty('--mx', mx);
-          card.style.setProperty('--my', my);
-        });
       });
     })();
 
