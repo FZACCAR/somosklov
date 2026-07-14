@@ -16,7 +16,7 @@
     })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="KLŌV Advisory · Estudio de contadoras en Buenos Aires. Contabilidad, impuestos, finanzas, liquidación de sueldos, back office." />
+  <meta id="meta-desc" name="description" content="KLŌV Advisory · Estudio de contadoras en Buenos Aires. Contabilidad, impuestos, finanzas, liquidación de sueldos, back office." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://fzaccar.github.io/somosklov/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,7 +58,7 @@
   }
   </script>
 
-  <title>KLŌV · Advisory Contable en Buenos Aires, Argentina</title>
+  <title id="doc-title">KLŌV · Advisory Contable en Buenos Aires, Argentina</title>
   <link rel="icon" type="image/jpeg" href="https://cdn-icons-png.flaticon.com/512/9083/9083001.png" />
   <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/9083/9083001.png" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
@@ -1793,13 +1793,13 @@
         <li class="nav-mini-logo-item">
           <a href="#" class="nav-mini-logo" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">KL<span>Ō</span>V</a>
         </li>
-        <li><a href="#nosotras">Nosotras</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#proceso">Proceso</a></li>
-        <li><a href="#mision">Misión</a></li>
-        <li><a href="#reservas">Reservas</a></li>
-        <li><a href="#faq">FAQs</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#nosotras" data-i18n="nav.nosotras">Nosotras</a></li>
+        <li><a href="#servicios" data-i18n="nav.servicios">Servicios</a></li>
+        <li><a href="#proceso" data-i18n="nav.proceso">Proceso</a></li>
+        <li><a href="#mision" data-i18n="nav.mision">Misión</a></li>
+        <li><a href="#reservas" data-i18n="nav.reservas">Reservas</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQs</a></li>
+        <li><a href="#contacto" data-i18n="nav.contacto">Contacto</a></li>
         <li class="nav-mini-footer-item">
           <div class="nav-mini-footer">
             <div class="nav-mini-footer-social">
@@ -1811,12 +1811,15 @@
           </div>
         </li>
       </ul>
-      <button type="button" class="theme-switch" id="theme-switch" aria-label="Cambiar entre modo oscuro y claro" aria-pressed="false" title="Cambiar tema">
+      <button type="button" class="lang-switch" id="lang-switch" aria-label="Switch language / Cambiar idioma" title="ES / EN" style="background:transparent;border:1px solid var(--border);border-radius:999px;padding:6px 12px;font-size:11px;letter-spacing:1px;color:var(--text);font-family:var(--font-sans);display:flex;align-items:center;gap:4px;">
+        <span id="lang-switch-label">ES</span>
+      </button>
+      <button type="button" class="theme-switch" id="theme-switch" data-i18n-attr="aria-label:theme.aria|title:theme.title" aria-label="Cambiar entre modo oscuro y claro" aria-pressed="false" title="Cambiar tema">
         <span class="theme-switch-track">
           <span class="theme-switch-thumb"><i class="ti ti-moon" id="theme-switch-icon"></i></span>
         </span>
       </button>
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <button type="button" class="nav-toggle" id="nav-toggle" data-i18n-attr="aria-label:nav.open" aria-label="Abrir menú" aria-expanded="false">
         <i class="ti ti-menu-2"></i>
       </button>
     </div>
@@ -1826,9 +1829,9 @@
   <!-- HERO -->
   <section class="hero" id="main-content">
     <div class="hero-left">
-      <h1>Claridad financiera<br>para decisiones<br><em class="italic-accent">que importan</em></h1>
-      <p>Estudio de advisory contable fundado por tres contadoras con experiencia en corporaciones multinacionales y gestión en múltiples países.</p>
-      <a href="#contacto" class="btn-cta" style="display:inline-block;font-size:11px;font-weight:400;color:var(--text)!important;background:transparent!important;border:1px solid #7B6FD4;border-radius:999px;padding:16px 44px;letter-spacing:4px;text-decoration:none!important;text-transform:uppercase;">Contactanos →</a>
+      <h1 data-i18n-html="hero.title">Claridad financiera<br>para decisiones<br><em class="italic-accent">que importan</em></h1>
+      <p data-i18n="hero.subtitle">Estudio de advisory contable fundado por tres contadoras con experiencia en corporaciones multinacionales y gestión en múltiples países.</p>
+      <a href="#contacto" class="btn-cta" data-i18n="hero.cta" style="display:inline-block;font-size:11px;font-weight:400;color:var(--text)!important;background:transparent!important;border:1px solid #7B6FD4;border-radius:999px;padding:16px 44px;letter-spacing:4px;text-decoration:none!important;text-transform:uppercase;">Contactanos →</a>
     </div>
     <div class="hero-right">
       <!-- Geo graphic -->
@@ -1852,16 +1855,16 @@
       <div class="stat-row">
         <div class="stat-card">
           <div class="num">2</div>
-          <div class="lbl">Socias fundadoras</div>
+          <div class="lbl" data-i18n="hero.stat.founders">Socias fundadoras</div>
         </div>
         <div class="stat-card">
           <div class="num">6</div>
-          <div class="lbl">Áreas de servicio</div>
+          <div class="lbl" data-i18n="hero.stat.areas">Áreas de servicio</div>
         </div>
       </div>
       <div class="stat-card">
-        <div class="exp">Experiencia multinacional</div>
-        <div class="lbl">Corporaciones · Multi-país · Multi-jurisdicción</div>
+        <div class="exp" data-i18n="hero.stat.exp">Experiencia multinacional</div>
+        <div class="lbl" data-i18n="hero.stat.expdesc">Corporaciones · Multi-país · Multi-jurisdicción</div>
       </div>
     </div>
   </section>
@@ -1873,18 +1876,18 @@
     <div class="mvv-grid">
       <div class="mvv-card">
         <div class="mvv-bar" style="background:#7F77DD;"></div>
-        <h3 style="color:#7F77DD;">Misión</h3>
-        <p>Acompañamos a empresas y emprendedores con asesoría contable, tributaria y financiera de alto nivel, integrando la experiencia global de nuestro equipo con un trato cercano y soluciones concretas potenciadas por automatización de procesos e inteligencia artificial, a medida de cada realidad.</p>
+        <h3 style="color:#7F77DD;" data-i18n="mvv.mision.title">Misión</h3>
+        <p data-i18n="mvv.mision.text">Acompañamos a empresas y emprendedores con asesoría contable, tributaria y financiera de alto nivel, integrando la experiencia global de nuestro equipo con un trato cercano y soluciones concretas potenciadas por automatización de procesos e inteligencia artificial, a medida de cada realidad.</p>
       </div>
       <div class="mvv-card">
         <div class="mvv-bar" style="background:#534AB7;"></div>
-        <h3 style="color:#534AB7;">Visión</h3>
-        <p>Ser el socio estratégico que toda organización merece. Aspiramos a convertirnos en la firma de referencia para organizaciones que operan en entornos complejos, donde la automatización, la eficiencia operativa y la visión estratégica marcan la diferencia entre crecer y estancarse.</p>
+        <h3 style="color:#534AB7;" data-i18n="mvv.vision.title">Visión</h3>
+        <p data-i18n="mvv.vision.text">Ser el socio estratégico que toda organización merece. Aspiramos a convertirnos en la firma de referencia para organizaciones que operan en entornos complejos, donde la automatización, la eficiencia operativa y la visión estratégica marcan la diferencia entre crecer y estancarse.</p>
       </div>
       <div class="mvv-card">
         <div class="mvv-bar" style="background:#3C3489;"></div>
-        <h3 style="color:#A89EE8;">Valores</h3>
-        <p style="line-height:2;">
+        <h3 style="color:#A89EE8;" data-i18n="mvv.valores.title">Valores</h3>
+        <p style="line-height:2;" data-i18n-html="mvv.valores.text">
           Excelencia técnica · Estándar corporativo para cada cliente.<br>
           Innovación · Tecnología donde otros usan papel.<br>
           Visión global · Experiencia en múltiples países.<br>
@@ -1900,39 +1903,39 @@
 
   <!-- SERVICIOS -->
   <section class="section" id="servicios">
-    <div class="section-label">Nuestros servicios</div>
+    <div class="section-label" data-i18n="srv.label">Nuestros servicios</div>
     <div class="srv-section-wrap">
 
       <!-- TABS IZQUIERDA -->
       <div class="srv-tabs" role="tablist" aria-label="Servicios">
         <div class="srv-tab active" onclick="switchTab(this, 'tab-contabilidad')" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-contabilidad">
           <div class="srv-tab-icon"><i class="ti ti-report-money"></i></div>
-          <div class="srv-tab-label"><span>Contabilidad</span><em>Balances & reporting</em></div>
+          <div class="srv-tab-label"><span data-i18n="srv.contabilidad.tab">Contabilidad</span><em data-i18n="srv.contabilidad.tabsub">Balances & reporting</em></div>
           <i class="ti ti-arrow-right srv-tab-arrow"></i>
         </div>
         <div class="srv-tab" onclick="switchTab(this, 'tab-tributario')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-tributario">
           <div class="srv-tab-icon"><i class="ti ti-receipt-tax"></i></div>
-          <div class="srv-tab-label"><span>Tributario</span><em>ARCA · ARBA · AGIP</em></div>
+          <div class="srv-tab-label"><span data-i18n="srv.tributario.tab">Tributario</span><em>ARCA · ARBA · AGIP</em></div>
           <i class="ti ti-arrow-right srv-tab-arrow"></i>
         </div>
         <div class="srv-tab" onclick="switchTab(this, 'tab-finanzas')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-finanzas">
           <div class="srv-tab-icon"><i class="ti ti-chart-line"></i></div>
-          <div class="srv-tab-label"><span>Finanzas</span><em>Cash flow & KPIs</em></div>
+          <div class="srv-tab-label"><span data-i18n="srv.finanzas.tab">Finanzas</span><em data-i18n="srv.finanzas.tabsub">Cash flow & KPIs</em></div>
           <i class="ti ti-arrow-right srv-tab-arrow"></i>
         </div>
         <div class="srv-tab" onclick="switchTab(this, 'tab-laboral')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-laboral">
           <div class="srv-tab-icon"><i class="ti ti-users"></i></div>
-          <div class="srv-tab-label"><span>Laboral</span><em>Haberes & RRHH</em></div>
+          <div class="srv-tab-label"><span data-i18n="srv.laboral.tab">Laboral</span><em data-i18n="srv.laboral.tabsub">Haberes & RRHH</em></div>
           <i class="ti ti-arrow-right srv-tab-arrow"></i>
         </div>
         <div class="srv-tab" onclick="switchTab(this, 'tab-admin')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-admin">
           <div class="srv-tab-icon"><i class="ti ti-building"></i></div>
-          <div class="srv-tab-label"><span>Administración</span><em>Back office</em></div>
+          <div class="srv-tab-label"><span data-i18n="srv.admin.tab">Administración</span><em data-i18n="srv.admin.tabsub">Back office</em></div>
           <i class="ti ti-arrow-right srv-tab-arrow"></i>
         </div>
         <div class="srv-tab" onclick="switchTab(this, 'tab-ia')" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-ia">
           <div class="srv-tab-icon"><i class="ti ti-cpu"></i></div>
-          <div class="srv-tab-label"><span>Automatización con IA</span><em>Procesos inteligentes</em></div>
+          <div class="srv-tab-label"><span data-i18n="srv.ia.tab">Automatización con IA</span><em data-i18n="srv.ia.tabsub">Procesos inteligentes</em></div>
           <i class="ti ti-arrow-right srv-tab-arrow"></i>
         </div>
       </div>
@@ -1944,16 +1947,16 @@
           <div class="srv-panel-header">
             <div class="srv-panel-icon"><i class="ti ti-report-money"></i></div>
             <div class="srv-panel-title">
-              <h3>Contabilidad</h3>
-              <p>Registros y balances con estándar corporativo multinacional</p>
+              <h3 data-i18n="srv.contabilidad.title">Contabilidad</h3>
+              <p data-i18n="srv.contabilidad.desc">Registros y balances con estándar corporativo multinacional</p>
             </div>
           </div>
           <div class="srv-items">
-            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Registración contable mensual</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Balance general y estado de resultado</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Ajuste por inflación (RT 6)</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text">Análisis e interpretación de resultados</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.25s"><span class="srv-item-num">05</span><span class="srv-item-text">Reporting para inversores</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text" data-i18n="srv.contabilidad.i1">Registración contable mensual</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text" data-i18n="srv.contabilidad.i2">Balance general y estado de resultado</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text" data-i18n="srv.contabilidad.i3">Ajuste por inflación (RT 6)</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text" data-i18n="srv.contabilidad.i4">Análisis e interpretación de resultados</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.25s"><span class="srv-item-num">05</span><span class="srv-item-text" data-i18n="srv.contabilidad.i5">Reporting para inversores</span><div class="srv-item-dot"></div></div>
           </div>
         </div>
 
@@ -1961,14 +1964,14 @@
           <div class="srv-panel-header">
             <div class="srv-panel-icon"><i class="ti ti-receipt-tax"></i></div>
             <div class="srv-panel-title">
-              <h3>Tributario</h3>
-              <p>Cumplimiento fiscal local e internacional</p>
+              <h3 data-i18n="srv.tributario.title">Tributario</h3>
+              <p data-i18n="srv.tributario.desc">Cumplimiento fiscal local e internacional</p>
             </div>
           </div>
           <div class="srv-items">
-            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Liquidación de IVA, Ganancias y Bienes Personales</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Ingresos Brutos — AGIP / ARBA</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Presentaciones ante ARCA</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text" data-i18n="srv.tributario.i1">Liquidación de IVA, Ganancias y Bienes Personales</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text" data-i18n="srv.tributario.i2">Ingresos Brutos — AGIP / ARBA</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text" data-i18n="srv.tributario.i3">Presentaciones ante ARCA</span><div class="srv-item-dot"></div></div>
           </div>
         </div>
 
@@ -1976,15 +1979,15 @@
           <div class="srv-panel-header">
             <div class="srv-panel-icon"><i class="ti ti-chart-line"></i></div>
             <div class="srv-panel-title">
-              <h3>Finanzas</h3>
-              <p>Análisis y planificación financiera estratégica</p>
+              <h3 data-i18n="srv.finanzas.title">Finanzas</h3>
+              <p data-i18n="srv.finanzas.desc">Análisis y planificación financiera estratégica</p>
             </div>
           </div>
           <div class="srv-items">
-            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Proyección de flujo de caja (cash flow)</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Análisis de rentabilidad por producto o servicio</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Tablero de control mensual (KPIs)</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text">Planificación financiera anual</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text" data-i18n="srv.finanzas.i1">Proyección de flujo de caja (cash flow)</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text" data-i18n="srv.finanzas.i2">Análisis de rentabilidad por producto o servicio</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text" data-i18n="srv.finanzas.i3">Tablero de control mensual (KPIs)</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text" data-i18n="srv.finanzas.i4">Planificación financiera anual</span><div class="srv-item-dot"></div></div>
           </div>
         </div>
 
@@ -1992,14 +1995,14 @@
           <div class="srv-panel-header">
             <div class="srv-panel-icon"><i class="ti ti-users"></i></div>
             <div class="srv-panel-title">
-              <h3>Laboral</h3>
-              <p>Gestión integral de haberes y capital humano</p>
+              <h3 data-i18n="srv.laboral.title">Laboral</h3>
+              <p data-i18n="srv.laboral.desc">Gestión integral de haberes y capital humano</p>
             </div>
           </div>
           <div class="srv-items">
-            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Liquidación mensual de haberes</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Altas, bajas y modificaciones en ARCA</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Soporte en selección y gestión del capital humano</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text" data-i18n="srv.laboral.i1">Liquidación mensual de haberes</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text" data-i18n="srv.laboral.i2">Altas, bajas y modificaciones en ARCA</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text" data-i18n="srv.laboral.i3">Soporte en selección y gestión del capital humano</span><div class="srv-item-dot"></div></div>
           </div>
         </div>
 
@@ -2007,15 +2010,15 @@
           <div class="srv-panel-header">
             <div class="srv-panel-icon"><i class="ti ti-building"></i></div>
             <div class="srv-panel-title">
-              <h3>Administración</h3>
-              <p>Back office y procesos administrativos a medida</p>
+              <h3 data-i18n="srv.admin.title">Administración</h3>
+              <p data-i18n="srv.admin.desc">Back office y procesos administrativos a medida</p>
             </div>
           </div>
           <div class="srv-items">
-            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text">Back office administrativo mensual</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text">Reportes de tesorería</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text">Control de facturación y cobranzas</span><div class="srv-item-dot"></div></div>
-            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text">Diseño de procesos administrativos internos</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num">01</span><span class="srv-item-text" data-i18n="srv.admin.i1">Back office administrativo mensual</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num">02</span><span class="srv-item-text" data-i18n="srv.admin.i2">Reportes de tesorería</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num">03</span><span class="srv-item-text" data-i18n="srv.admin.i3">Control de facturación y cobranzas</span><div class="srv-item-dot"></div></div>
+            <div class="srv-item" style="animation-delay:0.20s"><span class="srv-item-num">04</span><span class="srv-item-text" data-i18n="srv.admin.i4">Diseño de procesos administrativos internos</span><div class="srv-item-dot"></div></div>
           </div>
         </div>
 
@@ -2023,14 +2026,14 @@
           <div class="srv-panel-header">
             <div class="srv-panel-icon" style="background:linear-gradient(135deg,#26215C,#3C3489);border-color:var(--purple-lt);"><i class="ti ti-cpu" style="color:#fff;"></i></div>
             <div class="srv-panel-title">
-              <h3 style="background:linear-gradient(90deg,var(--purple-lt),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Automatización con IA</h3>
-              <p>Digitalización inteligente de procesos operativos</p>
+              <h3 style="background:linear-gradient(90deg,var(--purple-lt),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" data-i18n="srv.ia.title">Automatización con IA</h3>
+              <p data-i18n="srv.ia.desc">Digitalización inteligente de procesos operativos</p>
             </div>
           </div>
           <div class="srv-items">
-            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num" style="color:var(--purple-lt);">01</span><span class="srv-item-text">Diagnóstico de procesos manuales críticos</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
-            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num" style="color:var(--purple-lt);">02</span><span class="srv-item-text">Reportes financieros automáticos</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
-            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num" style="color:var(--purple-lt);">03</span><span class="srv-item-text">Implementación de software contable</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
+            <div class="srv-item" style="animation-delay:0.05s"><span class="srv-item-num" style="color:var(--purple-lt);">01</span><span class="srv-item-text" data-i18n="srv.ia.i1">Diagnóstico de procesos manuales críticos</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
+            <div class="srv-item" style="animation-delay:0.10s"><span class="srv-item-num" style="color:var(--purple-lt);">02</span><span class="srv-item-text" data-i18n="srv.ia.i2">Reportes financieros automáticos</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
+            <div class="srv-item" style="animation-delay:0.15s"><span class="srv-item-num" style="color:var(--purple-lt);">03</span><span class="srv-item-text" data-i18n="srv.ia.i3">Implementación de software contable</span><div class="srv-item-dot" style="background:var(--purple-lt);"></div></div>
           </div>
         </div>
 
@@ -2042,31 +2045,31 @@
 
   <!-- PROCESO / CÓMO TRABAJAMOS -->
   <section class="section" id="proceso">
-    <div class="section-label">Cómo trabajamos</div>
+    <div class="section-label" data-i18n="proceso.label">Cómo trabajamos</div>
     <div class="proceso-grid">
       <div class="proceso-step">
         <div class="proceso-num">01</div>
         <div class="proceso-icon"><i class="ti ti-calendar-event"></i></div>
-        <h4>Agendás tu consulta</h4>
-        <p>Elegís el día y horario que mejor te quede, sin costo ni compromiso.</p>
+        <h4 data-i18n="proceso.1.title">Agendás tu consulta</h4>
+        <p data-i18n="proceso.1.text">Elegís el día y horario que mejor te quede, sin costo ni compromiso.</p>
       </div>
       <div class="proceso-step">
         <div class="proceso-num">02</div>
         <div class="proceso-icon"><i class="ti ti-message-circle"></i></div>
-        <h4>Conversamos sobre tu negocio</h4>
-        <p>Entendemos tu situación actual, tus objetivos y qué necesitás resolver.</p>
+        <h4 data-i18n="proceso.2.title">Conversamos sobre tu negocio</h4>
+        <p data-i18n="proceso.2.text">Entendemos tu situación actual, tus objetivos y qué necesitás resolver.</p>
       </div>
       <div class="proceso-step">
         <div class="proceso-num">03</div>
         <div class="proceso-icon"><i class="ti ti-file-description"></i></div>
-        <h4>Te armamos una propuesta a medida</h4>
-        <p>Definimos alcance, servicios y honorarios claros, sin sorpresas.</p>
+        <h4 data-i18n="proceso.3.title">Te armamos una propuesta a medida</h4>
+        <p data-i18n="proceso.3.text">Definimos alcance, servicios y honorarios claros, sin sorpresas.</p>
       </div>
       <div class="proceso-step">
         <div class="proceso-num">04</div>
         <div class="proceso-icon"><i class="ti ti-rocket"></i></div>
-        <h4>Empezamos a trabajar juntos</h4>
-        <p>Integramos tu operación a nuestros procesos y arrancamos la gestión.</p>
+        <h4 data-i18n="proceso.4.title">Empezamos a trabajar juntos</h4>
+        <p data-i18n="proceso.4.text">Integramos tu operación a nuestros procesos y arrancamos la gestión.</p>
       </div>
     </div>
   </section>
@@ -2075,10 +2078,10 @@
   <section class="mid-cta">
     <div class="mid-cta-inner">
       <div>
-        <h3>¿Charlamos sobre tu negocio?</h3>
-        <p>La primera reunión de diagnóstico no tiene costo ni compromiso.</p>
+        <h3 data-i18n="midcta.title">¿Charlamos sobre tu negocio?</h3>
+        <p data-i18n="midcta.text">La primera reunión de diagnóstico no tiene costo ni compromiso.</p>
       </div>
-      <a href="#reservas" class="btn-cta" style="display:inline-block;font-size:11px;font-weight:400;color:#F2F0FB!important;background:transparent!important;border:1px solid #7B6FD4;border-radius:999px;padding:16px 44px;letter-spacing:4px;text-decoration:none!important;text-transform:uppercase;">Agendá tu consulta →</a>
+      <a href="#reservas" class="btn-cta" data-i18n="midcta.cta" style="display:inline-block;font-size:11px;font-weight:400;color:#F2F0FB!important;background:transparent!important;border:1px solid #7B6FD4;border-radius:999px;padding:16px 44px;letter-spacing:4px;text-decoration:none!important;text-transform:uppercase;">Agendá tu consulta →</a>
     </div>
   </section>
 
@@ -2086,25 +2089,25 @@
 
   <!-- PARA QUIÉN -->
   <section class="section" id="alcance">
-    <div class="section-label">¿Para quién?</div>
+    <div class="section-label" data-i18n="audience.label">¿Para quién?</div>
     <div class="audience-grid">
       <div class="audience-card">
         <div class="audience-num">01</div>
         <div class="audience-icon"><i class="ti ti-building-store"></i></div>
-        <h4>Pymes</h4>
-        <p>Que necesitan orden, cumplimiento y una gestión profesional de sus finanzas.</p>
+        <h4 data-i18n="audience.1.title">Pymes</h4>
+        <p data-i18n="audience.1.text">Que necesitan orden, cumplimiento y una gestión profesional de sus finanzas.</p>
       </div>
       <div class="audience-card">
         <div class="audience-num">02</div>
         <div class="audience-icon"><i class="ti ti-chart-dots"></i></div>
-        <h4>Negocios en crecimiento</h4>
-        <p>Que quieren entender sus números y tomar decisiones basadas en datos reales.</p>
+        <h4 data-i18n="audience.2.title">Negocios en crecimiento</h4>
+        <p data-i18n="audience.2.text">Que quieren entender sus números y tomar decisiones basadas en datos reales.</p>
       </div>
       <div class="audience-card">
         <div class="audience-num">03</div>
         <div class="audience-icon"><i class="ti ti-rocket"></i></div>
-        <h4>Startups</h4>
-        <p>Que buscan profesionalizar su gestión contable y financiera desde el inicio.</p>
+        <h4 data-i18n="audience.3.title">Startups</h4>
+        <p data-i18n="audience.3.text">Que buscan profesionalizar su gestión contable y financiera desde el inicio.</p>
       </div>
     </div>
   </section>
@@ -2112,12 +2115,12 @@
   <!-- EQUIPO -->
   <div class="team-section" id="nosotras">
     <div class="team-inner">
-      <div class="section-label">El equipo</div>
+      <div class="section-label" data-i18n="team.label">El equipo</div>
       <div class="team-grid">
         <div class="team-card">
           <img class="avatar" src="https://i.ibb.co/hRm79JcY/KLOV-8.png" alt="Foto de María Julieta Orellana" loading="lazy">
           <h4>María Julieta Orellana</h4>
-          <p>Contadora Pública · CABA & PBA</p>
+          <p data-i18n="team.role">Contadora Pública · CABA & PBA</p>
           <a href="https://www.linkedin.com/in/mariajulietaorellana/" target="_blank" rel="noopener" class="linkedin-btn">
             <i class="ti ti-brand-linkedin"></i> LinkedIn
           </a>
@@ -2125,16 +2128,16 @@
         <div class="team-card">
           <img class="avatar" src="https://i.ibb.co/hRm79JcY/KLOV-8.png" alt="Foto de Daiana Lucia Fared" loading="lazy">
           <h4>Daiana Lucia Fared</h4>
-          <p>Contadora Pública · CABA & PBA</p>
+          <p data-i18n="team.role">Contadora Pública · CABA & PBA</p>
           <a href="https://www.linkedin.com/in/daiana-lucia-fared-b27866136/" target="_blank" rel="noopener" class="linkedin-btn">
             <i class="ti ti-brand-linkedin"></i> LinkedIn
           </a>
         </div>
       </div>
       <div class="badges">
-        <span class="badge">↗ Exp. en corporaciones multinacionales</span>
-        <span class="badge">⊕ Gestión en múltiples países</span>
-        <span class="badge">✓ Matrícula habilitante CABA y PBA</span>
+        <span class="badge" data-i18n="team.badge1">↗ Exp. en corporaciones multinacionales</span>
+        <span class="badge" data-i18n="team.badge2">⊕ Gestión en múltiples países</span>
+        <span class="badge" data-i18n="team.badge3">✓ Matrícula habilitante CABA y PBA</span>
       </div>
     </div>
   </div>
@@ -2143,27 +2146,27 @@
   <!-- FAQ -->
   <div class="divider"></div>
   <section class="section" id="faq">
-    <div class="section-label">Preguntas frecuentes</div>
+    <div class="section-label" data-i18n="faq.label">Preguntas frecuentes</div>
     <div class="faq-list">
       <details class="faq-item">
-        <summary>¿Trabajan con monotributistas y autónomos?<i class="ti ti-chevron-down faq-chevron"></i></summary>
-        <div class="faq-answer"><p>Sí, trabajamos con monotributistas, autónomos y sociedades de todos los tamaños, adaptando el servicio a cada etapa del negocio.</p></div>
+        <summary data-i18n-html="faq.q1">¿Trabajan con monotributistas y autónomos?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p data-i18n="faq.a1">Sí, trabajamos con monotributistas, autónomos y sociedades de todos los tamaños, adaptando el servicio a cada etapa del negocio.</p></div>
       </details>
       <details class="faq-item">
-        <summary>¿Atienden a empresas fuera de Buenos Aires?<i class="ti ti-chevron-down faq-chevron"></i></summary>
-        <div class="faq-answer"><p>Sí. Gran parte de nuestro trabajo es remoto, por lo que podemos acompañar a empresas de cualquier provincia o incluso del exterior.</p></div>
+        <summary data-i18n-html="faq.q2">¿Atienden a empresas fuera de Buenos Aires?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p data-i18n="faq.a2">Sí. Gran parte de nuestro trabajo es remoto, por lo que podemos acompañar a empresas de cualquier provincia o incluso del exterior.</p></div>
       </details>
       <details class="faq-item">
-        <summary>¿Cuánto tardan en responder una consulta?<i class="ti ti-chevron-down faq-chevron"></i></summary>
-        <div class="faq-answer"><p>Normalmente respondemos dentro de las 24 horas hábiles por WhatsApp o email.</p></div>
+        <summary data-i18n-html="faq.q3">¿Cuánto tardan en responder una consulta?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p data-i18n="faq.a3">Normalmente respondemos dentro de las 24 horas hábiles por WhatsApp o email.</p></div>
       </details>
       <details class="faq-item">
-        <summary>¿La primera reunión tiene costo?<i class="ti ti-chevron-down faq-chevron"></i></summary>
-        <div class="faq-answer"><p>No, la primera reunión de diagnóstico no tiene costo ni compromiso.</p></div>
+        <summary data-i18n-html="faq.q4">¿La primera reunión tiene costo?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p data-i18n="faq.a4">No, la primera reunión de diagnóstico no tiene costo ni compromiso.</p></div>
       </details>
       <details class="faq-item">
-        <summary>¿Qué necesito para empezar a trabajar con KLŌV?<i class="ti ti-chevron-down faq-chevron"></i></summary>
-        <div class="faq-answer"><p>Alcanza con agendar tu consulta inicial. A partir de ahí te guiamos en todo el proceso de onboarding.</p></div>
+        <summary data-i18n-html="faq.q5">¿Qué necesito para empezar a trabajar con KLŌV?<i class="ti ti-chevron-down faq-chevron"></i></summary>
+        <div class="faq-answer"><p data-i18n="faq.a5">Alcanza con agendar tu consulta inicial. A partir de ahí te guiamos en todo el proceso de onboarding.</p></div>
       </details>
     </div>
   </section>
@@ -2171,23 +2174,23 @@
   <!-- RESERVAS -->
   <div class="divider"></div>
   <section class="section" id="reservas">
-    <div class="section-label">Agendá tu consulta</div>
+    <div class="section-label" data-i18n="reservas.label">Agendá tu consulta</div>
     <div class="reservas-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:2rem;align-items:start;">
       <div>
-        <h2 style="font-family:var(--font-sans);font-size:1.8rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:1rem;">Primera reunión <em class="italic-accent" style="color:var(--purple-lt);font-style:italic;">sin costo.</em></h2>
-        <p style="font-size:13px;color:var(--muted2);line-height:1.8;margin-bottom:1.5rem;">Contanos sobre tu negocio y encontramos juntos qué necesitás. Elegí el día y horario que mejor te quede.</p>
+        <h2 style="font-family:var(--font-sans);font-size:1.8rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:1rem;" data-i18n-html="reservas.title">Primera reunión <em class="italic-accent" style="color:var(--purple-lt);font-style:italic;">sin costo.</em></h2>
+        <p style="font-size:13px;color:var(--muted2);line-height:1.8;margin-bottom:1.5rem;" data-i18n="reservas.text">Contanos sobre tu negocio y encontramos juntos qué necesitás. Elegí el día y horario que mejor te quede.</p>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-soft);">
             <i class="ti ti-clock" style="color:var(--purple-lt);font-size:16px;"></i>
-            30 minutos
+            <span data-i18n="reservas.duration">30 minutos</span>
           </div>
           <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-soft);">
             <i class="ti ti-video" style="color:var(--purple-lt);font-size:16px;"></i>
-            Google Meet / videollamada
+            <span data-i18n="reservas.meet">Google Meet / videollamada</span>
           </div>
           <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-soft);">
             <i class="ti ti-calendar" style="color:var(--purple-lt);font-size:16px;"></i>
-            Confirmación automática por mail
+            <span data-i18n="reservas.confirm">Confirmación automática por mail</span>
           </div>
         </div>
       </div>
@@ -2201,11 +2204,11 @@
 
   <!-- CONTACTO -->
   <section class="contact-section" id="contacto">
-    <div class="section-label">Contacto</div>
+    <div class="section-label" data-i18n="contact.label">Contacto</div>
     <div class="contact-box">
       <div>
-        <h3>Contacto</h3>
-        <p>Contanos sobre tu negocio y encontramos juntos la solución que necesitás.</p>
+        <h3 data-i18n="contact.title">Contacto</h3>
+        <p data-i18n="contact.text">Contanos sobre tu negocio y encontramos juntos la solución que necesitás.</p>
       </div>
       <div class="contact-info">
         <div class="contact-row">
@@ -2231,7 +2234,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026  ·  KLŌV™ Advisory · Todos los derechos son reservados  ·  <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>  ·  KLŌV™ · Advisory Contadores  ·  Creado por KLŌV™ ·  <a href="terminos.html">Términos y Condiciones</a></p>
+    <p data-i18n-html="footer.text">© 2026  ·  KLŌV™ Advisory · Todos los derechos son reservados  ·  <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>  ·  KLŌV™ · Advisory Contadores  ·  Creado por KLŌV™ ·  <a href="terminos.html">Términos y Condiciones</a></p>
     <div class="footer-social" aria-label="Redes y contacto">
       <a href="mailto:contacto@somosklov.com" aria-label="Enviar email" title="Escribinos a contacto@somosklov.com"><i class="ti ti-mail"></i></a>
       <a href="https://instagram.com/klovadvisory" target="_blank" rel="noopener" aria-label="Instagram" title="Seguinos en Instagram @klovadvisory"><i class="ti ti-brand-instagram"></i></a>
@@ -2531,6 +2534,197 @@
             });
           }
         });
+      });
+    })();
+  </script>
+
+  <script>
+    /* ── SWITCH DE IDIOMA (ES / EN) ── */
+    (function () {
+      const EN = {
+        "doc-title": "KLŌV · Accounting Advisory in Buenos Aires, Argentina",
+        "meta-desc": "KLŌV Advisory · Accounting firm in Buenos Aires. Accounting, taxes, finance, payroll, back office.",
+        "nav.nosotras": "About us",
+        "nav.servicios": "Services",
+        "nav.proceso": "Process",
+        "nav.mision": "Mission",
+        "nav.reservas": "Book a call",
+        "nav.faq": "FAQs",
+        "nav.contacto": "Contact",
+        "nav.open": "Open menu",
+        "theme.aria": "Switch between dark and light mode",
+        "theme.title": "Switch theme",
+        "hero.title": "Financial clarity<br>for decisions<br><em class=\"italic-accent\">that matter</em>",
+        "hero.subtitle": "Accounting advisory firm founded by two accountants with experience in multinational corporations and management across multiple countries.",
+        "hero.cta": "Contact us →",
+        "hero.stat.founders": "Founding partners",
+        "hero.stat.areas": "Service areas",
+        "hero.stat.exp": "Multinational experience",
+        "hero.stat.expdesc": "Corporations · Multi-country · Multi-jurisdiction",
+        "mvv.mision.title": "Mission",
+        "mvv.mision.text": "We support companies and entrepreneurs with high-level accounting, tax and financial advisory, combining our team's global experience with a close relationship and concrete solutions powered by process automation and artificial intelligence, tailored to each reality.",
+        "mvv.vision.title": "Vision",
+        "mvv.vision.text": "To be the strategic partner every organization deserves. We aim to become the go-to firm for organizations operating in complex environments, where automation, operational efficiency and strategic vision make the difference between growing and stagnating.",
+        "mvv.valores.title": "Values",
+        "mvv.valores.text": "Technical excellence · Corporate standard for every client.<br>Innovation · Technology where others still use paper.<br>Global vision · Experience across multiple countries.<br>Transparency · Clear, timely, no jargon.<br>Commitment · Strategic partners, not vendors.<br>Personal touch · Global experience, human warmth.",
+        "srv.label": "Our services",
+        "srv.contabilidad.tab": "Accounting",
+        "srv.contabilidad.tabsub": "Financial statements & reporting",
+        "srv.tributario.tab": "Tax",
+        "srv.finanzas.tab": "Finance",
+        "srv.finanzas.tabsub": "Cash flow & KPIs",
+        "srv.laboral.tab": "Payroll & HR",
+        "srv.laboral.tabsub": "Payroll & HR",
+        "srv.admin.tab": "Administration",
+        "srv.admin.tabsub": "Back office",
+        "srv.ia.tab": "AI Automation",
+        "srv.ia.tabsub": "Smart processes",
+        "srv.contabilidad.title": "Accounting",
+        "srv.contabilidad.desc": "Bookkeeping and financial statements with multinational corporate standards",
+        "srv.contabilidad.i1": "Monthly bookkeeping",
+        "srv.contabilidad.i2": "Balance sheet and income statement",
+        "srv.contabilidad.i3": "Inflation adjustment (RT 6)",
+        "srv.contabilidad.i4": "Analysis and interpretation of results",
+        "srv.contabilidad.i5": "Investor reporting",
+        "srv.tributario.title": "Tax",
+        "srv.tributario.desc": "Local and international tax compliance",
+        "srv.tributario.i1": "VAT, income tax and personal assets tax filing",
+        "srv.tributario.i2": "Gross income tax — AGIP / ARBA",
+        "srv.tributario.i3": "Filings before ARCA",
+        "srv.finanzas.title": "Finance",
+        "srv.finanzas.desc": "Strategic financial analysis and planning",
+        "srv.finanzas.i1": "Cash flow projection",
+        "srv.finanzas.i2": "Profitability analysis by product or service",
+        "srv.finanzas.i3": "Monthly dashboard (KPIs)",
+        "srv.finanzas.i4": "Annual financial planning",
+        "srv.laboral.title": "Payroll & HR",
+        "srv.laboral.desc": "Full payroll and human capital management",
+        "srv.laboral.i1": "Monthly payroll processing",
+        "srv.laboral.i2": "Hiring, termination and changes filed with ARCA",
+        "srv.laboral.i3": "Support with recruitment and human capital management",
+        "srv.admin.title": "Administration",
+        "srv.admin.desc": "Back office and tailored administrative processes",
+        "srv.admin.i1": "Monthly administrative back office",
+        "srv.admin.i2": "Treasury reports",
+        "srv.admin.i3": "Invoicing and collections control",
+        "srv.admin.i4": "Design of internal administrative processes",
+        "srv.ia.title": "AI Automation",
+        "srv.ia.desc": "Smart digitization of operational processes",
+        "srv.ia.i1": "Diagnosis of critical manual processes",
+        "srv.ia.i2": "Automated financial reports",
+        "srv.ia.i3": "Accounting software implementation",
+        "proceso.label": "How we work",
+        "proceso.1.title": "Book your consultation",
+        "proceso.1.text": "Pick the day and time that suits you best, with no cost or commitment.",
+        "proceso.2.title": "We talk about your business",
+        "proceso.2.text": "We understand your current situation, your goals and what you need to solve.",
+        "proceso.3.title": "We build a tailored proposal",
+        "proceso.3.text": "We define scope, services and clear fees, with no surprises.",
+        "proceso.4.title": "We start working together",
+        "proceso.4.text": "We integrate your operation into our processes and get started.",
+        "midcta.title": "Let's talk about your business?",
+        "midcta.text": "The first diagnostic meeting is free, with no commitment.",
+        "midcta.cta": "Book your consultation →",
+        "audience.label": "Who is this for?",
+        "audience.1.title": "SMEs",
+        "audience.1.text": "That need order, compliance and professional management of their finances.",
+        "audience.2.title": "Growing businesses",
+        "audience.2.text": "That want to understand their numbers and make decisions based on real data.",
+        "audience.3.title": "Startups",
+        "audience.3.text": "That are looking to professionalize their accounting and financial management from the start.",
+        "team.label": "The team",
+        "team.role": "Certified Public Accountant · CABA & PBA",
+        "team.badge1": "↗ Experience in multinational corporations",
+        "team.badge2": "⊕ Management across multiple countries",
+        "team.badge3": "✓ Licensed in CABA and PBA",
+        "faq.label": "Frequently asked questions",
+        "faq.q1": "Do you work with sole proprietors and freelancers?<i class=\"ti ti-chevron-down faq-chevron\"></i>",
+        "faq.a1": "Yes, we work with sole proprietors, freelancers and companies of all sizes, adapting the service to each stage of the business.",
+        "faq.q2": "Do you work with companies outside Buenos Aires?<i class=\"ti ti-chevron-down faq-chevron\"></i>",
+        "faq.a2": "Yes. Most of our work is remote, so we can support companies from any province or even abroad.",
+        "faq.q3": "How long does it take to answer a query?<i class=\"ti ti-chevron-down faq-chevron\"></i>",
+        "faq.a3": "We usually reply within 24 business hours via WhatsApp or email.",
+        "faq.q4": "Does the first meeting cost anything?<i class=\"ti ti-chevron-down faq-chevron\"></i>",
+        "faq.a4": "No, the first diagnostic meeting is free, with no commitment.",
+        "faq.q5": "What do I need to start working with KLŌV?<i class=\"ti ti-chevron-down faq-chevron\"></i>",
+        "faq.a5": "Just book your initial consultation. From there we guide you through the entire onboarding process.",
+        "reservas.label": "Book your consultation",
+        "reservas.title": "First meeting <em class=\"italic-accent\" style=\"color:var(--purple-lt);font-style:italic;\">free of charge.</em>",
+        "reservas.text": "Tell us about your business and let's find together what you need. Pick the day and time that works best for you.",
+        "reservas.duration": "30 minutes",
+        "reservas.meet": "Google Meet / video call",
+        "reservas.confirm": "Automatic email confirmation",
+        "contact.label": "Contact",
+        "contact.title": "Contact",
+        "contact.text": "Tell us about your business and let's find the solution you need together.",
+        "footer.text": "© 2026  ·  KLŌV™ Advisory · All rights reserved  ·  <a href=\"mailto:contacto@somosklov.com\">contacto@somosklov.com</a>  ·  KLŌV™ · Accounting Advisory  ·  Created by KLŌV™ ·  <a href=\"terminos.html\">Terms & Conditions</a>"
+      };
+
+      const ES = {}; // Guarda el contenido original en español la primera vez
+      const root = document.documentElement;
+      const btn = document.getElementById('lang-switch');
+      const label = document.getElementById('lang-switch-label');
+      if (!btn) return;
+
+      function captureOriginal() {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (!(key in ES)) ES[key] = el.textContent;
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+          const key = el.getAttribute('data-i18n-html');
+          if (!(key in ES)) ES[key] = el.innerHTML;
+        });
+        document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+          const pairs = el.getAttribute('data-i18n-attr').split('|');
+          pairs.forEach(pair => {
+            const [attr, key] = pair.split(':');
+            const esKey = 'attr:' + key;
+            if (!(esKey in ES)) ES[esKey] = el.getAttribute(attr);
+          });
+        });
+        if (document.title) ES['doc-title'] = document.title;
+        const metaDesc = document.getElementById('meta-desc');
+        if (metaDesc) ES['meta-desc'] = metaDesc.getAttribute('content');
+      }
+
+      function applyLang(lang) {
+        const dict = lang === 'en' ? EN : ES;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+          const key = el.getAttribute('data-i18n-html');
+          if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+          const pairs = el.getAttribute('data-i18n-attr').split('|');
+          pairs.forEach(pair => {
+            const [attr, key] = pair.split(':');
+            const val = dict['attr:' + key] || (lang === 'en' ? EN[key] : ES['attr:' + key]);
+            if (val !== undefined) el.setAttribute(attr, val);
+          });
+        });
+        if (dict['doc-title']) document.title = dict['doc-title'];
+        const metaDesc = document.getElementById('meta-desc');
+        if (metaDesc && dict['meta-desc']) metaDesc.setAttribute('content', dict['meta-desc']);
+
+        root.setAttribute('lang', lang === 'en' ? 'en' : 'es');
+        if (label) label.textContent = lang === 'en' ? 'EN' : 'ES';
+        btn.setAttribute('aria-label', lang === 'en' ? 'Switch to Spanish' : 'Switch to English');
+        try { localStorage.setItem('klov-lang', lang); } catch (e) {}
+      }
+
+      captureOriginal();
+
+      let current = 'es';
+      try { current = localStorage.getItem('klov-lang') || 'es'; } catch (e) {}
+      applyLang(current);
+
+      btn.addEventListener('click', function () {
+        current = current === 'en' ? 'es' : 'en';
+        applyLang(current);
       });
     })();
   </script>
