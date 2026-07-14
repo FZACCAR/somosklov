@@ -14,13 +14,13 @@
   })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="KLŌV Advisory · Términos & condiciones" />
+<meta id="meta-desc" name="description" content="KLŌV Advisory · Términos & condiciones" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://klov.netlify.app/terminos.html" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-<title>KLŌV · Términos y Condiciones</title>
+<title id="doc-title">KLŌV · Términos y Condiciones</title>
 <link rel="icon" type="image/jpeg" href="https://cdn-icons-png.flaticon.com/512/9083/9083001.png" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
@@ -141,135 +141,261 @@
 
 <nav>
   <a href="index.html" class="nav-logo">KL<span>Ō</span>V</a>
-  <a href="index.html" class="back-link"><i class="ti ti-arrow-left"></i> Volver al sitio</a>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <button type="button" id="lang-switch" aria-label="Switch language / Cambiar idioma" title="ES / EN" style="background:transparent;border:1px solid var(--border);border-radius:999px;padding:5px 11px;font-size:11px;letter-spacing:1px;color:var(--text);font-family:var(--font-sans);cursor:pointer;">ES</button>
+    <a href="index.html" class="back-link" data-i18n-html="back"><i class="ti ti-arrow-left"></i> Volver al sitio</a>
+  </div>
 </nav>
 
 <div class="wrap">
-  <div class="section-label">Legales</div>
-  <h1>Términos y condiciones</h1>
-  <p class="updated">Última actualización: Julio de 2026 · Aplica al sitio web y a los servicios de KLŌV™ Advisory</p>
+  <div class="section-label" data-i18n="legales">Legales</div>
+  <h1 data-i18n="titulo">Términos y condiciones</h1>
+  <p class="updated" data-i18n="updated">Última actualización: Julio de 2026 · Aplica al sitio web y a los servicios de KLŌV™ Advisory</p>
 
   <div class="toc">
-    <p>Contenido</p>
+    <p data-i18n="toc.label">Contenido</p>
     <ol>
-      <li><a href="#aceptacion">Aceptación de los términos</a></li>
-      <li><a href="#quienes-somos">Quiénes somos</a></li>
-      <li><a href="#naturaleza">Naturaleza de la información del sitio</a></li>
-      <li><a href="#no-asesoramiento">No sustituye asesoramiento profesional formal</a></li>
-      <li><a href="#servicios">Contratación de servicios</a></li>
-      <li><a href="#responsabilidades-cliente">Responsabilidades del cliente</a></li>
-      <li><a href="#limitacion">Limitación de responsabilidad</a></li>
-      <li><a href="#publicaciones">Publicaciones y contenido del equipo</a></li>
-      <li><a href="#propiedad">Propiedad intelectual</a></li>
-      <li><a href="#datos">Protección de datos personales</a></li>
-      <li><a href="#enlaces">Enlaces a terceros</a></li>
-      <li><a href="#modificaciones">Modificaciones de estos términos</a></li>
-      <li><a href="#ley">Ley aplicable y jurisdicción</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#aceptacion" data-i18n="toc.1">Aceptación de los términos</a></li>
+      <li><a href="#quienes-somos" data-i18n="toc.2">Quiénes somos</a></li>
+      <li><a href="#naturaleza" data-i18n="toc.3">Naturaleza de la información del sitio</a></li>
+      <li><a href="#no-asesoramiento" data-i18n="toc.4">No sustituye asesoramiento profesional formal</a></li>
+      <li><a href="#servicios" data-i18n="toc.5">Contratación de servicios</a></li>
+      <li><a href="#responsabilidades-cliente" data-i18n="toc.6">Responsabilidades del cliente</a></li>
+      <li><a href="#limitacion" data-i18n="toc.7">Limitación de responsabilidad</a></li>
+      <li><a href="#publicaciones" data-i18n="toc.8">Publicaciones y contenido del equipo</a></li>
+      <li><a href="#propiedad" data-i18n="toc.9">Propiedad intelectual</a></li>
+      <li><a href="#datos" data-i18n="toc.10">Protección de datos personales</a></li>
+      <li><a href="#enlaces" data-i18n="toc.11">Enlaces a terceros</a></li>
+      <li><a href="#modificaciones" data-i18n="toc.12">Modificaciones de estos términos</a></li>
+      <li><a href="#ley" data-i18n="toc.13">Ley aplicable y jurisdicción</a></li>
+      <li><a href="#contacto" data-i18n="toc.14">Contacto</a></li>
     </ol>
   </div>
 
   <article>
     <section id="aceptacion">
-      <h2><span class="num">01</span> Aceptación de los términos</h2>
-      <p>Al acceder y utilizar el sitio web de KLŌV™ Advisory ("KLŌV", "nosotras", "el Estudio") y sus canales asociados, usted ("el Usuario") acepta quedar obligado por estos Términos y Condiciones. Si no está de acuerdo con alguno de sus puntos, le pedimos que no utilice este sitio ni contrate nuestros servicios.</p>
-      <p>Estos términos rigen el uso del sitio informativo, del formulario de contacto y reservas, y de la sección de publicaciones del equipo, y son independientes de cualquier contrato de servicios profesionales que se firme por separado con cada clienta o cliente.</p>
+      <h2><span class="num">01</span> <span data-i18n="s1.h">Aceptación de los términos</span></h2>
+      <p data-i18n="s1.p1">Al acceder y utilizar el sitio web de KLŌV™ Advisory ("KLŌV", "nosotras", "el Estudio") y sus canales asociados, usted ("el Usuario") acepta quedar obligado por estos Términos y Condiciones. Si no está de acuerdo con alguno de sus puntos, le pedimos que no utilice este sitio ni contrate nuestros servicios.</p>
+      <p data-i18n="s1.p2">Estos términos rigen el uso del sitio informativo, del formulario de contacto y reservas, y de la sección de publicaciones del equipo, y son independientes de cualquier contrato de servicios profesionales que se firme por separado con cada clienta o cliente.</p>
     </section>
 
     <section id="quienes-somos">
-      <h2><span class="num">02</span> Quiénes somos</h2>
-      <p>KLŌV™ Advisory es un estudio de advisory contable, tributario, financiero y laboral con sede de operaciones en Buenos Aires, Argentina, integrado por contadoras públicas matriculadas en CABA y PBA. Podés contactarnos a través de <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>.</p>
+      <h2><span class="num">02</span> <span data-i18n="s2.h">Quiénes somos</span></h2>
+      <p data-i18n-html="s2.p1">KLŌV™ Advisory es un estudio de advisory contable, tributario, financiero y laboral con sede de operaciones en Buenos Aires, Argentina, integrado por contadoras públicas matriculadas en CABA y PBA. Podés contactarnos a través de <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>.</p>
     </section>
 
     <section id="naturaleza">
-      <h2><span class="num">03</span> Naturaleza de la información del sitio</h2>
-      <p>Todo el contenido publicado en este sitio —incluyendo textos, artículos, publicaciones del equipo, ejemplos, gráficos y respuestas a preguntas frecuentes— tiene <strong>finalidad exclusivamente informativa y general</strong>. No constituye, y no debe interpretarse como, asesoramiento contable, impositivo, laboral, financiero o legal aplicado a un caso particular.</p>
-      <p>La normativa impositiva, contable y laboral en Argentina cambia con frecuencia. No garantizamos que el contenido del sitio esté actualizado al momento en que usted lo consulte, ni asumimos obligación de actualizarlo de forma permanente.</p>
+      <h2><span class="num">03</span> <span data-i18n="s3.h">Naturaleza de la información del sitio</span></h2>
+      <p data-i18n-html="s3.p1">Todo el contenido publicado en este sitio —incluyendo textos, artículos, publicaciones del equipo, ejemplos, gráficos y respuestas a preguntas frecuentes— tiene <strong>finalidad exclusivamente informativa y general</strong>. No constituye, y no debe interpretarse como, asesoramiento contable, impositivo, laboral, financiero o legal aplicado a un caso particular.</p>
+      <p data-i18n="s3.p2">La normativa impositiva, contable y laboral en Argentina cambia con frecuencia. No garantizamos que el contenido del sitio esté actualizado al momento en que usted lo consulte, ni asumimos obligación de actualizarlo de forma permanente.</p>
     </section>
 
     <section id="no-asesoramiento">
-      <h2><span class="num">04</span> No sustituye asesoramiento profesional formal</h2>
-      <p>Ninguna publicación, artículo, mensaje de WhatsApp, correo electrónico informativo o intercambio previo a la firma de una propuesta de servicios constituye una relación profesional formal ni genera obligaciones de auditoría, certificación o representación ante organismos.</p>
-      <div class="highlight">
+      <h2><span class="num">04</span> <span data-i18n="s4.h">No sustituye asesoramiento profesional formal</span></h2>
+      <p data-i18n="s4.p1">Ninguna publicación, artículo, mensaje de WhatsApp, correo electrónico informativo o intercambio previo a la firma de una propuesta de servicios constituye una relación profesional formal ni genera obligaciones de auditoría, certificación o representación ante organismos.</p>
+      <div class="highlight" data-i18n-html="s4.highlight">
         <strong>Importante:</strong> la relación profesional con KLŌV, con sus alcances, honorarios y responsabilidades específicas, queda formalizada únicamente mediante la aceptación expresa —por escrito o por medio digital verificable— de una propuesta de servicios o carta de compromiso.
       </div>
     </section>
 
     <section id="servicios">
-      <h2><span class="num">05</span> Contratación de servicios</h2>
-      <p>La solicitud de una consulta a través del formulario de reservas, WhatsApp o correo electrónico no implica la contratación automática de servicios ni la aceptación de un mandato profesional. Cada servicio (contabilidad, impuestos, liquidación de sueldos, back office u otros) será alcanzado por su propia propuesta, honorarios y condiciones particulares, que se comunicarán antes de iniciar cualquier tarea.</p>
-      <p>Nos reservamos el derecho de aceptar o rechazar la prestación de un servicio a nuestro criterio profesional, incluyendo por razones de incompatibilidad, capacidad operativa o conflicto de intereses.</p>
+      <h2><span class="num">05</span> <span data-i18n="s5.h">Contratación de servicios</span></h2>
+      <p data-i18n="s5.p1">La solicitud de una consulta a través del formulario de reservas, WhatsApp o correo electrónico no implica la contratación automática de servicios ni la aceptación de un mandato profesional. Cada servicio (contabilidad, impuestos, liquidación de sueldos, back office u otros) será alcanzado por su propia propuesta, honorarios y condiciones particulares, que se comunicarán antes de iniciar cualquier tarea.</p>
+      <p data-i18n="s5.p2">Nos reservamos el derecho de aceptar o rechazar la prestación de un servicio a nuestro criterio profesional, incluyendo por razones de incompatibilidad, capacidad operativa o conflicto de intereses.</p>
     </section>
 
     <section id="responsabilidades-cliente">
-      <h2><span class="num">06</span> Responsabilidades del cliente</h2>
-      <p>La calidad y exactitud de nuestro trabajo depende, en gran medida, de la información que el cliente nos provee. En consecuencia, el cliente se compromete a:</p>
+      <h2><span class="num">06</span> <span data-i18n="s6.h">Responsabilidades del cliente</span></h2>
+      <p data-i18n="s6.p1">La calidad y exactitud de nuestro trabajo depende, en gran medida, de la información que el cliente nos provee. En consecuencia, el cliente se compromete a:</p>
       <ul>
-        <li>Entregar documentación e información veraz, completa y en tiempo razonable.</li>
-        <li>Informar cambios relevantes en su situación fiscal, societaria o laboral.</li>
-        <li>Revisar y validar la información que utilicemos para la confección de declaraciones, liquidaciones o informes antes de su presentación, cuando así se le solicite.</li>
+        <li data-i18n="s6.li1">Entregar documentación e información veraz, completa y en tiempo razonable.</li>
+        <li data-i18n="s6.li2">Informar cambios relevantes en su situación fiscal, societaria o laboral.</li>
+        <li data-i18n="s6.li3">Revisar y validar la información que utilicemos para la confección de declaraciones, liquidaciones o informes antes de su presentación, cuando así se le solicite.</li>
       </ul>
-      <p>KLŌV no será responsable por errores, omisiones, multas, intereses o perjuicios derivados de información falsa, incompleta o entregada fuera de los plazos acordados por el cliente.</p>
+      <p data-i18n="s6.p2">KLŌV no será responsable por errores, omisiones, multas, intereses o perjuicios derivados de información falsa, incompleta o entregada fuera de los plazos acordados por el cliente.</p>
     </section>
 
     <section id="limitacion">
-      <h2><span class="num">07</span> Limitación de responsabilidad</h2>
-      <p>El uso de este sitio web y de la información contenida en él es bajo exclusiva responsabilidad del Usuario. En la máxima medida permitida por la legislación aplicable:</p>
+      <h2><span class="num">07</span> <span data-i18n="s7.h">Limitación de responsabilidad</span></h2>
+      <p data-i18n="s7.p1">El uso de este sitio web y de la información contenida en él es bajo exclusiva responsabilidad del Usuario. En la máxima medida permitida por la legislación aplicable:</p>
       <ul>
-        <li>KLŌV no garantiza que el sitio esté libre de errores, interrupciones o disponible de forma ininterrumpida.</li>
-        <li>KLŌV no será responsable por decisiones tomadas exclusivamente en base a contenido general del sitio, sin mediar un servicio profesional formalmente contratado.</li>
-        <li>KLŌV no será responsable por daños indirectos, incidentales o derivados del uso o la imposibilidad de uso del sitio, incluyendo pérdida de datos, de ingresos o de oportunidades de negocio.</li>
-        <li>Nada de lo dispuesto en esta sección limita la responsabilidad de KLŌV en los casos en que dicha limitación no esté permitida por la ley argentina, ni excluye la responsabilidad profesional asumida expresamente en una carta de compromiso o contrato de servicios.</li>
+        <li data-i18n="s7.li1">KLŌV no garantiza que el sitio esté libre de errores, interrupciones o disponible de forma ininterrumpida.</li>
+        <li data-i18n="s7.li2">KLŌV no será responsable por decisiones tomadas exclusivamente en base a contenido general del sitio, sin mediar un servicio profesional formalmente contratado.</li>
+        <li data-i18n="s7.li3">KLŌV no será responsable por daños indirectos, incidentales o derivados del uso o la imposibilidad de uso del sitio, incluyendo pérdida de datos, de ingresos o de oportunidades de negocio.</li>
+        <li data-i18n="s7.li4">Nada de lo dispuesto en esta sección limita la responsabilidad de KLŌV en los casos en que dicha limitación no esté permitida por la ley argentina, ni excluye la responsabilidad profesional asumida expresamente en una carta de compromiso o contrato de servicios.</li>
       </ul>
     </section>
 
     <section id="publicaciones">
-      <h2><span class="num">08</span> Publicaciones y contenido del equipo</h2>
-      <p>La sección de publicaciones permite a las integrantes del equipo de KLŌV compartir novedades, comentarios y contenido de interés general. Estas publicaciones reflejan opiniones profesionales generales al momento de su redacción y no constituyen asesoramiento personalizado ni una posición institucional definitiva del Estudio sobre casos particulares.</p>
-      <p>Los enlaces e imágenes compartidos en esta sección son responsabilidad de quien los publica. KLŌV podrá editar o eliminar publicaciones que resulten inexactas, desactualizadas o inapropiadas.</p>
+      <h2><span class="num">08</span> <span data-i18n="s8.h">Publicaciones y contenido del equipo</span></h2>
+      <p data-i18n="s8.p1">La sección de publicaciones permite a las integrantes del equipo de KLŌV compartir novedades, comentarios y contenido de interés general. Estas publicaciones reflejan opiniones profesionales generales al momento de su redacción y no constituyen asesoramiento personalizado ni una posición institucional definitiva del Estudio sobre casos particulares.</p>
+      <p data-i18n="s8.p2">Los enlaces e imágenes compartidos en esta sección son responsabilidad de quien los publica. KLŌV podrá editar o eliminar publicaciones que resulten inexactas, desactualizadas o inapropiadas.</p>
     </section>
 
     <section id="propiedad">
-      <h2><span class="num">09</span> Propiedad intelectual</h2>
-      <p>La marca KLŌV™, su logotipo, los textos, diseños y demás elementos originales de este sitio son propiedad de KLŌV Advisory o se utilizan bajo licencia. Queda prohibida su reproducción, distribución o uso comercial sin autorización previa y por escrito.</p>
+      <h2><span class="num">09</span> <span data-i18n="s9.h">Propiedad intelectual</span></h2>
+      <p data-i18n="s9.p1">La marca KLŌV™, su logotipo, los textos, diseños y demás elementos originales de este sitio son propiedad de KLŌV Advisory o se utilizan bajo licencia. Queda prohibida su reproducción, distribución o uso comercial sin autorización previa y por escrito.</p>
     </section>
 
     <section id="datos">
-      <h2><span class="num">10</span> Protección de datos personales</h2>
-      <p>Los datos personales que el Usuario proporcione a través de formularios, correo electrónico o WhatsApp serán utilizados exclusivamente para responder consultas, gestionar reservas y prestar los servicios solicitados, en línea con la Ley N.º 25.326 de Protección de Datos Personales de la República Argentina.</p>
-      <p>El Usuario podrá solicitar en cualquier momento el acceso, la rectificación o la eliminación de sus datos escribiendo a <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>. La Agencia de Acceso a la Información Pública, en su carácter de Órgano de Control de la Ley N.º 25.326, tiene la atribución de atender denuncias y reclamos que se interpongan con relación al incumplimiento de las normas sobre protección de datos personales.</p>
+      <h2><span class="num">10</span> <span data-i18n="s10.h">Protección de datos personales</span></h2>
+      <p data-i18n="s10.p1">Los datos personales que el Usuario proporcione a través de formularios, correo electrónico o WhatsApp serán utilizados exclusivamente para responder consultas, gestionar reservas y prestar los servicios solicitados, en línea con la Ley N.º 25.326 de Protección de Datos Personales de la República Argentina.</p>
+      <p data-i18n-html="s10.p2">El Usuario podrá solicitar en cualquier momento el acceso, la rectificación o la eliminación de sus datos escribiendo a <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>. La Agencia de Acceso a la Información Pública, en su carácter de Órgano de Control de la Ley N.º 25.326, tiene la atribución de atender denuncias y reclamos que se interpongan con relación al incumplimiento de las normas sobre protección de datos personales.</p>
     </section>
 
     <section id="enlaces">
-      <h2><span class="num">11</span> Enlaces a terceros</h2>
-      <p>Este sitio puede contener enlaces a redes sociales o sitios de terceros (Instagram, LinkedIn, WhatsApp, entre otros). KLŌV no controla ni se responsabiliza por el contenido, las políticas de privacidad o las prácticas de esos sitios externos.</p>
+      <h2><span class="num">11</span> <span data-i18n="s11.h">Enlaces a terceros</span></h2>
+      <p data-i18n="s11.p1">Este sitio puede contener enlaces a redes sociales o sitios de terceros (Instagram, LinkedIn, WhatsApp, entre otros). KLŌV no controla ni se responsabiliza por el contenido, las políticas de privacidad o las prácticas de esos sitios externos.</p>
     </section>
 
     <section id="modificaciones">
-      <h2><span class="num">12</span> Modificaciones de estos términos</h2>
-      <p>KLŌV podrá modificar estos Términos y Condiciones en cualquier momento para reflejar cambios normativos, operativos o de servicios. La versión vigente será siempre la publicada en esta página, con su fecha de última actualización.</p>
+      <h2><span class="num">12</span> <span data-i18n="s12.h">Modificaciones de estos términos</span></h2>
+      <p data-i18n="s12.p1">KLŌV podrá modificar estos Términos y Condiciones en cualquier momento para reflejar cambios normativos, operativos o de servicios. La versión vigente será siempre la publicada en esta página, con su fecha de última actualización.</p>
     </section>
 
     <section id="ley">
-      <h2><span class="num">13</span> Ley aplicable y jurisdicción</h2>
-      <p>Estos Términos y Condiciones se rigen por las leyes de la República Argentina. Para cualquier controversia derivada de su interpretación o aplicación, las partes se someten a la jurisdicción de los tribunales ordinarios de la Ciudad Autónoma de Buenos Aires, con renuncia a cualquier otro fuero que pudiera corresponder.</p>
+      <h2><span class="num">13</span> <span data-i18n="s13.h">Ley aplicable y jurisdicción</span></h2>
+      <p data-i18n="s13.p1">Estos Términos y Condiciones se rigen por las leyes de la República Argentina. Para cualquier controversia derivada de su interpretación o aplicación, las partes se someten a la jurisdicción de los tribunales ordinarios de la Ciudad Autónoma de Buenos Aires, con renuncia a cualquier otro fuero que pudiera corresponder.</p>
     </section>
 
     <section id="contacto">
-      <h2><span class="num">14</span> Contacto</h2>
-      <p>Ante cualquier consulta sobre estos Términos y Condiciones, podés escribirnos a <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a> o a través de nuestros canales oficiales de contacto disponibles en el sitio.</p>
+      <h2><span class="num">14</span> <span data-i18n="s14.h">Contacto</span></h2>
+      <p data-i18n-html="s14.p1">Ante cualquier consulta sobre estos Términos y Condiciones, podés escribirnos a <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a> o a través de nuestros canales oficiales de contacto disponibles en el sitio.</p>
     </section>
   </article>
 
   <div class="contact-box">
-    <p>¿Tenés dudas sobre estos términos o sobre nuestros servicios?</p>
+    <p data-i18n="cbox.p">¿Tenés dudas sobre estos términos o sobre nuestros servicios?</p>
     <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>
   </div>
 </div>
 
 <footer class="site-footer">
-  <p>© 2026 · KLŌV™ Advisory · <a href="index.html">Volver al inicio</a></p>
+  <p data-i18n-html="foot">© 2026 · KLŌV™ Advisory · <a href="index.html">Volver al inicio</a></p>
 </footer>
+
+<script>
+  /* ── SWITCH DE IDIOMA (ES / EN) ── */
+  (function () {
+    const EN = {
+      "doc-title": "KLŌV · Terms and Conditions",
+      "meta-desc": "KLŌV Advisory · Terms & conditions",
+      "back": "<i class=\"ti ti-arrow-left\"></i> Back to site",
+      "legales": "Legal",
+      "titulo": "Terms and conditions",
+      "updated": "Last updated: July 2026 · Applies to the KLŌV™ Advisory website and services",
+      "toc.label": "Contents",
+      "toc.1": "Acceptance of terms",
+      "toc.2": "Who we are",
+      "toc.3": "Nature of the site's information",
+      "toc.4": "Does not replace formal professional advice",
+      "toc.5": "Hiring of services",
+      "toc.6": "Client responsibilities",
+      "toc.7": "Limitation of liability",
+      "toc.8": "Team publications and content",
+      "toc.9": "Intellectual property",
+      "toc.10": "Personal data protection",
+      "toc.11": "Third-party links",
+      "toc.12": "Changes to these terms",
+      "toc.13": "Governing law and jurisdiction",
+      "toc.14": "Contact",
+      "s1.h": "Acceptance of terms",
+      "s1.p1": "By accessing and using the KLŌV™ Advisory website (\"KLŌV\", \"we\", \"the Firm\") and its associated channels, you (\"the User\") agree to be bound by these Terms and Conditions. If you do not agree with any of its points, please refrain from using this site or engaging our services.",
+      "s1.p2": "These terms govern the use of the informational website, the contact and booking form, and the team publications section, and are independent from any professional services agreement signed separately with each client.",
+      "s2.h": "Who we are",
+      "s2.p1": "KLŌV™ Advisory is an accounting, tax, financial and payroll advisory firm based in Buenos Aires, Argentina, made up of certified public accountants licensed in CABA and PBA. You can reach us at <a href=\"mailto:contacto@somosklov.com\">contacto@somosklov.com</a>.",
+      "s3.h": "Nature of the site's information",
+      "s3.p1": "All content published on this site —including texts, articles, team publications, examples, graphics and answers to frequently asked questions— is <strong>for general informational purposes only</strong>. It does not constitute, and should not be interpreted as, accounting, tax, labor, financial or legal advice applied to a particular case.",
+      "s3.p2": "Tax, accounting and labor regulations in Argentina change frequently. We do not guarantee that the site's content is up to date at the time you consult it, nor do we assume any obligation to keep it permanently updated.",
+      "s4.h": "Does not replace formal professional advice",
+      "s4.p1": "No publication, article, WhatsApp message, informational email or exchange prior to signing a services proposal constitutes a formal professional relationship or generates audit, certification or representation obligations before government agencies.",
+      "s4.highlight": "<strong>Important:</strong> the professional relationship with KLŌV, including its scope, fees and specific responsibilities, is formalized only through express acceptance —in writing or via verifiable digital means— of a services proposal or engagement letter.",
+      "s5.h": "Hiring of services",
+      "s5.p1": "Requesting a consultation through the booking form, WhatsApp or email does not imply the automatic hiring of services nor the acceptance of a professional mandate. Each service (accounting, taxes, payroll, back office or others) will be governed by its own proposal, fees and specific terms, which will be communicated before starting any task.",
+      "s5.p2": "We reserve the right to accept or decline to provide a service at our professional discretion, including for reasons of incompatibility, operational capacity or conflict of interest.",
+      "s6.h": "Client responsibilities",
+      "s6.p1": "The quality and accuracy of our work depends, to a large extent, on the information the client provides us. Accordingly, the client agrees to:",
+      "s6.li1": "Provide accurate, complete documentation and information within a reasonable time.",
+      "s6.li2": "Report relevant changes in their tax, corporate or labor situation.",
+      "s6.li3": "Review and validate the information we use to prepare filings, payroll or reports before submission, when requested to do so.",
+      "s6.p2": "KLŌV will not be liable for errors, omissions, fines, interest or damages arising from false, incomplete information, or information delivered outside the agreed deadlines by the client.",
+      "s7.h": "Limitation of liability",
+      "s7.p1": "Use of this website and the information contained in it is at the User's sole responsibility. To the fullest extent permitted by applicable law:",
+      "s7.li1": "KLŌV does not guarantee that the site will be free of errors, interruptions, or continuously available.",
+      "s7.li2": "KLŌV will not be liable for decisions made solely based on the site's general content, without a formally engaged professional service.",
+      "s7.li3": "KLŌV will not be liable for indirect, incidental or consequential damages arising from the use or inability to use the site, including loss of data, revenue or business opportunities.",
+      "s7.li4": "Nothing in this section limits KLŌV's liability in cases where such limitation is not permitted under Argentine law, nor does it exclude professional liability expressly assumed in an engagement letter or services agreement.",
+      "s8.h": "Team publications and content",
+      "s8.p1": "The publications section allows members of the KLŌV team to share news, comments and content of general interest. These publications reflect general professional opinions at the time of writing and do not constitute personalized advice nor a definitive institutional position of the Firm on particular cases.",
+      "s8.p2": "Links and images shared in this section are the responsibility of whoever publishes them. KLŌV may edit or remove publications that are inaccurate, outdated or inappropriate.",
+      "s9.h": "Intellectual property",
+      "s9.p1": "The KLŌV™ brand, its logo, texts, designs and other original elements of this site are the property of KLŌV Advisory or are used under license. Their reproduction, distribution or commercial use without prior written authorization is prohibited.",
+      "s10.h": "Personal data protection",
+      "s10.p1": "Personal data provided by the User through forms, email or WhatsApp will be used exclusively to respond to inquiries, manage bookings and provide the requested services, in accordance with Law No. 25,326 on Personal Data Protection of the Argentine Republic.",
+      "s10.p2": "The User may request access to, rectification of, or deletion of their data at any time by writing to <a href=\"mailto:contacto@somosklov.com\">contacto@somosklov.com</a>. The Agency for Access to Public Information, as the Enforcement Body of Law No. 25,326, is empowered to handle complaints related to non-compliance with personal data protection regulations.",
+      "s11.h": "Third-party links",
+      "s11.p1": "This site may contain links to social media or third-party sites (Instagram, LinkedIn, WhatsApp, among others). KLŌV does not control nor is responsible for the content, privacy policies or practices of those external sites.",
+      "s12.h": "Changes to these terms",
+      "s12.p1": "KLŌV may modify these Terms and Conditions at any time to reflect regulatory, operational or service changes. The current version will always be the one published on this page, with its last update date.",
+      "s13.h": "Governing law and jurisdiction",
+      "s13.p1": "These Terms and Conditions are governed by the laws of the Argentine Republic. For any dispute arising from their interpretation or application, the parties submit to the jurisdiction of the ordinary courts of the Autonomous City of Buenos Aires, waiving any other venue that might apply.",
+      "s14.h": "Contact",
+      "s14.p1": "For any questions about these Terms and Conditions, you can write to us at <a href=\"mailto:contacto@somosklov.com\">contacto@somosklov.com</a> or through our official contact channels available on the site.",
+      "cbox.p": "Do you have questions about these terms or our services?",
+      "foot": "© 2026 · KLŌV™ Advisory · <a href=\"index.html\">Back to home</a>"
+    };
+
+    const ES = {};
+    const root = document.documentElement;
+    const btn = document.getElementById('lang-switch');
+    if (!btn) return;
+
+    function captureOriginal() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (!(key in ES)) ES[key] = el.textContent;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (!(key in ES)) ES[key] = el.innerHTML;
+      });
+      if (document.title) ES['doc-title'] = document.title;
+      const metaDesc = document.getElementById('meta-desc');
+      if (metaDesc) ES['meta-desc'] = metaDesc.getAttribute('content');
+    }
+
+    function applyLang(lang) {
+      const dict = lang === 'en' ? EN : ES;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+      if (dict['doc-title']) document.title = dict['doc-title'];
+      const metaDesc = document.getElementById('meta-desc');
+      if (metaDesc && dict['meta-desc']) metaDesc.setAttribute('content', dict['meta-desc']);
+
+      root.setAttribute('lang', lang === 'en' ? 'en' : 'es');
+      btn.textContent = lang === 'en' ? 'EN' : 'ES';
+      btn.setAttribute('aria-label', lang === 'en' ? 'Switch to Spanish' : 'Switch to English');
+      try { localStorage.setItem('klov-lang', lang); } catch (e) {}
+    }
+
+    captureOriginal();
+
+    let current = 'es';
+    try { current = localStorage.getItem('klov-lang') || 'es'; } catch (e) {}
+    applyLang(current);
+
+    btn.addEventListener('click', function () {
+      current = current === 'en' ? 'es' : 'en';
+      applyLang(current);
+    });
+  })();
+</script>
 
 </body>
 </html>
