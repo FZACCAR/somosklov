@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('klov-theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      if (stored === 'light' || (!stored && prefersLight)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta id="meta-desc" name="description" content="KLŌV Advisory · Política de privacidad" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.somosklov.com.ar/privacidad" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="KLŌV · Política de Privacidad" />
+<meta property="og:description" content="Política de privacidad del sitio y los servicios de KLŌV Advisory." />
+<meta property="og:url" content="https://www.somosklov.com.ar/privacidad" />
+<meta property="og:locale" content="es_AR" />
+<meta property="og:site_name" content="KLŌV Advisory" />
+<meta property="og:image" content="https://i.ibb.co/tPPtFcpJ/2026-07-14-220924.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="KLŌV · Política de Privacidad" />
+<meta name="twitter:description" content="Política de privacidad del sitio y los servicios de KLŌV Advisory." />
+<meta name="twitter:image" content="https://i.ibb.co/tPPtFcpJ/2026-07-14-220924.jpg" />
+
+<title id="doc-title">KLŌV · Política de Privacidad</title>
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/qYK0Tp18/FAVICON-KLOV-2-CON-RELIEVES.png" />
+<link rel="apple-touch-icon" href="https://i.ibb.co/qYK0Tp18/FAVICON-KLOV-2-CON-RELIEVES.png" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+
+<!-- Datos estructurados (schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://www.somosklov.com.ar/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Política de Privacidad",
+      "item": "https://www.somosklov.com.ar/privacidad"
+    }
+  ]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #12121A;
+    --bg2:       #0E0E16;
+    --card:      #1A1A26;
+    --border:    #2E2E42;
+    --purple:    #7F77DD;
+    --purple-lt: #A89EE8;
+    --purple-dk: #534AB7;
+    --text:      #EEEEF2;
+    --muted:     #555568;
+    --faint:     #444458;
+    --text-soft: #C8C8DC;
+    --muted2:    #9090B0;
+    --font-serif: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-sans:  'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  html[data-theme="light"] {
+    --bg:        #F7F6FC;
+    --bg2:       #FFFFFF;
+    --card:      #FFFFFF;
+    --border:    #E1DDF0;
+    --purple:    #6E62D6;
+    --purple-lt: #5B4FC4;
+    --purple-dk: #453C99;
+    --text:      #201D2E;
+    --muted:     #6B6884;
+    --faint:     #A8A4C2;
+    --text-soft: #4B4768;
+    --muted2:    #6E6B8C;
+  }
+
+  html, body { background: var(--bg); color: var(--text); font-family: var(--font-sans); }
+  body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
+  a { color: var(--purple-lt); text-decoration: none; }
+  a:hover { text-decoration: none; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: rgba(18,18,26,0.72);
+    backdrop-filter: blur(14px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  html[data-theme="light"] nav { background: rgba(255,255,255,0.78); }
+  .nav-logo { font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: 1px; color: var(--text); font-weight: 700; }
+  .nav-logo span { color: var(--purple-lt); font-style: italic; }
+  .back-link { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--purple-lt) !important; letter-spacing: 0.5px; text-decoration: none; }
+  .back-link i { font-size: 15px; }
+
+  .wrap { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  .section-label {
+    font-size: 10px; color: var(--purple); letter-spacing: 4px; text-transform: uppercase;
+    margin-bottom: 0.9rem; position: relative; display: inline-block; padding-left: 18px;
+  }
+  .section-label::before {
+    content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 10px; height: 1px; background: var(--purple-lt); box-shadow: 0 0 8px rgba(168,158,232,0.8);
+  }
+  h1 { font-family: var(--font-serif); font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 400; margin-bottom: 0.6rem; }
+  .updated { font-size: 12px; color: var(--muted2); margin-bottom: 2.4rem; }
+
+  .toc {
+    background: var(--card); border: 0.5px solid var(--border); border-radius: 14px;
+    padding: 1.3rem 1.5rem; margin-bottom: 2.6rem;
+  }
+  .toc p { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted2); margin-bottom: 0.7rem; }
+  .toc ol { list-style: none; counter-reset: toc; display: grid; gap: 6px; }
+  .toc li { counter-increment: toc; font-size: 13.5px; }
+  .toc li a { color: var(--text-soft); }
+  .toc li a:hover { color: var(--purple-lt); }
+  .toc li::before { content: counter(toc) ". "; color: var(--purple); font-weight: 500; }
+
+  article section { margin-bottom: 2.4rem; scroll-margin-top: 90px; }
+  article h2 {
+    font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.9rem;
+    color: var(--text); display: flex; align-items: center; gap: 10px;
+  }
+  article h2 .num { color: var(--purple-lt); font-size: 0.85em; }
+  article p, article li { font-size: 14.5px; line-height: 1.75; color: var(--text-soft); }
+  article p + p { margin-top: 0.7rem; }
+  article ul, article ol.plain { margin: 0.7rem 0 0 1.3rem; display: grid; gap: 6px; }
+  article strong { color: var(--text); font-weight: 500; }
+
+  .highlight {
+    border-left: 2px solid var(--purple); background: var(--card);
+    border-radius: 0 10px 10px 0; padding: 1rem 1.2rem; margin-top: 1rem;
+    font-size: 13.5px; color: var(--text-soft);
+  }
+  .highlight strong { color: var(--purple-lt); }
+
+  table.data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 13px; }
+  table.data-table th, table.data-table td {
+    text-align: left; padding: 10px 12px; border-bottom: 0.5px solid var(--border); color: var(--text-soft);
+  }
+  table.data-table th { color: var(--muted2); font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; font-size: 11px; }
+
+  .contact-box {
+    background: var(--card); border: 0.5px solid var(--border); border-radius: 14px;
+    padding: 1.6rem; margin-top: 3rem; text-align: center;
+  }
+  .contact-box p { font-size: 13.5px; color: var(--muted2); margin-bottom: 0.6rem; }
+  .contact-box a { font-size: 14px; }
+
+  footer.site-footer {
+    text-align: center; padding: 2.5rem 1rem 1.5rem; color: var(--muted2); font-size: 11px;
+    border-top: 0.5px solid var(--border);
+  }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.2rem; }
+    .wrap { padding: 2rem 1.1rem 4rem; }
+    table.data-table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.somosklov.com.ar/" class="nav-logo">KL<span>Ō</span>V</a>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <button type="button" id="lang-switch" aria-label="Switch language / Cambiar idioma" title="ES / EN" style="background:transparent;border:1px solid var(--border);border-radius:999px;padding:5px 11px;font-size:11px;letter-spacing:1px;color:var(--text);font-family:var(--font-sans);cursor:pointer;">ES</button>
+    <a href="https://www.somosklov.com.ar/" class="back-link" data-i18n-html="back"><i class="ti ti-arrow-left"></i> Volver al sitio</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="section-label" data-i18n="legales">Legales</div>
+  <h1 data-i18n="titulo">Política de privacidad</h1>
+  <p class="updated" data-i18n="updated">Última actualización: Julio de 2026 · Aplica al sitio web y a los servicios de KLŌV™ Advisory</p>
+
+  <div class="toc">
+    <p data-i18n="toc.label">Contenido</p>
+    <ol>
+      <li><a href="#intro" data-i18n="toc.1">Introducción</a></li>
+      <li><a href="#responsable" data-i18n="toc.2">Responsable del tratamiento</a></li>
+      <li><a href="#datos-recolectados" data-i18n="toc.3">Datos que recolectamos</a></li>
+      <li><a href="#finalidad" data-i18n="toc.4">Finalidad del tratamiento</a></li>
+      <li><a href="#base-legal" data-i18n="toc.5">Base legal</a></li>
+      <li><a href="#terceros" data-i18n="toc.6">Servicios de terceros que utilizamos</a></li>
+      <li><a href="#cookies" data-i18n="toc.7">Cookies y tecnologías similares</a></li>
+      <li><a href="#conservacion" data-i18n="toc.8">Plazo de conservación</a></li>
+      <li><a href="#derechos" data-i18n="toc.9">Derechos del titular de los datos</a></li>
+      <li><a href="#seguridad" data-i18n="toc.10">Seguridad de la información</a></li>
+      <li><a href="#menores" data-i18n="toc.11">Menores de edad</a></li>
+      <li><a href="#transferencias" data-i18n="toc.12">Transferencias internacionales</a></li>
+      <li><a href="#modificaciones" data-i18n="toc.13">Modificaciones de esta política</a></li>
+      <li><a href="#contacto" data-i18n="toc.14">Contacto</a></li>
+    </ol>
+  </div>
+
+  <article>
+    <section id="intro">
+      <h2><span class="num">01</span> <span data-i18n="s1.h">Introducción</span></h2>
+      <p data-i18n="s1.p1">En KLŌV™ Advisory ("KLŌV", "nosotras", "el Estudio") respetamos su privacidad y nos comprometemos a proteger los datos personales que nos confía. Esta Política de Privacidad explica qué información recolectamos a través de nuestro sitio web y canales asociados, con qué finalidad la utilizamos, y cuáles son sus derechos al respecto.</p>
+      <p data-i18n="s1.p2">Esta política es independiente de los Términos y Condiciones del sitio y de cualquier acuerdo de confidencialidad específico que forme parte de una carta de compromiso o contrato de servicios profesionales.</p>
+    </section>
+
+    <section id="responsable">
+      <h2><span class="num">02</span> <span data-i18n="s2.h">Responsable del tratamiento</span></h2>
+      <p data-i18n-html="s2.p1">El responsable del tratamiento de los datos personales recolectados a través de este sitio es KLŌV™ Advisory, con sede de operaciones en Buenos Aires, Argentina. Podés contactarnos a través de <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a> ante cualquier consulta relacionada con esta política.</p>
+    </section>
+
+    <section id="datos-recolectados">
+      <h2><span class="num">03</span> <span data-i18n="s3.h">Datos que recolectamos</span></h2>
+      <p data-i18n="s3.p1">Recolectamos datos personales únicamente cuando usted decide proporcionarlos de forma voluntaria, principalmente a través de:</p>
+      <ul>
+        <li data-i18n="s3.li1">El formulario de contacto y reservas del sitio (nombre, correo electrónico, teléfono y contenido del mensaje).</li>
+        <li data-i18n="s3.li2">Comunicaciones directas por correo electrónico o WhatsApp.</li>
+        <li data-i18n="s3.li3">La reserva de reuniones a través de Google Calendar (nombre, correo electrónico y horario elegido).</li>
+      </ul>
+      <p data-i18n="s3.p2">No recolectamos datos sensibles (salud, opiniones políticas, religiosas o similares) a través de estos canales. Los datos contables, impositivos o societarios que se compartan una vez iniciada una relación profesional formal se rigen por los términos específicos de esa relación y por el secreto profesional aplicable.</p>
+    </section>
+
+    <section id="finalidad">
+      <h2><span class="num">04</span> <span data-i18n="s4.h">Finalidad del tratamiento</span></h2>
+      <p data-i18n="s4.p1">Utilizamos los datos personales recolectados exclusivamente para:</p>
+      <ul>
+        <li data-i18n="s4.li1">Responder consultas realizadas a través del sitio, correo electrónico o WhatsApp.</li>
+        <li data-i18n="s4.li2">Coordinar y confirmar reuniones a través de Google Calendar.</li>
+        <li data-i18n="s4.li3">Elaborar propuestas de servicios cuando corresponda.</li>
+        <li data-i18n="s4.li4">Cumplir obligaciones legales, contables o impositivas derivadas de una relación profesional ya formalizada.</li>
+      </ul>
+      <div class="highlight" data-i18n-html="s4.highlight">
+        <strong>Importante:</strong> no utilizamos sus datos personales con fines de envío masivo de publicidad no solicitada (spam), ni los vendemos ni los cedemos a terceros con fines comerciales.
+      </div>
+    </section>
+
+    <section id="base-legal">
+      <h2><span class="num">05</span> <span data-i18n="s5.h">Base legal</span></h2>
+      <p data-i18n="s5.p1">El tratamiento de sus datos personales se basa en el consentimiento que usted otorga al completar voluntariamente el formulario de contacto, al escribirnos por correo electrónico o WhatsApp, o al reservar una reunión, en línea con la Ley N.º 25.326 de Protección de Datos Personales de la República Argentina.</p>
+    </section>
+
+    <section id="terceros">
+      <h2><span class="num">06</span> <span data-i18n="s6.h">Servicios de terceros que utilizamos</span></h2>
+      <p data-i18n="s6.p1">Para operar el sitio y coordinar reuniones, utilizamos los siguientes servicios de terceros, cada uno con su propia política de privacidad:</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th data-i18n="s6.th1">Servicio</th>
+            <th data-i18n="s6.th2">Uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Google Calendar</td>
+            <td data-i18n="s6.tr1">Coordinación y agenda de reuniones.</td>
+          </tr>
+          <tr>
+            <td>Google Meet</td>
+            <td data-i18n="s6.tr2">Videollamadas para reuniones agendadas.</td>
+          </tr>
+          <tr>
+            <td>WhatsApp Business</td>
+            <td data-i18n="s6.tr3">Comunicación directa con el Estudio.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p data-i18n="s6.p2">Estos proveedores procesan datos según sus propias políticas de privacidad, sobre las cuales KLŌV no tiene control directo. Le recomendamos revisarlas si tiene dudas específicas sobre cómo cada uno trata su información.</p>
+    </section>
+
+    <section id="cookies">
+      <h2><span class="num">07</span> <span data-i18n="s7.h">Cookies y tecnologías similares</span></h2>
+      <p data-i18n="s7.p1">Este sitio utiliza almacenamiento local del navegador (localStorage) únicamente para recordar su preferencia de tema (claro/oscuro) y de idioma (español/inglés). Esta información se guarda en su propio dispositivo, no se transmite a nuestros servidores y no se utiliza para rastrear su actividad.</p>
+      <p data-i18n="s7.p2">Si en el futuro incorporamos herramientas de analítica web (por ejemplo, Google Analytics) u otras cookies de terceros, actualizaremos esta política y, cuando corresponda, incorporaremos un mecanismo de consentimiento previo.</p>
+    </section>
+
+    <section id="conservacion">
+      <h2><span class="num">08</span> <span data-i18n="s8.h">Plazo de conservación</span></h2>
+      <p data-i18n="s8.p1">Conservamos los datos personales recolectados a través de consultas y reservas durante el tiempo necesario para atender su solicitud y, en caso de iniciar una relación profesional, durante el plazo que exija la normativa contable, impositiva o laboral aplicable. Una vez cumplida la finalidad y vencidos los plazos legales, los datos son eliminados o anonimizados.</p>
+    </section>
+
+    <section id="derechos">
+      <h2><span class="num">09</span> <span data-i18n="s9.h">Derechos del titular de los datos</span></h2>
+      <p data-i18n="s9.p1">De acuerdo con la Ley N.º 25.326, usted tiene derecho a:</p>
+      <ul>
+        <li data-i18n="s9.li1">Acceder a los datos personales que tenemos sobre usted.</li>
+        <li data-i18n="s9.li2">Solicitar la rectificación de datos inexactos o desactualizados.</li>
+        <li data-i18n="s9.li3">Solicitar la supresión de sus datos cuando ya no sean necesarios para la finalidad que motivó su recolección.</li>
+        <li data-i18n="s9.li4">Retirar su consentimiento en cualquier momento, sin efecto retroactivo.</li>
+      </ul>
+      <p data-i18n-html="s9.p2">Para ejercer estos derechos, puede escribirnos a <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>. La Agencia de Acceso a la Información Pública, en su carácter de Órgano de Control de la Ley N.º 25.326, tiene la atribución de atender denuncias y reclamos relacionados con el incumplimiento de las normas sobre protección de datos personales.</p>
+    </section>
+
+    <section id="seguridad">
+      <h2><span class="num">10</span> <span data-i18n="s10.h">Seguridad de la información</span></h2>
+      <p data-i18n="s10.p1">Adoptamos medidas razonables, técnicas y organizativas, para proteger los datos personales bajo nuestro control contra pérdida, uso indebido o acceso no autorizado. Sin embargo, ningún sistema de transmisión o almacenamiento de datos es completamente seguro, por lo que no podemos garantizar una seguridad absoluta.</p>
+    </section>
+
+    <section id="menores">
+      <h2><span class="num">11</span> <span data-i18n="s11.h">Menores de edad</span></h2>
+      <p data-i18n="s11.p1">Este sitio y nuestros servicios están dirigidos a personas mayores de 18 años. No recolectamos intencionalmente datos personales de menores de edad. Si toma conocimiento de que un menor nos ha proporcionado datos personales, le pedimos que se comunique con nosotros para proceder a su eliminación.</p>
+    </section>
+
+    <section id="transferencias">
+      <h2><span class="num">12</span> <span data-i18n="s12.h">Transferencias internacionales</span></h2>
+      <p data-i18n="s12.p1">Algunos de los proveedores mencionados en esta política (como Google) pueden almacenar o procesar datos en servidores ubicados fuera de la República Argentina. En esos casos, dichos proveedores son responsables de garantizar un nivel adecuado de protección conforme a sus propias políticas y a la normativa internacional aplicable.</p>
+    </section>
+
+    <section id="modificaciones">
+      <h2><span class="num">13</span> <span data-i18n="s13.h">Modificaciones de esta política</span></h2>
+      <p data-i18n="s13.p1">KLŌV podrá modificar esta Política de Privacidad en cualquier momento para reflejar cambios normativos, operativos o en los servicios de terceros que utilizamos. La versión vigente será siempre la publicada en esta página, con su fecha de última actualización.</p>
+    </section>
+
+    <section id="contacto">
+      <h2><span class="num">14</span> <span data-i18n="s14.h">Contacto</span></h2>
+      <p data-i18n-html="s14.p1">Ante cualquier consulta sobre esta Política de Privacidad o sobre el tratamiento de sus datos personales, podés escribirnos a <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a> o a través de nuestros canales oficiales de contacto disponibles en el sitio.</p>
+    </section>
+  </article>
+
+  <div class="contact-box">
+    <p data-i18n="cbox.p">¿Tenés dudas sobre esta política o sobre el tratamiento de tus datos?</p>
+    <a href="mailto:contacto@somosklov.com">contacto@somosklov.com</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p data-i18n-html="foot">© 2026 · KLŌV™ Advisory · <a href="https://www.somosklov.com.ar/">Volver al inicio</a></p>
+</footer>
+
+<script>
+  /* ── SWITCH DE IDIOMA (ES / EN) ── */
+  (function () {
+    const EN = {
+      "doc-title": "KLŌV · Privacy Policy",
+      "meta-desc": "KLŌV Advisory · Privacy policy",
+      "back": "<i class=\"ti ti-arrow-left\"></i> Back to site",
+      "legales": "Legal",
+      "titulo": "Privacy policy",
+      "updated": "Last updated: July 2026 · Applies to the KLŌV™ Advisory website and services",
+      "toc.label": "Contents",
+      "toc.1": "Introduction",
+      "toc.2": "Data controller",
+      "toc.3": "Data we collect",
+      "toc.4": "Purpose of processing",
+      "toc.5": "Legal basis",
+      "toc.6": "Third-party services we use",
+      "toc.7": "Cookies and similar technologies",
+      "toc.8": "Retention period",
+      "toc.9": "Data subject rights",
+      "toc.10": "Information security",
+      "toc.11": "Minors",
+      "toc.12": "International transfers",
+      "toc.13": "Changes to this policy",
+      "toc.14": "Contact",
+      "s1.h": "Introduction",
+      "s1.p1": "At KLŌV™ Advisory (\"KLŌV\", \"we\", \"the Firm\") we respect your privacy and are committed to protecting the personal data you entrust to us. This Privacy Policy explains what information we collect through our website and associated channels, for what purpose we use it, and what your rights are in this regard.",
+      "s1.p2": "This policy is independent of the site's Terms and Conditions and of any specific confidentiality agreement that forms part of an engagement letter or professional services agreement.",
+      "s2.h": "Data controller",
+      "s2.p1": "The data controller for the personal data collected through this site is KLŌV™ Advisory, based in Buenos Aires, Argentina. You can reach us at <a href=\"mailto:contacto@somosklov.com\">contacto@somosklov.com</a> with any questions related to this policy.",
+      "s3.h": "Data we collect",
+      "s3.p1": "We only collect personal data when you voluntarily choose to provide it, mainly through:",
+      "s3.li1": "The site's contact and booking form (name, email, phone number and message content).",
+      "s3.li2": "Direct communications by email or WhatsApp.",
+      "s3.li3": "Meeting bookings through Google Calendar (name, email and chosen time slot).",
+      "s3.p2": "We do not intentionally collect sensitive data (health, political or religious opinions, or similar) through these channels. Accounting, tax or corporate data shared once a formal professional relationship has begun is governed by the specific terms of that relationship and applicable professional confidentiality rules.",
+      "s4.h": "Purpose of processing",
+      "s4.p1": "We use the personal data collected exclusively to:",
+      "s4.li1": "Respond to inquiries made through the site, email or WhatsApp.",
+      "s4.li2": "Coordinate and confirm meetings through Google Calendar.",
+      "s4.li3": "Prepare service proposals when applicable.",
+      "s4.li4": "Comply with legal, accounting or tax obligations arising from an already formalized professional relationship.",
+      "s4.highlight": "<strong>Important:</strong> we do not use your personal data for unsolicited mass advertising (spam), nor do we sell or transfer it to third parties for commercial purposes.",
+      "s5.h": "Legal basis",
+      "s5.p1": "The processing of your personal data is based on the consent you provide by voluntarily filling out the contact form, writing to us by email or WhatsApp, or booking a meeting, in accordance with Law No. 25,326 on Personal Data Protection of the Argentine Republic.",
+      "s6.h": "Third-party services we use",
+      "s6.p1": "To operate the site and coordinate meetings, we use the following third-party services, each with its own privacy policy:",
+      "s6.th1": "Service",
+      "s6.th2": "Use",
+      "s6.tr1": "Meeting scheduling and coordination.",
+      "s6.tr2": "Video calls for scheduled meetings.",
+      "s6.tr3": "Direct communication with the Firm.",
+      "s6.p2": "These providers process data according to their own privacy policies, over which KLŌV has no direct control. We recommend reviewing them if you have specific questions about how each one handles your information.",
+      "s7.h": "Cookies and similar technologies",
+      "s7.p1": "This site uses browser local storage (localStorage) solely to remember your theme preference (light/dark) and language preference (Spanish/English). This information is stored on your own device, is not transmitted to our servers, and is not used to track your activity.",
+      "s7.p2": "If we incorporate web analytics tools (e.g., Google Analytics) or other third-party cookies in the future, we will update this policy and, where applicable, add a prior consent mechanism.",
+      "s8.h": "Retention period",
+      "s8.p1": "We retain personal data collected through inquiries and bookings for as long as necessary to handle your request and, if a professional relationship is established, for the period required by applicable accounting, tax or labor regulations. Once the purpose has been fulfilled and legal periods have expired, the data is deleted or anonymized.",
+      "s9.h": "Data subject rights",
+      "s9.p1": "In accordance with Law No. 25,326, you have the right to:",
+      "s9.li1": "Access the personal data we hold about you.",
+      "s9.li2": "Request correction of inaccurate or outdated data.",
+      "s9.li3": "Request deletion of your data when it is no longer necessary for the purpose that motivated its collection.",
+      "s9.li4": "Withdraw your consent at any time, without retroactive effect.",
+      "s9.p2": "To exercise these rights, you can write to us at <a href=\"mailto:contacto@somosklov.com\">contacto@somosklov.com</a>. The Agency for Access to Public Information, as the Enforcement Body of Law No. 25,326, is empowered to handle complaints related to non-compliance with personal data protection regulations.",
+      "s10.h": "Information security",
+      "s10.p1": "We adopt reasonable technical and organizational measures to protect personal data under our control against loss, misuse or unauthorized access. However, no data transmission or storage system is completely secure, so we cannot guarantee absolute security.",
+      "s11.h": "Minors",
+      "s11.p1": "This site and our services are intended for people over 18 years of age. We do not intentionally collect personal data from minors. If you become aware that a minor has provided us with personal data, please contact us so we can proceed with its deletion.",
+      "s12.h": "International transfers",
+      "s12.p1": "Some of the providers mentioned in this policy (such as Google) may store or process data on servers located outside the Argentine Republic. In such cases, those providers are responsible for ensuring an adequate level of protection in accordance with their own policies and applicable international regulations.",
+      "s13.h": "Changes to this policy",
+      "s13.p1": "KLŌV may modify this Privacy Policy at any time to reflect regulatory, operational or third-party service changes. The current version will always be the one published on this page, with its last update date.",
+      "s14.h": "Contact",
+      "s14.p1": "For any questions about this Privacy Policy or about the processing of your personal data, you can write to us at <a href=\"mailto:contacto@somosklov.com\">contacto@somosklov.com</a> or through our official contact channels available on the site.",
+      "cbox.p": "Do you have questions about this policy or about how we handle your data?",
+      "foot": "© 2026 · KLŌV™ Advisory · <a href=\"index.html\">Back to home</a>"
+    };
+
+    const ES = {};
+    const root = document.documentElement;
+    const btn = document.getElementById('lang-switch');
+    if (!btn) return;
+
+    function captureOriginal() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (!(key in ES)) ES[key] = el.textContent;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (!(key in ES)) ES[key] = el.innerHTML;
+      });
+      if (document.title) ES['doc-title'] = document.title;
+      const metaDesc = document.getElementById('meta-desc');
+      if (metaDesc) ES['meta-desc'] = metaDesc.getAttribute('content');
+    }
+
+    function applyLang(lang) {
+      const dict = lang === 'en' ? EN : ES;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+      if (dict['doc-title']) document.title = dict['doc-title'];
+      const metaDesc = document.getElementById('meta-desc');
+      if (metaDesc && dict['meta-desc']) metaDesc.setAttribute('content', dict['meta-desc']);
+
+      root.setAttribute('lang', lang === 'en' ? 'en' : 'es');
+      btn.textContent = lang === 'en' ? 'EN' : 'ES';
+      btn.setAttribute('aria-label', lang === 'en' ? 'Switch to Spanish' : 'Switch to English');
+      try { localStorage.setItem('klov-lang', lang); } catch (e) {}
+    }
+
+    captureOriginal();
+
+    let current = 'es';
+    try { current = localStorage.getItem('klov-lang') || 'es'; } catch (e) {}
+    applyLang(current);
+
+    btn.addEventListener('click', function () {
+      current = current === 'en' ? 'es' : 'en';
+      applyLang(current);
+    });
+  })();
+</script>
+
+</body>
+</html>
