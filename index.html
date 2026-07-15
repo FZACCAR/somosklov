@@ -18,23 +18,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta id="meta-desc" name="description" content="KLŌV Advisory · Estudio de contadoras en Buenos Aires. Contabilidad, impuestos, finanzas, liquidación de sueldos, back office." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://fzaccar.github.io/somosklov/" />
+  <link rel="canonical" href="https://www.somosklov.com.ar/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://i.ibb.co" />
-  <link rel="dns-prefetch" href="https://calendly.com" />
+  <link rel="dns-prefetch" href="https://calendar.google.com" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="KLŌV · Advisory Contadores" />
   <meta property="og:description" content="Claridad financiera para decisiones que importan. Estudio de advisory contable." />
-  <meta property="og:url" content="https://fzaccar.github.io/somosklov/" />
+  <meta property="og:url" content="https://www.somosklov.com.ar/" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="KLŌV Advisory" />
 
+  <!-- TODO: subir la imagen de portada (hero) a un hosting público y pegar su URL abajo en og:image / twitter:image -->
+  <!-- <meta property="og:image" content="https://i.ibb.co/R46Y55KD/2026-07-14-220924.jpg" /> -->
+  <!-- <meta name="twitter:image" content="https://i.ibb.co/R46Y55KD/2026-07-14-220924.jpg" /> -->
+
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="KLŌV · Advisory Contadores" />
   <meta name="twitter:description" content="Claridad financiera para decisiones que importan. Contabilidad, impuestos, finanzas." />
 
@@ -43,17 +47,143 @@
   {
     "@context": "https://schema.org",
     "@type": "AccountingService",
+    "@id": "https://www.somosklov.com.ar/#organization",
     "name": "KLŌV Advisory",
-    "description": "Estudio de advisory contable, tributario, financiero, laboral.",
+    "alternateName": "KLŌV",
+    "url": "https://www.somosklov.com.ar/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cdn-icons-png.flaticon.com/512/9083/9083001.png",
+      "width": 512,
+      "height": 512
+    },
+    "image": "https://cdn-icons-png.flaticon.com/512/9083/9083001.png",
+    "description": "Estudio de advisory contable, tributario, financiero y laboral fundado por contadoras con experiencia en corporaciones multinacionales. Contabilidad, impuestos, finanzas, liquidación de sueldos y back office para PYMEs, startups y negocios en crecimiento.",
     "email": "contacto@somosklov.com",
+    "telephone": "+54-9-11-1234-1234",
+    "priceRange": "$$$",
+    "areaServed": [
+      { "@type": "Country", "name": "Argentina" }
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Buenos Aires",
+      "addressRegion": "CABA",
       "addressCountry": "AR"
     },
-    "areaServed": "AR",
+    "founder": [
+      {
+        "@type": "Person",
+        "@id": "https://www.somosklov.com.ar/#maria-julieta-orellana",
+        "name": "María Julieta Orellana",
+        "jobTitle": "Contadora Pública",
+        "worksFor": { "@id": "https://www.somosklov.com.ar/#organization" },
+        "sameAs": [
+          "https://www.linkedin.com/in/mariajulietaorellana/"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.somosklov.com.ar/#daiana-lucia-fared",
+        "name": "Daiana Lucia Fared",
+        "jobTitle": "Contadora Pública",
+        "worksFor": { "@id": "https://www.somosklov.com.ar/#organization" },
+        "sameAs": [
+          "https://www.linkedin.com/in/daiana-lucia-fared-b27866136/"
+        ]
+      }
+    ],
+    "employee": [
+      { "@id": "https://www.somosklov.com.ar/#maria-julieta-orellana" },
+      { "@id": "https://www.somosklov.com.ar/#daiana-lucia-fared" }
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "contacto@somosklov.com",
+        "telephone": "+54-9-11-1234-1234",
+        "areaServed": "AR",
+        "availableLanguage": ["Spanish", "English"]
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios KLŌV Advisory",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Contabilidad" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tributario" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Finanzas" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Laboral" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Administración / Back Office" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización con IA" } }
+      ]
+    },
     "sameAs": [
       "https://instagram.com/klovadvisory"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.somosklov.com.ar/#website",
+    "name": "KLŌV Advisory",
+    "url": "https://www.somosklov.com.ar/",
+    "inLanguage": ["es-AR"],
+    "publisher": {
+      "@id": "https://www.somosklov.com.ar/#organization"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Trabajan con monotributistas y autónomos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, trabajamos con monotributistas, autónomos y sociedades de todos los tamaños, adaptando el servicio a cada etapa del negocio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Atienden a empresas fuera de Buenos Aires?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Gran parte de nuestro trabajo es remoto, por lo que podemos acompañar a empresas de cualquier provincia o incluso del exterior."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tardan en responder una consulta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Normalmente respondemos dentro de las 24 horas hábiles por WhatsApp o email."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿La primera reunión tiene costo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, la primera reunión de diagnóstico no tiene costo ni compromiso."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué necesito para empezar a trabajar con KLŌV?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Alcanza con agendar tu consulta inicial. A partir de ahí te guiamos en todo el proceso de onboarding."
+        }
+      }
     ]
   }
   </script>
@@ -1321,10 +1451,10 @@
       .srv-panel { padding: 1.75rem 1.25rem; }
       .srv-panel-title h3 { font-size: 1.3rem; }
 
-      /* Reservas / Calendly apilado en mobile */
+      /* Reservas / Google Calendar apilado en mobile */
       .reservas-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-      .reservas-frame { min-height: 560px !important; }
-      .reservas-frame iframe { height: 560px !important; }
+      .reservas-frame { min-height: 700px !important; }
+      .reservas-frame iframe { height: 700px !important; }
 
       .whatsapp-float { bottom: 18px; right: 18px; }
     }
@@ -1876,7 +2006,7 @@
     <div class="mvv-grid">
       <div class="mvv-card">
         <div class="mvv-bar" style="background:#7F77DD;"></div>
-        <h3 style="color:#7F77DD;" data-i18n="mvv.mision.title">Misión</h3>
+        <h3 style="color:#534AB7;" data-i18n="mvv.mision.title">Misión</h3>
         <p data-i18n="mvv.mision.text">Acompañamos a empresas y emprendedores con asesoría contable, tributaria y financiera de alto nivel, integrando la experiencia global de nuestro equipo con un trato cercano y soluciones concretas potenciadas por automatización de procesos e inteligencia artificial, a medida de cada realidad.</p>
       </div>
       <div class="mvv-card">
@@ -1886,7 +2016,7 @@
       </div>
       <div class="mvv-card">
         <div class="mvv-bar" style="background:#3C3489;"></div>
-        <h3 style="color:#A89EE8;" data-i18n="mvv.valores.title">Valores</h3>
+        <h3 style="color:#534AB7;" data-i18n="mvv.valores.title">Valores</h3>
         <p style="line-height:2;" data-i18n-html="mvv.valores.text">
           Excelencia técnica · Estándar corporativo para cada cliente.<br>
           Innovación · Tecnología donde otros usan papel.<br>
@@ -2026,7 +2156,7 @@
           <div class="srv-panel-header">
             <div class="srv-panel-icon" style="background:linear-gradient(135deg,#26215C,#3C3489);border-color:var(--purple-lt);"><i class="ti ti-cpu" style="color:#fff;"></i></div>
             <div class="srv-panel-title">
-              <h3 style="background:linear-gradient(90deg,var(--purple-lt),#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" data-i18n="srv.ia.title">Automatización con IA</h3>
+              <h3 data-i18n="srv.ia.title">Automatización con IA</h3>
               <p data-i18n="srv.ia.desc">Digitalización inteligente de procesos operativos</p>
             </div>
           </div>
@@ -2194,8 +2324,10 @@
           </div>
         </div>
       </div>
-      <div class="reservas-frame" id="reservas-frame" style="background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;overflow:hidden;min-height:650px;">
-        <iframe id="calendly-iframe" data-src="https://calendly.com/contacto-somosklov/30min?hide_gdpr_banner=1&background_color=0E0E16&text_color=EEEEF2&primary_color=7F77DD" loading="lazy" width="100%" height="650" frameborder="0" style="display:block;"></iframe>
+      <div class="reservas-frame" id="reservas-frame" style="background:#FFFFFF;border:0.5px solid var(--border);border-radius:16px;overflow:hidden;min-height:700px;">
+        <!-- Google Calendar Appointment Scheduling begin -->
+        <iframe id="calendar-iframe" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ISY4WNuOW_lVBM3OuE-FPUs79TiK3BRXnMsr8qEPVemUHKHebGN4ZNgm0Gl09EtpyU0S2JszV?gv=true" loading="lazy" width="100%" height="800" frameborder="0" style="display:block;border:0;background:#FFFFFF;"></iframe>
+        <!-- end Google Calendar Appointment Scheduling -->
       </div>
     </div>
   </section>
@@ -2333,9 +2465,9 @@
   </script>
 
   <script>
-    /* ── LAZY LOAD DEL IFRAME DE CALENDLY (evita cargar Calendly hasta acercarse) ── */
+    /* ── LAZY LOAD DEL IFRAME DE GOOGLE CALENDAR (evita cargarlo hasta acercarse) ── */
     (function () {
-      const iframe = document.getElementById('calendly-iframe');
+      const iframe = document.getElementById('calendar-iframe');
       if (!iframe) return;
       const load = () => {
         const src = iframe.dataset.src;
@@ -2362,14 +2494,7 @@
       const root = document.documentElement;
       const btn = document.getElementById('theme-switch');
       const icon = document.getElementById('theme-switch-icon');
-      const iframe = document.getElementById('calendly-iframe');
       if (!btn) return;
-
-      const CALENDLY_BASE = 'https://calendly.com/contacto-somosklov/30min?hide_gdpr_banner=1';
-      const THEMES = {
-        dark:  { bg: '0E0E16', text: 'EEEEF2', primary: '7F77DD' },
-        light: { bg: 'FFFFFF', text: '201D2E', primary: '6E62D6' },
-      };
 
       function currentTheme() {
         return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
@@ -2379,20 +2504,7 @@
         if (icon) icon.className = theme === 'light' ? 'ti ti-sun' : 'ti ti-moon';
       }
 
-      function applyCalendly(theme) {
-        if (!iframe) return;
-        const c = THEMES[theme];
-        const url = CALENDLY_BASE + '&background_color=' + c.bg + '&text_color=' + c.text + '&primary_color=' + c.primary;
-        // Si el iframe todavía no se cargó (lazy), solo actualizamos data-src.
-        if (iframe.dataset.loaded === 'true') {
-          iframe.src = url;
-        } else {
-          iframe.dataset.src = url;
-        }
-      }
-
-      function setTheme(theme, opts) {
-        opts = opts || {};
+      function setTheme(theme) {
         if (theme === 'light') {
           root.setAttribute('data-theme', 'light');
         } else {
@@ -2402,7 +2514,6 @@
         applyIcon(theme);
         btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
         btn.setAttribute('aria-label', theme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
-        if (opts.updateCalendly) applyCalendly(theme);
       }
 
       // Estado inicial (el <html> ya puede traer data-theme del script anti-parpadeo)
@@ -2411,7 +2522,7 @@
 
       btn.addEventListener('click', function () {
         const next = currentTheme() === 'light' ? 'dark' : 'light';
-        setTheme(next, { updateCalendly: true });
+        setTheme(next);
       });
     })();
   </script>
