@@ -595,6 +595,38 @@
     }
     a.btn-cta:active, .btn-cta:active { transform: translateY(-1px) scale(0.98); }
 
+    /* ── FILA DE CTAs DEL HERO (principal + secundario) ── */
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .btn-cta-secondary {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted2) !important;
+      background: transparent !important;
+      border: none;
+      padding: 16px 4px;
+      letter-spacing: 4px;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+      transition: color 0.45s ease, border-color 0.45s ease;
+    }
+    .btn-cta-secondary:hover {
+      color: var(--text) !important;
+      border-bottom-color: var(--purple-lt);
+    }
+    @media (max-width: 640px) {
+      .hero-cta-row { width: 100%; }
+      .btn-cta-secondary { padding: 12px 4px; }
+    }
+
     /* ── TEAM CARD HOVER MEJORADO ── */
     .team-card {
       background: var(--card);
@@ -1193,6 +1225,34 @@
       color: var(--text);
       text-shadow: 0 0 14px rgba(168,158,232,0.7);
     }
+
+    .reservas-skeleton {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: #FFFFFF;
+      color: #8A83B8;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .reservas-skeleton.hide { opacity: 0; }
+    .reservas-skeleton-spinner {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(123,111,212,0.25);
+      border-top-color: #7B6FD4;
+      animation: reservas-spin 0.8s linear infinite;
+    }
+    @keyframes reservas-spin { to { transform: rotate(360deg); } }
 
     .reservas-frame {
       box-shadow: 0 24px 60px rgba(0,0,0,0.35);
@@ -1967,7 +2027,10 @@
     <div class="hero-left">
       <h1 data-i18n-html="hero.title">Claridad financiera<br>para decisiones<br><em class="italic-accent">que importan</em></h1>
       <p data-i18n="hero.subtitle">Estudio de advisory contable fundado por tres contadoras con experiencia en corporaciones multinacionales y gestión en múltiples países.</p>
-      <a href="#contacto" class="btn-cta" data-i18n="hero.cta" style="display:inline-block;font-size:11px;font-weight:400;color:var(--text)!important;background:transparent!important;border:1px solid #7B6FD4;border-radius:999px;padding:16px 44px;letter-spacing:4px;text-decoration:none!important;text-transform:uppercase;">Contactanos →</a>
+      <div class="hero-cta-row">
+        <a href="#contacto" class="btn-cta" data-i18n="hero.cta" style="display:inline-block;font-size:11px;font-weight:400;color:var(--text)!important;background:transparent!important;border:1px solid #7B6FD4;border-radius:999px;padding:16px 44px;letter-spacing:4px;text-decoration:none!important;text-transform:uppercase;">Contactanos →</a>
+        <a href="#servicios" class="btn-cta-secondary" data-i18n="hero.cta2">Ver servicios</a>
+      </div>
     </div>
     <div class="hero-right">
       <!-- Geo graphic -->
@@ -2330,7 +2393,11 @@
           </div>
         </div>
       </div>
-      <div class="reservas-frame" id="reservas-frame" style="background:#FFFFFF;border:0.5px solid var(--border);border-radius:16px;overflow:hidden;min-height:700px;">
+      <div class="reservas-frame" id="reservas-frame" style="background:#FFFFFF;border:0.5px solid var(--border);border-radius:16px;overflow:hidden;min-height:700px;position:relative;">
+        <div class="reservas-skeleton" id="reservas-skeleton" aria-hidden="true">
+          <div class="reservas-skeleton-spinner"></div>
+          <span data-i18n="reservas.loading">Cargando calendario…</span>
+        </div>
         <!-- Google Calendar Appointment Scheduling begin -->
         <iframe id="calendar-iframe" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1hA3D8XsrT18xilZ0AYWQWWE-PBupgrfvACgM7tlFv716TIqBcLnvF83qzXn4wr6TMlHARRBBE?gv=true" loading="lazy" width="100%" height="1100" frameborder="0" style="display:block;border:0;background:#FFFFFF;"></iframe>
         <!-- end Google Calendar Appointment Scheduling -->
@@ -2475,6 +2542,9 @@
     (function () {
       const iframe = document.getElementById('calendar-iframe');
       if (!iframe) return;
+      const skeleton = document.getElementById('reservas-skeleton');
+      const hideSkeleton = () => { if (skeleton) skeleton.classList.add('hide'); };
+      iframe.addEventListener('load', hideSkeleton);
       const load = () => {
         const src = iframe.dataset.src;
         if (src && iframe.getAttribute('src') !== src) {
@@ -2674,6 +2744,7 @@
         "hero.title": "Financial clarity<br>for decisions<br><em class=\"italic-accent\">that matter</em>",
         "hero.subtitle": "Accounting advisory firm founded by two accountants with experience in multinational corporations and management across multiple countries.",
         "hero.cta": "Contact us →",
+        "hero.cta2": "See services",
         "hero.stat.founders": "Founding partners",
         "hero.stat.areas": "Service areas",
         "hero.stat.exp": "Multinational experience",
@@ -2771,6 +2842,7 @@
         "reservas.duration": "30 minutes",
         "reservas.meet": "Google Meet / video call",
         "reservas.confirm": "Automatic email confirmation",
+        "reservas.loading": "Loading calendar…",
         "contact.label": "Contact",
         "contact.title": "Contact",
         "contact.text": "Tell us about your business and let's find the solution you need together.",
